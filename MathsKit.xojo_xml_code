@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2019r3.1" FormatVersion="2" MinIDEVersion="20070100">
+<block type="Module" ID="1233573887">
+ <ObjName>MathsKit</ObjName>
+ <ObjContainerID>622243917</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>CopySign</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the first argument with the sign of the second floating-point argument</CodeDescription>
+  <PartID>119066623</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CopySign(magnitude As Double, sign As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the first argument with the sign of the second floating-point argument.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter magnitude: The parameter providing the magnitude of the result.</SourceLine>
+   <SourceLine>' - Parameter sign: The parameter providing the sign of the result.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: A value with the magnitude of `magnitude` and the sign of `sign`.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return If(sign &lt; 0, -Abs(magnitude), Abs(magnitude))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>magnitude As Double, sign As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Initialise</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Initialises shared properties. Internal use.</CodeDescription>
+  <PartID>584515583</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Initialise()</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Initialises shared properties. Internal use.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>m180_OVER_PI = 180 / PI</SourceLine>
+   <SourceLine>mPI_OVER_180 = PI / 180</SourceLine>
+   <SourceLine>mPOSITIVE_INFINITY = 1.0 / 0.0</SourceLine>
+   <SourceLine>mNEGATIVE_INFINITY = -1.0 / 0.0</SourceLine>
+   <SourceLine>mNAN = 0.0 / 0.0</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Constants used in scalb</SourceLine>
+   <SourceLine>mTWO_TO_THE_DOUBLE_SCALE_UP = PowerOfTwoD(512)</SourceLine>
+   <SourceLine>mTWO_TO_THE_DOUBLE_SCALE_DOWN = PowerOfTwoD(-512)</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>IsNaN</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the specified number is a Not-a-Number (NaN) value.</CodeDescription>
+  <PartID>184729599</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsNaN(v As Double) As Boolean</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns True if the specified number is a Not-a-Number (NaN) value.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The value to be tested.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Boolean.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return v.ToString.BeginsWith("NaN")</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Double</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Signum</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the signum function of the argument; zero if the argument is zero, 1.0 if the argument is greater than zero, -1.0 if the argument is less than zero.</CodeDescription>
+  <PartID>1194999807</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Signum(d As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the signum function of the argument; zero if the argument</SourceLine>
+   <SourceLine>' is zero, 1.0 if the argument is greater than zero, -1.0 if the</SourceLine>
+   <SourceLine>' argument is less than zero.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' &lt;p&gt;Special Cases:</SourceLine>
+   <SourceLine>' - If the argument is NaN, then the result is NaN.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: The value whose signum is to be returned.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>'- Returns: The signum function of the argument.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return If(IsNan(d), d, Sign(d))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToDegrees</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the passed radians value in degrees.</CodeDescription>
+  <PartID>93175807</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToDegrees(radians As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the passed radians value in degrees.</SourceLine>
+   <SourceLine>' </SourceLine>
+   <SourceLine>' - Parameter radians: The value to convert</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Double.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return radians * m180_OVER_PI</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>radians As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToRadians</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the specified angle in radians in degrees.</CodeDescription>
+  <PartID>619614207</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToRadians(degrees As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the specified angle in radians in degrees.</SourceLine>
+   <SourceLine>' </SourceLine>
+   <SourceLine>' - Parameter degrees: The angle in degrees.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Double.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return degrees * mPI_OVER_180</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>degrees As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Hypot</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns sqrt(x2 +y2) without intermediate overflow or underflow.</CodeDescription>
+  <PartID>226926591</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Hypot(x As Double, y As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns sqrt(x2 +y2) without intermediate overflow or underflow.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Special cases:</SourceLine>
+   <SourceLine>' 1. If either argument is infinite, then the result is positive infinity.</SourceLine>
+   <SourceLine>' 2. If either argument is NaN and neither argument is infinite, then the result is NaN.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' The computed result must be within 1 ulp of the exact result. </SourceLine>
+   <SourceLine>' If one parameter is held constant, the results must be semi-monotonic in the other parameter.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter x: Double.</SourceLine>
+   <SourceLine>' - Parameter y: Double.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Double, +infinity or NaN.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Note: Adapted from: https://stackoverflow.com/a/30809216/278816</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If IsInfinite(x) Or IsInfinite(y) Then Return POSITIVE_INFINITY</SourceLine>
+   <SourceLine>If IsNaN(x) Or IsNaN(y) Then Return NAN</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>x = Abs(x)</SourceLine>
+   <SourceLine>y = Abs(y)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If x &lt; y Then</SourceLine>
+   <SourceLine>Var d As Double = x</SourceLine>
+   <SourceLine>x = y</SourceLine>
+   <SourceLine>y = d</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var xi As Integer = MathsKit.GetExponent(x)</SourceLine>
+   <SourceLine>Var yi As Integer = MathsKit.GetExponent(y)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If xi &gt; yi + 27 Then Return x</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var bias As Integer = 0</SourceLine>
+   <SourceLine>If xi &gt; 510 Or xi &lt; -511 Then</SourceLine>
+   <SourceLine>bias = xi</SourceLine>
+   <SourceLine>x = MathsKit.Scalb(x, -bias)</SourceLine>
+   <SourceLine>y = MathsKit.Scalb(y, -bias)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Translated from "Freely Distributable Math Library" e_hypot.c to minimize rounding errors.</SourceLine>
+   <SourceLine>Var z As Double = 0</SourceLine>
+   <SourceLine>If x &gt; 2 * y Then</SourceLine>
+   <SourceLine>Var x1 As Double = MathsKit.BitsToDouble(DoubleToBits(x) And &amp;hffffffff00000000)</SourceLine>
+   <SourceLine>Var x2 As Double = x - x1</SourceLine>
+   <SourceLine>z = Sqrt(x1 * x1 + (y * y + x2 * (x + x1)))</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Var t As Double = 2 * x</SourceLine>
+   <SourceLine>Var t1 As Double = BitsToDouble(DoubleToBits(t) And &amp;hffffffff00000000)</SourceLine>
+   <SourceLine>Var t2 As Double = t - t1</SourceLine>
+   <SourceLine>Var y1 As Double = BitsToDouble(DoubleToBits(y) And &amp;hffffffff00000000)</SourceLine>
+   <SourceLine>Var y2 As Double = y - y1</SourceLine>
+   <SourceLine>Var x_y As Double = x - y</SourceLine>
+   <SourceLine>z = Sqrt(t1 * y1 + (x_y * x_y + (t1 * y2 + t2 * y))) // Note: 2 * x * y &lt;= x * x + y * y</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If bias = 0 Then</SourceLine>
+   <SourceLine>Return z</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return MathsKit.Scalb(z, bias)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>x As Double, y As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>IsInfinite</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the specified number is infinitely large in magnitude, False otherwise.</CodeDescription>
+  <PartID>909727743</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsInfinite(v As Double) As Boolean</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns True if the specified number is infinitely large in magnitude, False otherwise.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The value to be tested.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Boolean.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return (v = POSITIVE_INFINITY) Or (v = NEGATIVE_INFINITY)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Double</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>DoubleToBits</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns a representation of the passed Double value according to the IEEE 754 floating-point "double format" bit layout. Collapses NaN arguments.</CodeDescription>
+  <PartID>141150207</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function DoubleToBits(d As Double) As Int64</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns a representation of the passed Double value</SourceLine>
+   <SourceLine>' according to the IEEE 754 floating-point "double format" bit layout.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Bit 63 (the bit that is selected by the mask `0x8000000000000000`) represents </SourceLine>
+   <SourceLine>' the sign of the Double number. </SourceLine>
+   <SourceLine>' Bits 62-52 (the bits that are selected by the mask `0x7ff0000000000000`) represent the exponent. </SourceLine>
+   <SourceLine>' Bits 51-0 (the bits that are selected by the mask `0x000fffffffffffff`) </SourceLine>
+   <SourceLine>' represent the significand (sometimes called the mantissa) of the floating-point number.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' If the argument is positive infinity, the result is `&amp;h7ff0000000000000`.</SourceLine>
+   <SourceLine>' If the argument is negative infinity, the result is `&amp;hfff0000000000000`.</SourceLine>
+   <SourceLine>' If the argument is NaN, the result is `&amp;h7ff8000000000000`.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' In all cases, the result is an Int64 integer that, when given to </SourceLine>
+   <SourceLine>' the `BitsToDouble(UInt64)` method, will produce a Double the same as the argument to</SourceLine>
+   <SourceLine>' `DoubleToBits` (except all NaN values are collapsed to a single "canonical" NaN value).</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: A Double.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: The bits that represents the passed Double as an Int64.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Check for NaN.</SourceLine>
+   <SourceLine>If IsNaN(d) Then Return &amp;h7ff8000000000000</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return DoubleToRawBits(d)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Int64</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>GetExponent</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the unbiased exponent used in the representation of a Double.</CodeDescription>
+  <PartID>2127984639</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function GetExponent(d As Double) As Integer</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the unbiased exponent used in the representation of a Double.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Special cases:</SourceLine>
+   <SourceLine>' - If the argument is NaN or infinite, then the result is `MAX_EXPONENT` + 1.</SourceLine>
+   <SourceLine>' - If the argument is zero or subnormal, then the result is `MIN_EXPONENT` - 1.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: A Double value.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: The unbiased exponent of the argument.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Bitwise convert `d` to UInt64, mask out exponent bits, shift</SourceLine>
+   <SourceLine>// to the right and then subtract out Double's bias adjust to</SourceLine>
+   <SourceLine>// get true exponent value.</SourceLine>
+   <SourceLine>Return ((DoubleToRawBits(d) And DOUBLE_EXP_BIT_MASK) \ _</SourceLine>
+   <SourceLine>(2^(DOUBLE_SIGNIFICAND_WIDTH - 1))) - DOUBLE_EXP_BIAS</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Integer</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Scalb</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>842708991</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Scalb(d As Double, scaleFactor As Integer) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns `d × 2^scaleFactor` rounded as if performed by a single correctly</SourceLine>
+   <SourceLine>' rounded floating-point multiply to a member of the double value set. </SourceLine>
+   <SourceLine>' If the exponent of the result is between `MIN_EXPONENT` and `MAX_EXPONENT`, the</SourceLine>
+   <SourceLine>' answer is calculated exactly.  If the exponent of the result</SourceLine>
+   <SourceLine>' would be larger than `MAX_EXPONENT, an infinity is returned. </SourceLine>
+   <SourceLine>' Note that if the result is subnormal, precision may be lost; that is, </SourceLine>
+   <SourceLine>' when `Scalb(x, n)` is subnormal, `Scalb(scalb(x, n), -n) may not equal</SourceLine>
+   <SourceLine>' x. When the result is non-NaN, the result has the same sign as `d`.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Special cases:</SourceLine>
+   <SourceLine>' - If the first argument is NaN, NaN is returned.</SourceLine>
+   <SourceLine>' - If the first argument is infinite, then an infinity of the same sign is returned.</SourceLine>
+   <SourceLine>' - If the first argument is zero, then a zero of the same sign is returned.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: The number to be scaled by a power of two.</SourceLine>
+   <SourceLine>' - Parameter scaleFactor: The power of 2 used to scale d`.'</SourceLine>
+   <SourceLine>' - Returns: `d` × 2^scaleFactor</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// When scaling up, it does not matter what order the</SourceLine>
+   <SourceLine>// multiply-store operations are done; the result will be</SourceLine>
+   <SourceLine>// finite or overflow regardless of the operation ordering.</SourceLine>
+   <SourceLine>// However, to get the correct result when scaling down, a</SourceLine>
+   <SourceLine>// particular ordering must be used.</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// When scaling down, the multiply-store operations are</SourceLine>
+   <SourceLine>// sequenced so that it is not possible for two consecutive</SourceLine>
+   <SourceLine>// multiply-stores to return subnormal results.  If one</SourceLine>
+   <SourceLine>// multiply-store result is subnormal, the next multiply will</SourceLine>
+   <SourceLine>// round it away to zero.  This is done by first multiplying</SourceLine>
+   <SourceLine>// by 2 ^ (scaleFactor % n) and then multiplying several</SourceLine>
+   <SourceLine>// times by by 2^n as needed where n is the exponent of number</SourceLine>
+   <SourceLine>// that is a covenient power of two.  In this way, at most one</SourceLine>
+   <SourceLine>// real rounding error occurs.  If the double value set is</SourceLine>
+   <SourceLine>// being used exclusively, the rounding will occur on a</SourceLine>
+   <SourceLine>// multiply.  If the double-extended-exponent value set is</SourceLine>
+   <SourceLine>// being used, the products will (perhaps) be exact but the</SourceLine>
+   <SourceLine>// stores to d are guaranteed to round to the double value set.</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// It is _not_ a valid implementation to first multiply d by</SourceLine>
+   <SourceLine>// 2^MIN_EXPONENT and then by 2 ^ (scaleFactor % MIN_EXPONENT) s</SourceLine>
+   <SourceLine>// ince eduble ounding on underflow could occur; e.g. if the scaleFactor</SourceLine>
+   <SourceLine>// argument was (MIN_EXPONENT - n) and the exponent of d was a</SourceLine>
+   <SourceLine>// little less than -(MIN_EXPONENT - n), meaning the final</SourceLine>
+   <SourceLine>// result would be subnormal.</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// Since exact reproducibility of this method can be achieved</SourceLine>
+   <SourceLine>// without any undue performance burden, there is no</SourceLine>
+   <SourceLine>// compelling reason to allow double rounding on underflow in</SourceLine>
+   <SourceLine>// scalb.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Magnitude of a power of two so large that scaling a finite</SourceLine>
+   <SourceLine>// non-zero value by it would be guaranteed to over or</SourceLine>
+   <SourceLine>// underflow; due to rounding, scaling down takes takes an</SourceLine>
+   <SourceLine>// additional power of two which is reflected here.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var MAX_SCALE As Int32 = DOUBLE_MAX_EXPONENT + _</SourceLine>
+   <SourceLine>-DOUBLE_MIN_EXPONENT + DOUBLE_SIGNIFICAND_WIDTH + 1</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var exp_adjust As Int32 = 0</SourceLine>
+   <SourceLine>Var scale_increment As Int32 = 0</SourceLine>
+   <SourceLine>Var exp_delta As Double = NAN</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Make sure the scaling factor is in a reasonable range.</SourceLine>
+   <SourceLine>If scaleFactor &lt; 0 Then</SourceLine>
+   <SourceLine>scaleFactor = Max(scaleFactor, -MAX_SCALE)</SourceLine>
+   <SourceLine>scale_increment = -512</SourceLine>
+   <SourceLine>exp_delta = mTWO_TO_THE_DOUBLE_SCALE_DOWN</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>scaleFactor = Min(scaleFactor, MAX_SCALE)</SourceLine>
+   <SourceLine>scale_increment = 512</SourceLine>
+   <SourceLine>exp_delta = mTWO_TO_THE_DOUBLE_SCALE_UP</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Calculate (scaleFactor % +/-512), 512 = 2^9, using</SourceLine>
+   <SourceLine>// technique from "Hacker's Delight" section 10-2.</SourceLine>
+   <SourceLine>Var t As Int32 = RShiftU(ShiftRight(scaleFactor, 8), 23)</SourceLine>
+   <SourceLine>exp_adjust = ((scaleFactor + t) And 511) - t</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>d = d * (powerOfTwoD(exp_adjust))</SourceLine>
+   <SourceLine>scaleFactor = scaleFactor - exp_adjust</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>While scaleFactor &lt;&gt; 0</SourceLine>
+   <SourceLine>d = d * exp_delta</SourceLine>
+   <SourceLine>scaleFactor = scaleFactor - scale_increment</SourceLine>
+   <SourceLine>Wend</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return d</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double, scaleFactor As Integer</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>BitsToDouble</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the Double value corresponding to a given bit representation.</CodeDescription>
+  <PartID>1637820415</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function BitsToDouble(bits As Int64) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the Double value corresponding to a given bit representation.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' The argument is considered to be a representation of a floating-point value </SourceLine>
+   <SourceLine>' according to the IEEE 754 floating-point "double format" bit layout.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' If the argument is `&amp;h7ff0000000000000L`, the result is positive infinity.</SourceLine>
+   <SourceLine>' If the argument is `&amp;hfff0000000000000`, the result is negative infinity.</SourceLine>
+   <SourceLine>' If the argument is any value in the range:</SourceLine>
+   <SourceLine>'   `&amp;h7ff0000000000001` through</SourceLine>
+   <SourceLine>'   `&amp;h7fffffffffffffff` or in the range</SourceLine>
+   <SourceLine>'   `&amp;hfff0000000000001` through</SourceLine>
+   <SourceLine>'   `&amp;hffffffffffffffff`, the result is a NaN.</SourceLine>
+   <SourceLine>' No IEEE 754 floating-point operation can distinguish between two NaN values </SourceLine>
+   <SourceLine>' of the same type with different bit patterns.  Distinct values of NaN are </SourceLine>
+   <SourceLine>' only distinguishable by use of the `DoubleToRaw` method.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' In all other cases, let _s_, _e_, and _m_ be three * values that can be computed from the argument:</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' &gt; ```</SourceLine>
+   <SourceLine>' &gt; int s = ((bits &gt;&gt; 63) = 0) ? 1 : -1;</SourceLine>
+   <SourceLine>' &gt; int e = (int)((bits &gt;&gt; 52) &amp; 0x7ffL);</SourceLine>
+   <SourceLine>' &gt; long m = (e == 0) ?</SourceLine>
+   <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) &lt;&lt; 1 :</SourceLine>
+   <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) | 0x10000000000000L;</SourceLine>
+   <SourceLine>' &gt; ```</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Then the floating-point result equals the value of the mathematical expression `s·m·2^e-1075`</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Note that this method may not be able to return Double NaN with exactly the same bit pattern </SourceLine>
+   <SourceLine>' as the argument.  IEEE 754 distinguishes between two kinds of NaNs, quiet NaNs </SourceLine>
+   <SourceLine>' and _signaling NaNs_. The differences between the two kinds of NaN are generally not</SourceLine>
+   <SourceLine>' visible. Arithmetic operations on signaling NaNs turn them into quiet NaNs with a different, </SourceLine>
+   <SourceLine>' but often similar, bit pattern. However, on some processors merely copying a signaling NaN </SourceLine>
+   <SourceLine>' also performs that conversion. In particular, copying a signaling NaN to return it to the </SourceLine>
+   <SourceLine>' calling method may perform this conversion. So `BitsToDouble` may not be able to return </SourceLine>
+   <SourceLine>' a Double with a signaling NaN bit pattern.  Consequently, for some UInt64 values,</SourceLine>
+   <SourceLine>' `DoubleToRawBits(BitsToDouble(start))` may _not_ equal `start`.  Moreover, which particular </SourceLine>
+   <SourceLine>' bit patterns represent signaling NaNs is platform dependent; although all NaN bit patterns, </SourceLine>
+   <SourceLine>' quiet or signaling, must be in the NaN range identified above.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter bits: Any Int64 integer.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: The Double floating-point value with the same bit pattern.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var m As MemoryBlock = New MemoryBlock(8)</SourceLine>
+   <SourceLine>m.Int64Value(0) = bits</SourceLine>
+   <SourceLine>Return m.DoubleValue(0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>bits As Int64</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>DoubleToRawBits</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns a representation of the specified floating-point value according to the IEEE 754 floating-point "double format" bit layout, preserving Not-a-Number (NaN) values.</CodeDescription>
+  <PartID>857395199</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function DoubleToRawBits(d As Double) As Int64</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns a representation of the specified floating-point value according to the </SourceLine>
+   <SourceLine>' IEEE 754 floating-point "double format" bit layout, preserving Not-a-Number (NaN) values.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Bit 63 (the bit that is selected by the mask `&amp;h8000000000000000`) represents the sign of the</SourceLine>
+   <SourceLine>' floating-point number. </SourceLine>
+   <SourceLine>' Bits 62-52 (the bits that are selected by the mask `&amp;h7ff0000000000000`) represent the exponent. </SourceLine>
+   <SourceLine>' Bits 51-0 (the bits that are selected by the mask `&amp;h000fffffffffffff`) represent the significand</SourceLine>
+   <SourceLine>' (sometimes called the mantissa) of the floating-point number.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' If the argument is positive infinity, the result is `&amp;h7ff0000000000000`.</SourceLine>
+   <SourceLine>' If the argument is negative infinity, the result is `&amp;hfff0000000000000`.</SourceLine>
+   <SourceLine>' If the argument is NaN, the result is the `Int64` integer representing the actual NaN value.</SourceLine>
+   <SourceLine>' Unlike the `DoubleToBits` method, `DoubleToRawBits` does not collapse all the bit patterns</SourceLine>
+   <SourceLine>' encoding a NaN to a single "canonical" NaN value.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' In all cases, the result is a `UInt64` integer that, when given to the </SourceLine>
+   <SourceLine>' `BitsToDouble(Int64)` method, will produce a floating-point value the same as the argument to</SourceLine>
+   <SourceLine>' `DoubleToRawBits`.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: A Double precision floating-point number.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int64.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var m As MemoryBlock = New MemoryBlock(8)</SourceLine>
+   <SourceLine>m.LittleEndian = False</SourceLine>
+   <SourceLine>m.DoubleValue(0) = d</SourceLine>
+   <SourceLine>Return m.Int64Value(0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Int64</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>RShift</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Shifts the bit pattern of `v` to the right by `s` positions. The leftmost position depends on sign extension. Equivalent to Java's `&gt;&gt;` operator.</CodeDescription>
+  <PartID>970866687</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function RShift(v As Int32, s As Integer) As Int32</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Shifts the bit pattern of `v` to the right by `s` positions. </SourceLine>
+   <SourceLine>' The leftmost position after shifting depends on sign extension.</SourceLine>
+   <SourceLine>' Equivalent to Java's `&gt;&gt;` operator.</SourceLine>
+   <SourceLine>' </SourceLine>
+   <SourceLine>' - Parameter v: The bit pattern to shift (32-bits).</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift rightwards.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int32.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Bitwise.ShiftRight(v, s, 64)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Int32, s As Integer</ItemParams>
+  <ItemResult>Int32</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>RShiftU</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Shifts the bit pattern of `v` to the right by `s` positions. Shifts a zero into the leftmost position. Equivalent to Java's `&gt;&gt;&gt;` operator.</CodeDescription>
+  <PartID>2079883263</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function RShiftU(v As Int32, s As Integer) As Int32</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Unsigned right shift. Shifts the bit pattern of `v` to the right by `s` positions. </SourceLine>
+   <SourceLine>' Shifts a zero into the leftmost position.</SourceLine>
+   <SourceLine>' Equivalent to Java's `&gt;&gt;&gt;` operator.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The bit pattern to shift (32-bits).</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift rightwards.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int32.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Bitwise.ShiftRight(v, s, 32)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Int32, s As Integer</ItemParams>
+  <ItemResult>Int32</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>PowerOfTwoD</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns a floating-point power of two in the normal range.</CodeDescription>
+  <PartID>982697983</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function PowerOfTwoD(n As Integer) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns a floating-point power of two in the normal range.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Assert(n &gt;= DOUBLE_MIN_EXPONENT And n &lt;= DOUBLE_MAX_EXPONENT)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return BitsToDouble((ShiftLeft(n + DOUBLE_EXP_BIAS, DOUBLE_SIGNIFICAND_WIDTH - 1)) _</SourceLine>
+   <SourceLine>And DOUBLE_EXP_BIT_MASK)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>n As Integer</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Assert</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Asserts that the passed condition is True, otherwise raises a RuntimeException.</CodeDescription>
+  <PartID>1864577023</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Assert(condition As Boolean)</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Asserts that the passed condition is True, otherwise raises a RuntimeException.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter condition: The condition that should be True.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Throws: RuntimeException if `condition` is False.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If Not condition Then</SourceLine>
+   <SourceLine>Raise New RuntimeException("An assertion failed in the PhysicsKit.Maths module.")</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>condition As Boolean</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>LShift</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Shifts the bit pattern of `v` to the left by `s` positions. Equivalent to Java's `&lt;&lt;` operator.</CodeDescription>
+  <PartID>1125873663</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function LShift(v As Int32, s As Integer) As Int32</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Shifts the bit pattern of `v` to the left by `s` positions. </SourceLine>
+   <SourceLine>' Equivalent to Java's `&lt;&lt;` operator.</SourceLine>
+   <SourceLine>' </SourceLine>
+   <SourceLine>' - Parameter v: The bit pattern to shift (32-bits).</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift leftwards.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int32.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Bitwise.ShiftLeft(v, s, 64)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Int32, s As Integer</ItemParams>
+  <ItemResult>Int32</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>m180_OVER_PI</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Pre-calculated value of 180 / π. Used when converting radians to degrees.</CodeDescription>
+  <PartID>678748159</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>m180_OVER_PI As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>m180_OVER_PI As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>mPI_OVER_180</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>619554815</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mPI_OVER_180 As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mPI_OVER_180 As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>POSITIVE_INFINITY</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The value of positive infinity.</CodeDescription>
+  <PartID>859584511</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>POSITIVE_INFINITY As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>POSITIVE_INFINITY As Double</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return mPOSITIVE_INFINITY</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mPOSITIVE_INFINITY</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The value of positive infinity. Initialised in `Initialise()`.</CodeDescription>
+  <PartID>1836554239</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mPOSITIVE_INFINITY As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mPOSITIVE_INFINITY As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>mNEGATIVE_INFINITY</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The value of negative infinity. Initialised in `Initialise()`.</CodeDescription>
+  <PartID>1841098751</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mNEGATIVE_INFINITY As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mNEGATIVE_INFINITY As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>NEGATIVE_INFINITY</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The value of negative infinity.</CodeDescription>
+  <PartID>15069183</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NEGATIVE_INFINITY As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NEGATIVE_INFINITY As Double</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return mNEGATIVE_INFINITY</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mNAN</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Not-a-Number (NaN).</CodeDescription>
+  <PartID>704241663</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mNAN As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mNAN As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>NAN</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1958313983</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NAN As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NAN As Double</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return mNAN</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mTWO_TO_THE_DOUBLE_SCALE_UP</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>A constant used in `Scalb()`.</CodeDescription>
+  <PartID>1537245183</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mTWO_TO_THE_DOUBLE_SCALE_UP As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mTWO_TO_THE_DOUBLE_SCALE_UP As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>mTWO_TO_THE_DOUBLE_SCALE_DOWN</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>A constant used in `Scalb()`.</CodeDescription>
+  <PartID>1590489087</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mTWO_TO_THE_DOUBLE_SCALE_DOWN As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mTWO_TO_THE_DOUBLE_SCALE_DOWN As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_EXP_BIT_MASK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Bit mask to isolate the exponent field of a Double.</CodeDescription>
+  <PartID>482740223</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>DOUBLE_EXP_BIT_MASK As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_EXP_BIT_MASK As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Bit mask to isolate the exponent field of a Double.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return &amp;h7FF0000000000000</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_MIN_SUB_EXPONENT</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The exponent the smallest positive Double subnormal value would have if it could be normalized.</CodeDescription>
+  <PartID>1123620863</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>DOUBLE_MIN_SUB_EXPONENT As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_MIN_SUB_EXPONENT As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' The exponent the smallest positive Double subnormal value would have if it could be normalized.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return DOUBLE_MIN_EXPONENT - (DOUBLE_SIGNIFICAND_WIDTH - 1)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_SIGNIF_BIT_MASK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>745132031</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>DOUBLE_SIGNIF_BIT_MASK As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_SIGNIF_BIT_MASK As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Bit mask to isolate the sign bit of a Double.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return &amp;h8000000000000000</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_SIGN_BIT_MASK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Bit mask to isolate the sign bit of a Double.</CodeDescription>
+  <PartID>783906815</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>DOUBLE_SIGN_BIT_MASK As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_SIGN_BIT_MASK As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Bit mask to isolate the sign bit of a Double.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return &amp;h8000000000000000</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_EXP_BIAS</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Bias used in representing a Double exponent.</CodeDescription>
+  <PartID>513464319</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>DOUBLE_EXP_BIAS As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_EXP_BIAS As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return 1023</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Constant>
+  <ItemName>PI</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1049767935</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>3.14159265359</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>DOUBLE_MAX_EXPONENT</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Maximum exponent a finite Double variable may have. It is equal to the value returned by `Maths.GetExponent(DoubleConstants.MAX_VALUE)`.</CodeDescription>
+  <PartID>1229846527</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>1023</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>DOUBLE_MIN_EXPONENT</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Minimum exponent a normalized Double variable may have.  It is equal to the value returned by `Maths.GetExponent(DoubleConstants.MIN_NORMAL)`.</CodeDescription>
+  <PartID>145772543</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>-1022</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>DOUBLE_SIGNIFICAND_WIDTH</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The number of logical bits in the significand of a Double number, including the implicit bit.</CodeDescription>
+  <PartID>22618111</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>53</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+</block>
+</RBProject>
