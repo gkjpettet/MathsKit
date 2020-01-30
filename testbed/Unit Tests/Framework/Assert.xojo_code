@@ -217,6 +217,16 @@ Protected Class Assert
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub AreEqual(expected As Integer, actual As Int32, message As Text = "")
+		  If expected = actual Then
+		    Pass()
+		  Else
+		    Fail(FailEqualMessage(expected.ToText, actual.ToText), message)
+		  End If
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0, CompatibilityFlags = (not TargetHasGUI and not TargetWeb and not TargetIOS) or  (TargetWeb) or  (TargetHasGUI)
 		Sub AreEqual(expected() As String, actual() As String, message As Text = "")
 		  Dim expectedSize, actualSize As Integer
