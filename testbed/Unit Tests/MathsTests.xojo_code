@@ -43,6 +43,20 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub CopySignTest()
+		  ///
+		  ' Tests the `CopySign` method.
+		  ///
+		  
+		  Var a As Double = 34.543
+		  Var b As Double = -123.44
+		  
+		  Assert.AreEqual(-34.543, MathsKit.CopySign(a, b))
+		  Assert.AreEqual(123.44, MathsKit.CopySign(b, a))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub DoubleToBitsTest()
 		  ///
 		  ' Tests the `DoubleToBits` method.
@@ -93,6 +107,31 @@ Inherits TestGroup
 		  Assert.AreEqual(1024, MathsKit.GetExponent(1.0 / 0.0))
 		  Assert.AreEqual(-1023, MathsKit.GetExponent(0.0))
 		  Assert.AreEqual(5, MathsKit.GetExponent(50.45))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub HypotTest()
+		  ///
+		  ' Tests the `Hypot` method.
+		  ///
+		  
+		  Using MathsKit
+		  
+		  // If either argument is infinite, then the result is positive infinity.
+		  Assert.IsPositiveInfinity(Hypot(POSITIVE_INFINITY, 3.0))
+		  Assert.IsPositiveInfinity(Hypot(4.0, POSITIVE_INFINITY))
+		  Assert.IsPositiveInfinity(Hypot(NEGATIVE_INFINITY, 3.0))
+		  Assert.IsPositiveInfinity(Hypot(4.0, NEGATIVE_INFINITY))
+		  
+		  // If either argument is NaN and neither argument is infinite, then the result is NaN.
+		  Assert.IsNaN(Hypot(NAN, 2.0))
+		  Assert.IsNaN(Hypot(6.5, NAN))
+		  Assert.IsPositiveInfinity(Hypot(NAN, NEGATIVE_INFINITY))
+		  
+		  // When both are not infinity .
+		  Assert.AreEqual(5.0, Hypot(3.0, 4.0))
+		  
 		End Sub
 	#tag EndMethod
 
