@@ -152,6 +152,17 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub IsNaNTest()
+		  ///
+		  ' Tests thet IsNaN method.
+		  ///
+		  
+		  Assert.IsTrue(MathsKit.IsNaN(0.0/0.0))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub LShift32Test()
 		  ///
 		  ' Tests long = int << x
