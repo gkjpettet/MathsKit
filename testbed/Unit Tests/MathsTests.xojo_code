@@ -306,6 +306,41 @@ Inherits TestGroup
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub SignumTest()
+		  ///
+		  ' Tests the Signum method.
+		  ///
+		  
+		  Assert.AreEqual(1.0, MathsKit.Signum(30))
+		  Assert.AreEqual(0.0, MathsKit.Signum(0))
+		  Assert.AreEqual(-1.0, MathsKit.Signum(-30))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ToDegreesTest()
+		  ///
+		  ' Tests the ToDegrees method.
+		  ///
+		  
+		  Assert.AreEqual(2578.3100780887044, MathsKit.ToDegrees(45))
+		  Assert.AreEqual(1718.8733853924698, MathsKit.ToDegrees(30))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ToRadiansTest()
+		  ///
+		  ' Tests the ToRadians method.
+		  ///
+		  
+		  Assert.AreEqual(3.141592653589793, MathsKit.ToRadians(180))
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private Prop1 As Integer

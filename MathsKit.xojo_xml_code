@@ -463,7 +463,7 @@
    <SourceLine>Var t As Int32 = RShiftU32(RShift(scaleFactor, 8), 23)</SourceLine>
    <SourceLine>exp_adjust = ((scaleFactor + t) And CType(511, Int32)) - t</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>d = d * powerOfTwoD(exp_adjust)</SourceLine>
+   <SourceLine>d = d * PowerOfTwoD(exp_adjust)</SourceLine>
    <SourceLine>scaleFactor = scaleFactor - exp_adjust</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>While scaleFactor &lt;&gt; 0</SourceLine>
@@ -607,7 +607,7 @@
   <PartID>982697983</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function PowerOfTwoD(n As Integer) As Double</SourceLine>
+   <SourceLine>Function PowerOfTwoD(n As Int32) As Double</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>' Returns a floating-point power of two in the normal range.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -621,9 +621,9 @@
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
   <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
+  <ItemFlags>33</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>n As Integer</ItemParams>
+  <ItemParams>n As Int32</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
