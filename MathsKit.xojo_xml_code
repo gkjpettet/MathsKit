@@ -1006,6 +1006,231 @@
   <ItemFlags>33</ItemFlags>
   <IsShared>0</IsShared>
  </Property>
+ <Property>
+  <ItemName>DOUBLE_EXP_BIAS</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Bias used in representing a Double exponent.</CodeDescription>
+  <PartID>1188339711</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_EXP_BIAS As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_EXP_BIAS As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return 1023</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_EXP_BIT_MASK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Bit mask to isolate the exponent field of a Double.</CodeDescription>
+  <PartID>2087270399</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_EXP_BIT_MASK As Int64</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_EXP_BIT_MASK As Int64</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return &amp;h7FF0000000000000</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_SIGN_BIT_MASK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>810315775</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_SIGN_BIT_MASK As Int64</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_SIGN_BIT_MASK As Int64</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return &amp;h8000000000000000</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_SIGNIF_BIT_MASK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Bit mask to isolate the significand field of a Double.</CodeDescription>
+  <PartID>1086181375</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_SIGNIF_BIT_MASK As Int64</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_SIGNIF_BIT_MASK As Int64</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return &amp;h000FFFFFFFFFFFFF</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_SIGNIFICAND_WIDTH</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1612963839</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_SIGNIFICAND_WIDTH As Int32</SourceLine>
+   <SourceLine>s</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_SIGNIFICAND_WIDTH As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return 53</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_MIN_SUB_EXPONENT</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The exponent the smallest positive Double subnormal value would have if it could be normalised.</CodeDescription>
+  <PartID>1567776767</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_MIN_SUB_EXPONENT As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_MIN_SUB_EXPONENT As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return -1076</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_MAX_EXPONENT</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Maximum exponent a finite Double variable may have. It is equal to the value returned by `MathsKit.GetExponent(DOUBLE_MAX_VALUE)`.</CodeDescription>
+  <PartID>1219397631</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_MAX_EXPONENT As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_MAX_EXPONENT As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return 1023</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DOUBLE_MIN_EXPONENT</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Minimum exponent a normalised Double variable may have.  It is equal to the value returned by `MathsKit.GetExponent(DOUBLE_MIN_NORMAL)`.</CodeDescription>
+  <PartID>781277183</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property DOUBLE_MIN_EXPONENT As Int32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DOUBLE_MIN_EXPONENT As Int32</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Return -1022</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
  <ViewBehavior>
   <ViewProperty>
    <ObjName>Name</ObjName>
@@ -1052,90 +1277,36 @@
   <ItemFlags>1</ItemFlags>
  </Constant>
  <Constant>
-  <ItemName>DOUBLE_MAX_EXPONENT</ItemName>
+  <ItemName>DOUBLE_MIN_NORMAL</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Maximum exponent a finite Double variable may have. It is equal to the value returned by `Maths.GetExponent(DoubleConstants.MAX_VALUE)`.</CodeDescription>
-  <PartID>1229846527</PartID>
+  <CodeDescription>A constant holding the smallest positive normal Double value, 2^-1022.  It's equal to `MathsKit.BitsToDouble(&amp;h0010000000000000)`.</CodeDescription>
+  <PartID>1399560191</PartID>
   <TextEncoding>134217984</TextEncoding>
   <ItemType>2</ItemType>
-  <ItemDef>1023</ItemDef>
+  <ItemDef>2.2250738585072014E-308</ItemDef>
   <ItemFlags>1</ItemFlags>
  </Constant>
  <Constant>
-  <ItemName>DOUBLE_MIN_EXPONENT</ItemName>
+  <ItemName>DOUBLE_MAX_VALUE</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Minimum exponent a normalized Double variable may have.  It is equal to the value returned by `Maths.GetExponent(DoubleConstants.MIN_NORMAL)`.</CodeDescription>
-  <PartID>145772543</PartID>
+  <CodeDescription>A constant holding the largest positive finite value of type Double.</CodeDescription>
+  <PartID>125626367</PartID>
   <TextEncoding>134217984</TextEncoding>
   <ItemType>2</ItemType>
-  <ItemDef>-1022</ItemDef>
+  <ItemDef>1.7976931348623157e+308</ItemDef>
   <ItemFlags>1</ItemFlags>
  </Constant>
  <Constant>
-  <ItemName>DOUBLE_SIGNIFICAND_WIDTH</ItemName>
+  <ItemName>DOUBLE_MIN_VALUE</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>The number of logical bits in the significand of a Double number, including the implicit bit.</CodeDescription>
-  <PartID>22618111</PartID>
+  <CodeDescription>A constant holding the smallest positive non-zero value of type Double:  2^-1074.</CodeDescription>
+  <PartID>690126847</PartID>
   <TextEncoding>134217984</TextEncoding>
   <ItemType>2</ItemType>
-  <ItemDef>53</ItemDef>
-  <ItemFlags>1</ItemFlags>
- </Constant>
- <Constant>
-  <ItemName>DOUBLE_EXP_BIT_MASK</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Bit mask to isolate the exponent field of a Double.</CodeDescription>
-  <PartID>325513215</PartID>
-  <TextEncoding>134217984</TextEncoding>
-  <ItemType>2</ItemType>
-  <ItemDef>&amp;h7FF0000000000000</ItemDef>
-  <ItemFlags>1</ItemFlags>
- </Constant>
- <Constant>
-  <ItemName>DOUBLE_EXP_BIAS</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Bias used in representing a Double exponent.</CodeDescription>
-  <PartID>988170239</PartID>
-  <TextEncoding>134217984</TextEncoding>
-  <ItemType>2</ItemType>
-  <ItemDef>1023</ItemDef>
-  <ItemFlags>1</ItemFlags>
- </Constant>
- <Constant>
-  <ItemName>DOUBLE_MIN_SUB_EXPONENT</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>The exponent the smallest positive Double subnormal value would have if it could be normalized.</CodeDescription>
-  <PartID>1945688063</PartID>
-  <TextEncoding>134217984</TextEncoding>
-  <ItemType>2</ItemType>
-  <ItemDef>-1074</ItemDef>
-  <ItemFlags>1</ItemFlags>
- </Constant>
- <Constant>
-  <ItemName>DOUBLE_SIGNIF_BIT_MASK</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Bit mask to isolate the significand field of a Double.</CodeDescription>
-  <PartID>2047672319</PartID>
-  <TextEncoding>134217984</TextEncoding>
-  <ItemType>2</ItemType>
-  <ItemDef>&amp;h8000000000000000</ItemDef>
-  <ItemFlags>1</ItemFlags>
- </Constant>
- <Constant>
-  <ItemName>DOUBLE_SIGN_BIT_MASK</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <PartID>1948448767</PartID>
-  <TextEncoding>134217984</TextEncoding>
-  <ItemType>2</ItemType>
-  <ItemDef>&amp;h8000000000000000</ItemDef>
+  <ItemDef>4.94065645841246544176568792868221372e-324</ItemDef>
   <ItemFlags>1</ItemFlags>
  </Constant>
 </block>

@@ -57,6 +57,20 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub DoubleMaxExponentTest()
+		  Assert.AreEqual(MathsKit.GetExponent(MathsKit.DOUBLE_MAX_VALUE), MathsKit.DOUBLE_MAX_EXPONENT)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub DoubleMinExponentTest()
+		  Assert.AreEqual(MathsKit.GetExponent(MathsKit.DOUBLE_MIN_NORMAL), MathsKit.DOUBLE_MIN_EXPONENT)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub DoubleToBitsTest()
 		  ///
 		  ' Tests the `DoubleToBits` method.
