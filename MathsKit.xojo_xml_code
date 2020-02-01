@@ -366,7 +366,8 @@
    <SourceLine>// get true exponent value.</SourceLine>
    <SourceLine>// Return ((DoubleToRawBits(d) And DOUBLE_EXP_BIT_MASK) \ _</SourceLine>
    <SourceLine>// (2^(DOUBLE_SIGNIFICAND_WIDTH - 1))) - DOUBLE_EXP_BIAS</SourceLine>
-   <SourceLine>Return RShift64(DoubleToRawBits(d) And DOUBLE_EXP_BIT_MASK, 52) - DOUBLE_EXP_BIAS</SourceLine>
+   <SourceLine>Return RShift(DoubleToRawBits(d) And DOUBLE_EXP_BIT_MASK, 52) - DOUBLE_EXP_BIAS</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -441,15 +442,12 @@
    <SourceLine>// non-zero value by it would be guaranteed to over or</SourceLine>
    <SourceLine>// underflow; due to rounding, scaling down takes takes an</SourceLine>
    <SourceLine>// additional power of two which is reflected here.</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>Var MAX_SCALE As Int32 = DOUBLE_MAX_EXPONENT + _</SourceLine>
-   <SourceLine>-DOUBLE_MIN_EXPONENT + DOUBLE_SIGNIFICAND_WIDTH + 1</SourceLine>
-   <SourceLine></SourceLine>
+   <SourceLine>Var MAX_SCALE As Int32 = DOUBLE_MAX_EXPONENT + -DOUBLE_MIN_EXPONENT + DOUBLE_SIGNIFICAND_WIDTH + 1</SourceLine>
    <SourceLine>Var exp_adjust As Int32 = 0</SourceLine>
    <SourceLine>Var scale_increment As Int32 = 0</SourceLine>
    <SourceLine>Var exp_delta As Double = NAN</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>// Make sure the scaling factor is in a reasonable range.</SourceLine>
+   <SourceLine>// Make sure scaling factor is in a reasonable range.</SourceLine>
    <SourceLine>If scaleFactor &lt; 0 Then</SourceLine>
    <SourceLine>scaleFactor = Max(scaleFactor, -MAX_SCALE)</SourceLine>
    <SourceLine>scale_increment = -512</SourceLine>
@@ -462,10 +460,10 @@
    <SourceLine></SourceLine>
    <SourceLine>// Calculate (scaleFactor % +/-512), 512 = 2^9, using</SourceLine>
    <SourceLine>// technique from "Hacker's Delight" section 10-2.</SourceLine>
-   <SourceLine>Var t As Int32 = RShiftU32(ShiftRight(scaleFactor, 8), 23)</SourceLine>
-   <SourceLine>exp_adjust = ((scaleFactor + t) And 511) - t</SourceLine>
+   <SourceLine>Var t As Int32 = RShiftU32(RShift(scaleFactor, 8), 23)</SourceLine>
+   <SourceLine>exp_adjust = ((scaleFactor + t) And CType(511, Int32)) - t</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>d = d * (powerOfTwoD(exp_adjust))</SourceLine>
+   <SourceLine>d = d * powerOfTwoD(exp_adjust)</SourceLine>
    <SourceLine>scaleFactor = scaleFactor - exp_adjust</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>While scaleFactor &lt;&gt; 0</SourceLine>
@@ -474,6 +472,7 @@
    <SourceLine>Wend</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return d</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -601,67 +600,6 @@
   <ItemResult>Int64</ItemResult>
  </Method>
  <Method>
-  <ItemName>RShift32</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Shifts the bit pattern of `v` to the right by `s` positions. The leftmost position depends on sign extension. Equivalent to Java's `&gt;&gt;` operator.</CodeDescription>
-  <PartID>970866687</PartID>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function RShift32(v As Int32, s As Integer) As Int32</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>' Shifts the bit pattern of `v` to the right by `s` positions. </SourceLine>
-   <SourceLine>' The leftmost position after shifting depends on sign extension.</SourceLine>
-   <SourceLine>' Equivalent to Java's `int &gt;&gt;` operator.</SourceLine>
-   <SourceLine>' </SourceLine>
-   <SourceLine>' - Parameter v: The bit pattern to shift (32-bits).</SourceLine>
-   <SourceLine>' - Parameter s: The number of positions to shift rightwards.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Returns: Int32.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>Return Bitwise.ShiftRight(v, s, 64)</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>v As Int32, s As Integer</ItemParams>
-  <ItemResult>Int32</ItemResult>
- </Method>
- <Method>
-  <ItemName>RShiftU32</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Shifts the bit pattern of `v` to the right by `s` positions. Shifts a zero into the leftmost position. Equivalent to Java's `&gt;&gt;&gt;` operator.</CodeDescription>
-  <PartID>2079883263</PartID>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function RShiftU32(v As Int32, s As Integer) As Int32</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>' Unsigned right shift. Shifts the bit pattern of `v` to the right by `s` positions. </SourceLine>
-   <SourceLine>' Shifts a zero into the leftmost position.</SourceLine>
-   <SourceLine>' Equivalent to Java's `int &gt;&gt;&gt;` operator.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Parameter v: The bit pattern to shift (32-bits).</SourceLine>
-   <SourceLine>' - Parameter s: The number of positions to shift rightwards.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Returns: Int32.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>Return Bitwise.ShiftRight(v, s, 32)</SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>v As Int32, s As Integer</ItemParams>
-  <ItemResult>Int32</ItemResult>
- </Method>
- <Method>
   <ItemName>PowerOfTwoD</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
@@ -718,26 +656,66 @@
   <ItemResult></ItemResult>
  </Method>
  <Method>
-  <ItemName>LShift</ItemName>
+  <ItemName>RShift</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts the bit pattern of `v` to the left by `s` positions. Equivalent to Java's `&lt;&lt;` operator.</CodeDescription>
-  <PartID>1125873663</PartID>
+  <CodeDescription>Shifts `v` `s` places to the right, preserving the sign bit. Equivalent to Java's `&gt;&gt;` operator.</CodeDescription>
+  <PartID>459864063</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function LShift(v As Int32, s As Integer) As Int32</SourceLine>
+   <SourceLine>Function RShift(v As Int64, s As Integer) As Int64</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>' Shifts the bit pattern of `v` to the left by `s` positions. </SourceLine>
-   <SourceLine>' Equivalent to Java's `&lt;&lt;` operator.</SourceLine>
-   <SourceLine>' </SourceLine>
-   <SourceLine>' - Parameter v: The bit pattern to shift (32-bits).</SourceLine>
-   <SourceLine>' - Parameter s: The number of positions to shift leftwards.</SourceLine>
+   <SourceLine>' Shifts `v` `s` places to the right, preserving the sign bit.</SourceLine>
+   <SourceLine>' Equivalent to Java's `&gt;&gt;` operator.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The value to shift.</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift rightwards by.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int64.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Notes:</SourceLine>
+   <SourceLine>' Thanks to code form the Xojo forum by Rick Araujo:</SourceLine>
+   <SourceLine>' https://forum.xojo.com/58281-bit-shifting-right-help</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If v &gt;= 0 Then</SourceLine>
+   <SourceLine>Return Bitwise.ShiftRight(v, s)</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>If s = 1 Then</SourceLine>
+   <SourceLine>Return Bitwise.BitOr(&amp;h8000000000000000, Bitwise.ShiftRight(v, s))</SourceLine>
+   <SourceLine>End</SourceLine>
+   <SourceLine>Return Bitwise.BitOr(Bitwise.ShiftLeft(-1, 64 - s), Bitwise.ShiftRight(v, s))</SourceLine>
+   <SourceLine>End</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Int64, s As Integer</ItemParams>
+  <ItemResult>Int64</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>RShiftU32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Shifts the passed Int32 `s` bits to the right. Shifts a zero into the left-most position. Equivalent to Java's `int &gt;&gt;&gt; x` operation.</CodeDescription>
+  <PartID>2143537151</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function RShiftU32(v As Int32, s As Integer) As Int32</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Shifts the passed Int32 `s` bits to the right. Shifts a zero into the left-most position.</SourceLine>
+   <SourceLine>' Equivalent to Java's `int &gt;&gt;&gt; x` operation.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The Int32 value to do the shift on.</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift rightwards.</SourceLine>
    <SourceLine>'</SourceLine>
    <SourceLine>' - Returns: Int32.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Bitwise.ShiftLeft(v, s, 64)</SourceLine>
-   <SourceLine></SourceLine>
+   <SourceLine>Return Bitwise.ShiftRight(v, s, 32)</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -748,27 +726,83 @@
   <ItemResult>Int32</ItemResult>
  </Method>
  <Method>
-  <ItemName>RShift64</ItemName>
+  <ItemName>RShiftU64</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts the bit pattern of `v` to the right by `s` positions. The leftmost position depends on sign extension. Equivalent to Java's `&gt;&gt;` operator.</CodeDescription>
-  <PartID>783497215</PartID>
+  <CodeDescription>Shifts the passed Int64 `s` bits to the right. Shifts a zero into the left-most position. Equivalent to Java's `long &gt;&gt;&gt; x` operation.</CodeDescription>
+  <PartID>664696831</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function RShift64(v As Int64, s As Integer) As Int64</SourceLine>
+   <SourceLine>Function RShiftU64(value As Int64, shift As Integer) As Int64</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>' Shifts the bit pattern of `v` to the right by `s` positions. </SourceLine>
-   <SourceLine>' The leftmost position after shifting depends on sign extension.</SourceLine>
-   <SourceLine>' Equivalent to Java's `int &gt;&gt;` operator.</SourceLine>
-   <SourceLine>' </SourceLine>
-   <SourceLine>' - Parameter v: The bit pattern to shift (64-bits).</SourceLine>
+   <SourceLine>' Shifts the passed Int64 `s` bits to the right. Shifts a zero into the left-most position.</SourceLine>
+   <SourceLine>' Equivalent to Java's `long &gt;&gt;&gt; x` operation.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The Int64 value to do the shift on.</SourceLine>
    <SourceLine>' - Parameter s: The number of positions to shift rightwards.</SourceLine>
    <SourceLine>'</SourceLine>
    <SourceLine>' - Returns: Int64.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Bitwise.ShiftRight(v, s, 64)</SourceLine>
+   <SourceLine>Return Bitwise.ShiftRight(value, shift, 64)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>value As Int64, shift As Integer</ItemParams>
+  <ItemResult>Int64</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>LShift32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Shifts left the 32-bit bit pattern of `v` by `s` bits.  Equivalent to Java's `int &lt;&lt; x` operator.</CodeDescription>
+  <PartID>269539327</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function LShift32(v As Int32, s As Integer) As Int32</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>' Shifts left the 32-bit bit pattern of `v` by `s` bits. </SourceLine>
+   <SourceLine>' Equivalent to Java's `int &lt;&lt; x` operator.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The bit pattern to shift left as an Int32.</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift left by.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int32.</SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
+   <SourceLine>Return Bitwise.ShiftLeft(v, s, 32)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>v As Int32, s As Integer</ItemParams>
+  <ItemResult>Int32</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>LShift64</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Shifts left the 64-bit bit pattern of `v` by `s` bits.  Equivalent to Java's `long &lt;&lt; x` operator.</CodeDescription>
+  <PartID>820414463</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function LShift64(v As Int64, s As Integer) As Int64</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>' Shifts left the 64-bit bit pattern of `v` by `s` bits. </SourceLine>
+   <SourceLine>' Equivalent to Java's `int &lt;&lt; x` operator.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter v: The bit pattern to shift left as an Int64.</SourceLine>
+   <SourceLine>' - Parameter s: The number of positions to shift left by.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int64.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Bitwise.ShiftLeft(v, s, 64)</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>

@@ -103,6 +103,8 @@ Inherits TestGroup
 		  ' Tests the GetExponent method.
 		  ///
 		  
+		  #Pragma BreakOnExceptions False
+		  
 		  Assert.AreEqual(8, MathsKit.GetExponent(345.65))
 		  Assert.AreEqual(1024, MathsKit.GetExponent(1.0 / 0.0))
 		  Assert.AreEqual(-1023, MathsKit.GetExponent(0.0))
@@ -115,6 +117,8 @@ Inherits TestGroup
 		  ///
 		  ' Tests the `Hypot` method.
 		  ///
+		  
+		  #Pragma BreakOnExceptions False
 		  
 		  Using MathsKit
 		  
@@ -136,40 +140,49 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub LShiftTest()
+		Sub IsInfinityTest()
 		  ///
-		  ' Tests my implementation of the `<<` operator.
+		  ' Tests the `IsInfinity` method.
 		  ///
 		  
-		  ' -2 << 1 = -4
-		  ' 0 << 1 = 0
-		  ' -1 << 1 = -2
-		  ' 100 << 1 = 200
-		  ' -2147483648 << 1 = 0
-		  ' 2147483647 << 1 = -2
+		  Assert.IsTrue(MathsKit.IsInfinite(1.0/0.0))
+		  Assert.IsFalse(MathsKit.IsInfinite(0.0/0.0))
+		  Assert.IsFalse(MathsKit.IsInfinite(3.5))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub LShift32Test()
+		  ///
+		  ' Tests long = int << x
+		  ///
 		  
-		  Using MathsKit
+		  Assert.AreEqual(1152, MathsKit.LShift32(9, 7))
+		  Assert.AreEqual(0, MathsKit.LShift32(0, 1))
+		  Assert.AreEqual(2, MathsKit.LShift32(1, 1))
+		  Assert.AreEqual(-2, MathsKit.LShift32(-1, 1))
+		  Assert.AreEqual(-2, MathsKit.LShift32(2147483647, 1))
+		  Assert.AreEqual(-32, MathsKit.LShift32(2147483647, 5))
+		  Assert.AreEqual(0, MathsKit.LShift32(-2147483648, 1))
+		  Assert.AreEqual(0, MathsKit.LShift32(-2147483648, 8))
 		  
-		  Var a As Int32 = LShift(-2, 1)
-		  Var b As Int32 = LShift(0, 1)
-		  Var c As Int32 = LShift(-1, 1)
-		  Var d As Int32 = LShift(100, 1)
-		  Var e As Int32 = LShift(-2147483648, 1)
-		  Var f As Int32 = LShift(2147483647, 1)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub LShift64Test()
+		  ///
+		  ' Tests long = long << x
+		  ///
 		  
-		  Var a_ As Int32 = -4
-		  Var b_ As Int32 = 0
-		  Var c_ As Int32 = -2
-		  Var d_ As Int32 = 200
-		  Var e_ As Int32 = 0
-		  Var f_ As Int32 = -2
-		  
-		  Assert.AreEqual(a_, a)
-		  Assert.AreEqual(b_, b)
-		  Assert.AreEqual(c_, c)
-		  Assert.AreEqual(d_, d)
-		  Assert.AreEqual(e_, e)
-		  Assert.AreEqual(f_, f)
+		  Assert.AreEqual(1152, MathsKit.LShift64(9, 7))
+		  Assert.AreEqual(0, MathsKit.LShift64(0, 1))
+		  Assert.AreEqual(2, MathsKit.LShift64(1, 1))
+		  Assert.AreEqual(-2, MathsKit.LShift64(-1, 1))
+		  Assert.AreEqual(4294967294, MathsKit.LShift64(2147483647, 1))
+		  Assert.AreEqual(68719476704, MathsKit.LShift64(2147483647, 5))
+		  Assert.AreEqual(-4294967296, MathsKit.LShift64(-2147483648, 1))
+		  Assert.AreEqual(-549755813888, MathsKit.LShift64(-2147483648, 8))
 		  
 		End Sub
 	#tag EndMethod
@@ -177,77 +190,107 @@ Inherits TestGroup
 	#tag Method, Flags = &h0
 		Sub RShiftTest()
 		  ///
-		  ' Tests my implementation of the `>>` operator.
+		  ' Tests long = int >> x
 		  ///
 		  
-		  ' -2 >> 1 = -1
-		  ' 0 >> 1 = 0
-		  ' -1 >> 1 = -1
-		  ' 100 >> 1 = 50
-		  ' -2147483648 >> 1 = -1073741824
-		  ' 2147483647 >> 1 = 1073741823
+		  // Values that fit into an Int32.
+		  Var a As Int64 = MathsKit.RShift(-2, 1)
+		  Var b As Int64 = MathsKit.RShift(0, 1)
+		  Var c As Int64 = MathsKit.RShift(-1, 1)
+		  Var d As Int64 = MathsKit.RShift(1, 1)
+		  Var e As Int64 = MathsKit.RShift(100, 1)
+		  Var f As Int64 = MathsKit.RShift(-2147483648, 1)
+		  Var g As Int64 = MathsKit.RShift(2147483647, 1)
+		  Var h As Int64 = MathsKit.RShift(2147483647, 5)
+		  Var i As Int64 = MathsKit.RShift(-1, 30)
 		  
-		  Using MathsKit
+		  Assert.AreEqual(-1, a)
+		  Assert.AreEqual(0, b)
+		  Assert.AreEqual(-1, c)
+		  Assert.AreEqual(0, d)
+		  Assert.AreEqual(50, e)
+		  Assert.AreEqual(-1073741824, f) 
+		  Assert.AreEqual(1073741823, g)
+		  Assert.AreEqual(67108863, h)
+		  Assert.AreEqual(-1, i)
 		  
-		  Var a As Int32 = RShift32(-2, 1)
-		  Var b As Int32 = RShift32(0, 1)
-		  Var c As Int32 = RShift32(-1, 1)
-		  Var d As Int32 = RShift32(100, 1)
-		  Var e As Int32 = RShift32(-2147483648, 1)
-		  Var f As Int32 = RShift32(2147483647, 1)
+		  // Use values that would only fit in an Int64.
+		  Var j As Int64 = MathsKit.RShift(2147483999, 1)
+		  Var k As Int64 = MathsKit.RShift(-2147483999, 30)
 		  
-		  Var a_ As Int32 = -1
-		  Var b_ As Int32 = 0
-		  Var c_ As Int32 = -1
-		  Var d_ As Int32 = 50
-		  Var e_ As Int32 = -1073741824
-		  Var f_ As Int32 = 1073741823
+		  Assert.AreEqual(1073741999, j)
+		  Assert.AreEqual(-3, k)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub RShiftU32Test()
+		  ///
+		  ' Tests long = int >>> x
+		  ///
 		  
-		  Assert.AreEqual(a_, a)
-		  Assert.AreEqual(b_, b)
-		  Assert.AreEqual(c_, c)
-		  Assert.AreEqual(d_, d)
-		  Assert.AreEqual(e_, e)
-		  Assert.AreEqual(f_, f)
+		  Var a As Int64 = MathsKit.RShiftU32(-2, 1) ' -2 >>> 1
+		  Var b As Int64 = MathsKit.RShiftU32(0, 1) ' 0 >>> 1
+		  Var c As Int64 = MathsKit.RShiftU32(-1, 1) ' -1 >>> 1
+		  Var d As Int64 = MathsKit.RShiftU32(1, 1) ' 1 >>> 1
+		  Var e As Int64 = MathsKit.RShiftU32(100, 1) ' 100 >>> 1
+		  Var f As Int64 = MathsKit.RShiftU32(-2147483648, 1) ' -2147483648, >>> 1
+		  Var g As Int64 = MathsKit.RShiftU32(2147483647, 1) ' 2147483647 >>> 1
+		  
+		  Assert.AreEqual(2147483647, a)
+		  Assert.AreEqual(0, b)
+		  Assert.AreEqual(2147483647, c)
+		  Assert.AreEqual(0, d)
+		  Assert.AreEqual(50, e)
+		  Assert.AreEqual(1073741824, f)
+		  Assert.AreEqual(1073741823, g)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RShiftUTest()
+		Sub RShiftU64Test()
 		  ///
-		  ' Tests my implementation of the `>>>` operator.
+		  ' Tests long = long >>> x
 		  ///
 		  
-		  ' -2 >>> 1 = 2147483647
-		  ' 0 >>> 1 = 0
-		  ' -1 >>> 1 = 2147483647
-		  ' 100 >>> 1 = 50
-		  ' -2147483648 >>> 1 = 1073741824
-		  ' 2147483647 >>> 1 = 1073741823
+		  Var a As Int64 = MathsKit.RShiftU64(-2, 1) ' -2 >>> 1
+		  Var b As Int64 = MathsKit.RShiftU64(0, 1) ' 0 >>> 1
+		  Var c As Int64 = MathsKit.RShiftU64(-1, 1) ' -1 >>> 1
+		  Var d As Int64 = MathsKit.RShiftU64(1, 1) ' 1 >>> 1
+		  Var e As Int64 = MathsKit.RShiftU64(100, 1) ' 100 >>> 1
+		  Var f As Int64 = MathsKit.RShiftU64(-2147483648, 1) ' -2147483648, >>> 1
+		  Var g As Int64 = MathsKit.RShiftU64(2147483647, 1) ' 2147483647 >>> 1
+		  Var h As Int64 = MathsKit.RShiftU64(2147483999, 1) ' 2147483999 >>> 1
 		  
-		  Using MathsKit
+		  Assert.AreEqual(9223372036854775807, a)
+		  Assert.AreEqual(0, b)
+		  Assert.AreEqual(9223372036854775807, c)
+		  Assert.AreEqual(0, d)
+		  Assert.AreEqual(50, e)
+		  Assert.AreEqual(9223372035781033984, f)
+		  Assert.AreEqual(1073741823, g)
+		  Assert.AreEqual(1073741999, h)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ScalbTest()
+		  ///
+		  ' Tests the Scalb method.
+		  ///
 		  
-		  Var a As Int32 = RShiftU32(-2, 1)
-		  Var b As Int32 = RShiftU32(0, 1)
-		  Var c As Int32 = RShiftU32(-1, 1)
-		  Var d As Int32 = RShiftU32(100, 1)
-		  Var e As Int32 = RShiftU32(-2147483648, 1)
-		  Var f As Int32 = RShiftU32(2147483647, 1)
-		  
-		  Var a_ As Int32 = 2147483647
-		  Var b_ As Int32 = 0
-		  Var c_ As Int32 = 2147483647
-		  Var d_ As Int32 = 50
-		  Var e_ As Int32 = 1073741824
-		  Var f_ As Int32 = 1073741823
-		  
-		  Assert.AreEqual(a_, a)
-		  Assert.AreEqual(b_, b)
-		  Assert.AreEqual(c_, c)
-		  Assert.AreEqual(d_, d)
-		  Assert.AreEqual(e_, e)
-		  Assert.AreEqual(f_, f)
+		  Assert.AreEqual(13342.72, MathsKit.Scalb(52.12, 8))
+		  Assert.AreEqual(2.0, MathsKit.Scalb(2, 0))
+		  Assert.AreEqual(0.0, MathsKit.Scalb(0, 2))
+		  Assert.AreEqual(16.0, MathsKit.Scalb(2, 3))     
+		  Assert.AreEqual(-96.0, MathsKit.Scalb(-3, 5))
+		  Assert.AreEqual(0.1875, MathsKit.Scalb(3, -4))
+		  Assert.AreEqual(-0.5, MathsKit.Scalb(-2, -2))
+		  Assert.AreEqual(175.4656, MathsKit.Scalb(10.9666, 4))
+		  Assert.AreEqual(-75.792, MathsKit.Scalb(-9.474, 3))
+		  Assert.AreEqual(1.833425, MathsKit.Scalb(14.6674, -3))
+		  Assert.AreEqual(-0.2341640625, MathsKit.Scalb(-14.9865, -6))
 		  
 		End Sub
 	#tag EndMethod
