@@ -640,7 +640,7 @@
    <SourceLine>'</SourceLine>
    <SourceLine>' - Parameter condition: The condition that should be True.</SourceLine>
    <SourceLine>'</SourceLine>
-   <SourceLine>' - Throws: RuntimeException if `condition` is False.</SourceLine>
+   <SourceLine>' - Raises: RuntimeException if `condition` is False.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If Not condition Then</SourceLine>
@@ -811,6 +811,138 @@
   <IsShared>0</IsShared>
   <ItemParams>v As Int64, s As Integer</ItemParams>
   <ItemResult>Int64</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>NumberOfLeadingZeros</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the number of zero bits preceding the highest-order ("leftmost") one-bit in the two's complement binary representation of the specified Int64 value `i`. Returns 64 if `i = 0`.</CodeDescription>
+  <PartID>113790975</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NumberOfLeadingZeros(i As Int64) As Int32</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the number of zero bits preceding the highest-order ("leftmost") one-bit </SourceLine>
+   <SourceLine>' in the two's complement binary representation of the specified Int64 value. </SourceLine>
+   <SourceLine>' Returns 64 if the specified value has no one-bits in its two's complement representation,</SourceLine>
+   <SourceLine>' in other words if it is equal to zero.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Note that this method is closely related to the logarithm base 2.</SourceLine>
+   <SourceLine>' For all positive Int64 values x:</SourceLine>
+   <SourceLine>' - Floor(log₂(x)) = `63 - NumberOfLeadingZeros(x)`</SourceLine>
+   <SourceLine>' - Ceil(₂(x)) = `64 - NumberOfLeadingZeros(x - 1)`</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int32.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If i = 0 Then Return 64</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var n As Int32 = 1</SourceLine>
+   <SourceLine>Var x As Int32 = RShiftU64(i, 32)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If x = 0 Then</SourceLine>
+   <SourceLine>n = n + 32</SourceLine>
+   <SourceLine>x = i</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If RShiftU64(x, 16) = 0 Then</SourceLine>
+   <SourceLine>n = n + 16</SourceLine>
+   <SourceLine>x = LShift32(x, 16)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If RShiftU32(x, 24) = 0 Then</SourceLine>
+   <SourceLine>n = n + 8</SourceLine>
+   <SourceLine>x = LShift32(x, 8)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If RShiftU32(x, 28) = 0 Then</SourceLine>
+   <SourceLine>n = n + 4</SourceLine>
+   <SourceLine>x = LShift32(x, 4)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If RShiftU32(x, 30) = 0 Then</SourceLine>
+   <SourceLine>n = n + 2</SourceLine>
+   <SourceLine>x = LShift32(x, 2)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>n = n - RShiftU32(x, 31)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return n</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>i As Int64</ItemParams>
+  <ItemResult>Int32</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>NumberOfTrailingZeros</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the number of zero bits following the lowest-order ("rightmost") one-bit in the two's complement binary representation of the specified Int64 value.  Returns 64 if `i = 0`.</CodeDescription>
+  <PartID>759306239</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NumberOfTrailingZeros(i As Int64) As Int32</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the number of zero bits following the lowest-order ("rightmost")</SourceLine>
+   <SourceLine>' one-bit in the two's complement binary representation of the specified</SourceLine>
+   <SourceLine>' Int64 value.  Returns 64 if the specified value has no one-bits in its two's complement </SourceLine>
+   <SourceLine>' representation, in other words if it is equal to zero.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: Int32.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If i = 0 Then Return 64</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var n As Int32 = 63</SourceLine>
+   <SourceLine>Var x, y As Int32</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>y = i</SourceLine>
+   <SourceLine>If y &lt;&gt; 0 Then</SourceLine>
+   <SourceLine>n = n - 32</SourceLine>
+   <SourceLine>x = y</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>x = RShiftU64(i, 32)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>y = LShift32(x, 16)</SourceLine>
+   <SourceLine>If y &lt;&gt; 0 Then</SourceLine>
+   <SourceLine>n = n - 16</SourceLine>
+   <SourceLine>x = y</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>y = LShift32(x, 8)</SourceLine>
+   <SourceLine>If y &lt;&gt; 0 Then</SourceLine>
+   <SourceLine>n = n - 8</SourceLine>
+   <SourceLine>x = y</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>y = LShift32(x, 4)</SourceLine>
+   <SourceLine>If y &lt;&gt; 0 Then</SourceLine>
+   <SourceLine>n = n - 4</SourceLine>
+   <SourceLine>x = y</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>y = LShift32(x, 2)</SourceLine>
+   <SourceLine>If y &lt;&gt; 0 Then</SourceLine>
+   <SourceLine>n = n - 2</SourceLine>
+   <SourceLine>x = y</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return n - RShiftU32(LShift32(x, 1), 31)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>i As Int64</ItemParams>
+  <ItemResult>Int32</ItemResult>
  </Method>
  <Property>
   <ItemName>m180_OVER_PI</ItemName>
@@ -1014,7 +1146,7 @@
   <PartID>1188339711</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_EXP_BIAS As Int32</SourceLine>
+   <SourceLine>DOUBLE_EXP_BIAS As Int32</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1042,7 +1174,7 @@
   <PartID>2087270399</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_EXP_BIT_MASK As Int64</SourceLine>
+   <SourceLine>DOUBLE_EXP_BIT_MASK As Int64</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1070,7 +1202,7 @@
   <PartID>810315775</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_SIGN_BIT_MASK As Int64</SourceLine>
+   <SourceLine>DOUBLE_SIGN_BIT_MASK As Int64</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1098,7 +1230,7 @@
   <PartID>1086181375</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_SIGNIF_BIT_MASK As Int64</SourceLine>
+   <SourceLine>DOUBLE_SIGNIF_BIT_MASK As Int64</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1126,8 +1258,8 @@
   <PartID>1612963839</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_SIGNIFICAND_WIDTH As Int32</SourceLine>
-   <SourceLine>s</SourceLine>
+   <SourceLine>DOUBLE_SIGNIFICAND_WIDTH As Int32</SourceLine>
+   <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
   <ItemDeclaration>DOUBLE_SIGNIFICAND_WIDTH As Int32</ItemDeclaration>
@@ -1154,7 +1286,7 @@
   <PartID>1567776767</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_MIN_SUB_EXPONENT As Int32</SourceLine>
+   <SourceLine>DOUBLE_MIN_SUB_EXPONENT As Int32</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1182,7 +1314,7 @@
   <PartID>1219397631</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_MAX_EXPONENT As Int32</SourceLine>
+   <SourceLine>DOUBLE_MAX_EXPONENT As Int32</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1211,7 +1343,7 @@
   <PartID>781277183</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property DOUBLE_MIN_EXPONENT As Int32</SourceLine>
+   <SourceLine>DOUBLE_MIN_EXPONENT As Int32</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
