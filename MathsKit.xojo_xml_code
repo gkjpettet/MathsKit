@@ -944,6 +944,89 @@
   <ItemParams>i As Int64</ItemParams>
   <ItemResult>Int32</ItemResult>
  </Method>
+ <Method>
+  <ItemName>NextUp</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the floating-point value adjacent to `d` in the direction of positive infinity.</CodeDescription>
+  <PartID>796006399</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NextUp(d As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the floating-point value adjacent to `d` in</SourceLine>
+   <SourceLine>' the direction of positive infinity. This method is semantically equivalent </SourceLine>
+   <SourceLine>' to `NextAfter(d, POSITIVE_INFINITY)` however, a `NextUp` implementation may run </SourceLine>
+   <SourceLine>' faster than its equivalent `NextAfter` call.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Special Cases:</SourceLine>
+   <SourceLine>' - If the argument is NaN, the result is NaN.</SourceLine>
+   <SourceLine>' - If the argument is positive infinity, the result is positive infinity.</SourceLine>
+   <SourceLine>' - If the argument is zero, the result is DOUBLE_MIN_VALUE</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: Starting floating-point value/</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: The adjacent floating-point value closer to positive infinity.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If IsNaN(d) Or d = POSITIVE_INFINITY Then</SourceLine>
+   <SourceLine>Return d</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>d = d + 0.0</SourceLine>
+   <SourceLine>Return BitsToDouble(DoubleToRawBits(d)) + If(d &gt;= 0.0, 1, -1)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>NextDown</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>980785151</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NextDown(d As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the floating-point value adjacent to `d` in the direction of negative infinity. </SourceLine>
+   <SourceLine>' This method is semantically equivalent to `NextAfter(d, NEGATIVE_INFINITY)` however, a</SourceLine>
+   <SourceLine>' `NextDown` implementation may run faster than its equivalent `NextAfter` call.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Special Cases:</SourceLine>
+   <SourceLine>' - If the argument is NaN, the result is NaN.</SourceLine>
+   <SourceLine>' - If the argument is negative infinity, the result is negative infinity.</SourceLine>
+   <SourceLine>' - If the argument is zero, the result is `-DOUBLE_MIN_VALUE`.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: Starting floating-point value.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: The adjacent floating-point value closer to negative infinity.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If IsNaN(d) Or d = NEGATIVE_INFINITY Then</SourceLine>
+   <SourceLine>Return d</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>If d = 0.0 Then</SourceLine>
+   <SourceLine>Return -DOUBLE_MIN_VALUE</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return BitsToDouble(DoubleToRawBits(d)) + If(d &gt; 0.0, -1, 1)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
  <Property>
   <ItemName>m180_OVER_PI</ItemName>
   <Compatibility></Compatibility>
