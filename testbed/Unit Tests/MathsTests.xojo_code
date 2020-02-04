@@ -246,6 +246,37 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub NumberOfLeadingZerosTest()
+		  ///
+		  ' Tests the NumberOfLeadingZeros method.
+		  ///
+		  
+		  Using MathsKit
+		  
+		  Assert.AreEqual(64, NumberOfLeadingZeros(0))
+		  Assert.AreEqual(56, NumberOfLeadingZeros(210))
+		  Assert.AreEqual(52, NumberOfLeadingZeros(2234))
+		  
+		  Assert.AreEqual(0, NumberOfLeadingZeros(-1))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub NumberOfTrailingZerosTest()
+		  ///
+		  ' Tests the NumberOfTrailingZeros method.
+		  ///
+		  
+		  Using MathsKit
+		  
+		  Assert.AreEqual(0, NumberOfTrailingZeros(-1))
+		  Assert.AreEqual(64, NumberOfTrailingZeros(0))
+		  Assert.AreEqual(2, NumberOfTrailingZeros(100))
+		  Assert.AreEqual(1, NumberOfTrailingZeros(99946))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RShiftTest()
 		  ///
 		  ' Tests long = int >> x
