@@ -1027,6 +1027,253 @@
   <ItemParams>d As Double</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns a binary string representation of the passed value.</CodeDescription>
+  <PartID>2016161791</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends currencyValue As Currency) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var mb As New MemoryBlock(8)</SourceLine>
+   <SourceLine>mb.LittleEndian = False</SourceLine>
+   <SourceLine>mb.CurrencyValue(0) = currencyValue</SourceLine>
+   <SourceLine>Var ui64 As UInt64 = mb.UInt64Value(0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + ui64.ToBinary, 64)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends currencyValue As Currency</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1809985535</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends doubleValue As Double) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var mb As New MemoryBlock(8)</SourceLine>
+   <SourceLine>mb.LittleEndian = false</SourceLine>
+   <SourceLine>mb.DoubleValue(0) = doubleValue</SourceLine>
+   <SourceLine>Var ui64 As UInt64 = mb.UInt64Value(0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + ui64.ToBinary, 64)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends doubleValue As Double</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>750970879</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i16 As Int16) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("0000000000000000" + i16.ToBinary, 16)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i16 As Int16</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1668577279</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i32 As Int32) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("00000000000000000000000000000000" + i32.ToBinary, 32)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i32 As Int32</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>536213503</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i64 As Int64) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + i64.ToBinary, 64)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i64 As Int64</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>842901503</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i8 As Int8) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("00000000" + i8.ToBinary, 8)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i8 As Int8</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>615667711</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends singleValue As Single) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var mb As New MemoryBlock(4)</SourceLine>
+   <SourceLine>mb.LittleEndian = false</SourceLine>
+   <SourceLine>mb.SingleValue(0) = singlevalue</SourceLine>
+   <SourceLine>Var ui32 As UInt32 = mb.UInt32Value(0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("00000000000000000000000000000000" + ui32.ToBinary, 32)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends singleValue As Single</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>8353791</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i16 As UInt16) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("0000000000000000" + i16.ToBinary, 16)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i16 As UInt16</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1836263423</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i32 As UInt32) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("00000000000000000000000000000000" + i32.ToBinary, 32)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i32 As UInt32</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>596527103</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i64 As UInt64) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + i64.ToBinary, 64)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i64 As UInt64</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ToBinaryString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1191933951</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ToBinaryString(Extends i8 As UInt8) As String</SourceLine>
+   <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Right("00000000" + i8.ToBinary, 8)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends i8 As UInt8</ItemParams>
+  <ItemResult>String</ItemResult>
+ </Method>
  <Property>
   <ItemName>m180_OVER_PI</ItemName>
   <Compatibility></Compatibility>
