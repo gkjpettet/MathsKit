@@ -104,7 +104,7 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Signum(d As Double) As Double</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>' Returns the signum function of the argument; zero if the argument</SourceLine>
+   <SourceLine>' Returns the signum function of the argument: zero if the argument</SourceLine>
    <SourceLine>' is zero, 1.0 if the argument is greater than zero, -1.0 if the</SourceLine>
    <SourceLine>' argument is less than zero.</SourceLine>
    <SourceLine>'</SourceLine>
@@ -392,7 +392,7 @@
    <SourceLine>' If the exponent of the result is between `MIN_EXPONENT` and `MAX_EXPONENT`, the</SourceLine>
    <SourceLine>' answer is calculated exactly.  If the exponent of the result</SourceLine>
    <SourceLine>' would be larger than `MAX_EXPONENT, an infinity is returned. </SourceLine>
-   <SourceLine>' Note that if the result is subnormal, precision may be lost; that is, </SourceLine>
+   <SourceLine>' Note that if the result is subnormal, precision may be lost. That is, </SourceLine>
    <SourceLine>' when `Scalb(x, n)` is subnormal, `Scalb(scalb(x, n), -n) may not equal</SourceLine>
    <SourceLine>' x. When the result is non-NaN, the result has the same sign as `d`.</SourceLine>
    <SourceLine>'</SourceLine>
@@ -407,7 +407,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// When scaling up, it does not matter what order the</SourceLine>
-   <SourceLine>// multiply-store operations are done; the result will be</SourceLine>
+   <SourceLine>// multiply-store operations are done, the result will be</SourceLine>
    <SourceLine>// finite or overflow regardless of the operation ordering.</SourceLine>
    <SourceLine>// However, to get the correct result when scaling down, a</SourceLine>
    <SourceLine>// particular ordering must be used.</SourceLine>
@@ -428,7 +428,7 @@
    <SourceLine>//</SourceLine>
    <SourceLine>// It is _not_ a valid implementation to first multiply d by</SourceLine>
    <SourceLine>// 2^MIN_EXPONENT and then by 2 ^ (scaleFactor % MIN_EXPONENT) s</SourceLine>
-   <SourceLine>// ince eduble ounding on underflow could occur; e.g. if the scaleFactor</SourceLine>
+   <SourceLine>// ince eduble ounding on underflow could occur e.g. if the scaleFactor</SourceLine>
    <SourceLine>// argument was (MIN_EXPONENT - n) and the exponent of d was a</SourceLine>
    <SourceLine>// little less than -(MIN_EXPONENT - n), meaning the final</SourceLine>
    <SourceLine>// result would be subnormal.</SourceLine>
@@ -440,7 +440,7 @@
    <SourceLine></SourceLine>
    <SourceLine>// Magnitude of a power of two so large that scaling a finite</SourceLine>
    <SourceLine>// non-zero value by it would be guaranteed to over or</SourceLine>
-   <SourceLine>// underflow; due to rounding, scaling down takes takes an</SourceLine>
+   <SourceLine>// underflow due to rounding, scaling down takes takes an</SourceLine>
    <SourceLine>// additional power of two which is reflected here.</SourceLine>
    <SourceLine>Var MAX_SCALE As Int32 = DOUBLE_MAX_EXPONENT + -DOUBLE_MIN_EXPONENT + DOUBLE_SIGNIFICAND_WIDTH + 1</SourceLine>
    <SourceLine>Var exp_adjust As Int32 = 0</SourceLine>
@@ -512,11 +512,11 @@
    <SourceLine>' In all other cases, let _s_, _e_, and _m_ be three * values that can be computed from the argument:</SourceLine>
    <SourceLine>'</SourceLine>
    <SourceLine>' &gt; ```</SourceLine>
-   <SourceLine>' &gt; int s = ((bits &gt;&gt; 63) = 0) ? 1 : -1;</SourceLine>
-   <SourceLine>' &gt; int e = (int)((bits &gt;&gt; 52) &amp; 0x7ffL);</SourceLine>
+   <SourceLine>' &gt; int s = ((bits &gt;&gt; 63) = 0) ? 1 : -1</SourceLine>
+   <SourceLine>' &gt; int e = (int)((bits &gt;&gt; 52) &amp; 0x7ffL)</SourceLine>
    <SourceLine>' &gt; long m = (e == 0) ?</SourceLine>
    <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) &lt;&lt; 1 :</SourceLine>
-   <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) | 0x10000000000000L;</SourceLine>
+   <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) | 0x10000000000000L</SourceLine>
    <SourceLine>' &gt; ```</SourceLine>
    <SourceLine>'</SourceLine>
    <SourceLine>' Then the floating-point result equals the value of the mathematical expression `s·m·2^e-1075`</SourceLine>
@@ -530,7 +530,7 @@
    <SourceLine>' calling method may perform this conversion. So `BitsToDouble` may not be able to return </SourceLine>
    <SourceLine>' a Double with a signaling NaN bit pattern.  Consequently, for some UInt64 values,</SourceLine>
    <SourceLine>' `DoubleToRawBits(BitsToDouble(start))` may _not_ equal `start`.  Moreover, which particular </SourceLine>
-   <SourceLine>' bit patterns represent signaling NaNs is platform dependent; although all NaN bit patterns, </SourceLine>
+   <SourceLine>' bit patterns represent signaling NaNs is platform dependent although all NaN bit patterns, </SourceLine>
    <SourceLine>' quiet or signaling, must be in the NaN range identified above.</SourceLine>
    <SourceLine>'</SourceLine>
    <SourceLine>' - Parameter bits: Any Int64 integer.</SourceLine>
@@ -964,7 +964,7 @@
    <SourceLine>' - If the argument is positive infinity, the result is positive infinity.</SourceLine>
    <SourceLine>' - If the argument is zero, the result is DOUBLE_MIN_VALUE</SourceLine>
    <SourceLine>'</SourceLine>
-   <SourceLine>' - Parameter d: Starting floating-point value/</SourceLine>
+   <SourceLine>' - Parameter d: Starting floating-point value.</SourceLine>
    <SourceLine>'</SourceLine>
    <SourceLine>' - Returns: The adjacent floating-point value closer to positive infinity.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -973,7 +973,7 @@
    <SourceLine>Return d</SourceLine>
    <SourceLine>Else</SourceLine>
    <SourceLine>d = d + 0.0</SourceLine>
-   <SourceLine>Return BitsToDouble(DoubleToRawBits(d)) + If(d &gt;= 0.0, 1, -1)</SourceLine>
+   <SourceLine>Return BitsToDouble(DoubleToRawBits(d) + If(d &gt;= 0.0, 1, -1))</SourceLine>
    <SourceLine>End If</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -1014,7 +1014,7 @@
    <SourceLine>If d = 0.0 Then</SourceLine>
    <SourceLine>Return -DOUBLE_MIN_VALUE</SourceLine>
    <SourceLine>Else</SourceLine>
-   <SourceLine>Return BitsToDouble(DoubleToRawBits(d)) + If(d &gt; 0.0, -1, 1)</SourceLine>
+   <SourceLine>Return BitsToDouble(DoubleToRawBits(d) + If(d &gt; 0.0, -1, 1))</SourceLine>
    <SourceLine>End If</SourceLine>
    <SourceLine>End If</SourceLine>
    <SourceLine></SourceLine>

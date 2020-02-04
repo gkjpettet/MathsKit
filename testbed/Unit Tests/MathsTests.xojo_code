@@ -213,6 +213,39 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub NextDownTest()
+		  ///
+		  ' Tests the NextDown method.
+		  ///
+		  
+		  Using MathsKit
+		  
+		  Assert.AreEqual(-DOUBLE_MIN_VALUE, NextDown(0))
+		  Assert.IsNegativeInfinity(NextDown(NEGATIVE_INFINITY))
+		  Assert.IsNaN(NextDown(NAN))
+		  Assert.AreEqual(23.439999999999998, NextDown(23.44))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub NextUpTest()
+		  ///
+		  ' Tests the NextUp method.
+		  ///
+		  
+		  Using MathsKit
+		  
+		  Assert.IsPositiveInfinity(NextUp(POSITIVE_INFINITY))
+		  Assert.AreEqual(-1.7976931348623157e308, NextUp(NEGATIVE_INFINITY))
+		  Assert.IsNaN(NextUp(NAN))
+		  Assert.AreEqual(69.19000000000001, NextUp(69.19))
+		  Assert.AreEqual(1.4e-45, NextUp(0))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RShiftTest()
 		  ///
 		  ' Tests long = int >> x
