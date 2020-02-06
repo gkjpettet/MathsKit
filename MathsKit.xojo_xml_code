@@ -158,13 +158,13 @@
   <ItemName>ToRadians</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the specified angle in radians in degrees.</CodeDescription>
+  <CodeDescription>Returns the passed degrees value in radians.</CodeDescription>
   <PartID>619614207</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ToRadians(degrees As Double) As Double</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>' Returns the specified angle in radians in degrees.</SourceLine>
+   <SourceLine>' Returns the passed degrees value in radians.</SourceLine>
    <SourceLine>' </SourceLine>
    <SourceLine>' - Parameter degrees: The angle in degrees.</SourceLine>
    <SourceLine>'</SourceLine>
