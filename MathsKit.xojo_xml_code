@@ -1274,6 +1274,57 @@
   <ItemParams>Extends i8 As UInt8</ItemParams>
   <ItemResult>String</ItemResult>
  </Method>
+ <Method>
+  <ItemName>Cbrt</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>373960703</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Cbrt(d As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the cube root of a Double value.</SourceLine>
+   <SourceLine>' For positive finite `x`, `Cbrt(-x) = -cbrt(x)`</SourceLine>
+   <SourceLine>' That is, the cube root of a negative value is the negative Of the cube root of that value's magnitude.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' Special cases:</SourceLine>
+   <SourceLine>' - If the argument is NaN, then the result Is NaN.</SourceLine>
+   <SourceLine>' - If the argument is infinite, Then the result is an infinity</SourceLine>
+   <SourceLine>'   with the same sign as the argument.</SourceLine>
+   <SourceLine>' - If the argument is zero, then the result is a zero with the same sign as the argument.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Check the arguments.</SourceLine>
+   <SourceLine>If IsNaN(d) Then Return NAN</SourceLine>
+   <SourceLine>If IsInfinite(d) Then</SourceLine>
+   <SourceLine>If d &gt;= 0 Then</SourceLine>
+   <SourceLine>Return POSITIVE_INFINITY</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return NEGATIVE_INFINITY</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var result As Double = Pow(d, 1.0 / 3.0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If result = 0 Then</SourceLine>
+   <SourceLine>If d &gt;= 0 Then</SourceLine>
+   <SourceLine>Return 0</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return -0</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return result</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
  <Property>
   <ItemName>m180_OVER_PI</ItemName>
   <Compatibility></Compatibility>

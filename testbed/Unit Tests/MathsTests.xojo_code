@@ -36,9 +36,24 @@ Inherits TestGroup
 		  ' Tests the `MathsKit.BitsToDouble` method.
 		  ///
 		  
-		  Using MathsKit
-		  
 		  Assert.AreEqual(3.338742E-317, BitsToDouble(6757689))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CbrtTest()
+		  ///
+		  ' Tests the Cbrt method.
+		  ///
+		  
+		  Assert.IsPositiveInfinity(Cbrt(1.0/0.0))
+		  Assert.IsNegativeInfinity(Cbrt(-1.0/0.0))
+		  Assert.AreEqual(0.0, Cbrt(0.0))
+		  Assert.AreEqual(-0.0, Cbrt(-0.0))
+		  Assert.AreEqual(5.0, Cbrt(125.0))
+		  Assert.AreEqual(9.0, Cbrt(729))
+		  Assert.AreEqual(10.727636943228317, Cbrt(1234.56))
+		  
 		End Sub
 	#tag EndMethod
 
@@ -51,21 +66,21 @@ Inherits TestGroup
 		  Var a As Double = 34.543
 		  Var b As Double = -123.44
 		  
-		  Assert.AreEqual(-34.543, MathsKit.CopySign(a, b))
-		  Assert.AreEqual(123.44, MathsKit.CopySign(b, a))
+		  Assert.AreEqual(-34.543, CopySign(a, b))
+		  Assert.AreEqual(123.44, CopySign(b, a))
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DoubleMaxExponentTest()
-		  Assert.AreEqual(MathsKit.GetExponent(MathsKit.DOUBLE_MAX_VALUE), MathsKit.DOUBLE_MAX_EXPONENT)
+		  Assert.AreEqual(GetExponent(DOUBLE_MAX_VALUE), DOUBLE_MAX_EXPONENT)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DoubleMinExponentTest()
-		  Assert.AreEqual(MathsKit.GetExponent(MathsKit.DOUBLE_MIN_NORMAL), MathsKit.DOUBLE_MIN_EXPONENT)
+		  Assert.AreEqual(GetExponent(DOUBLE_MIN_NORMAL), DOUBLE_MIN_EXPONENT)
 		  
 		End Sub
 	#tag EndMethod
@@ -75,8 +90,6 @@ Inherits TestGroup
 		  ///
 		  ' Tests the `DoubleToBits` method.
 		  ///
-		  
-		  Using MathsKit
 		  
 		  Var posInf As Int64 = &h7ff0000000000000
 		  Var negInf As Int64 = &hfff0000000000000
@@ -95,8 +108,6 @@ Inherits TestGroup
 		  ///
 		  ' Tests the `DoubleToRawBits` method.
 		  ///
-		  
-		  Using MathsKit
 		  
 		  Var posInf As Int64 = &h7ff0000000000000
 		  Var negInf As Int64 = &hfff0000000000000
@@ -119,10 +130,10 @@ Inherits TestGroup
 		  
 		  #Pragma BreakOnExceptions False
 		  
-		  Assert.AreEqual(8, MathsKit.GetExponent(345.65))
-		  Assert.AreEqual(1024, MathsKit.GetExponent(1.0 / 0.0))
-		  Assert.AreEqual(-1023, MathsKit.GetExponent(0.0))
-		  Assert.AreEqual(5, MathsKit.GetExponent(50.45))
+		  Assert.AreEqual(8, GetExponent(345.65))
+		  Assert.AreEqual(1024, GetExponent(1.0 / 0.0))
+		  Assert.AreEqual(-1023, GetExponent(0.0))
+		  Assert.AreEqual(5, GetExponent(50.45))
 		End Sub
 	#tag EndMethod
 
@@ -133,8 +144,6 @@ Inherits TestGroup
 		  ///
 		  
 		  #Pragma BreakOnExceptions False
-		  
-		  Using MathsKit
 		  
 		  // If either argument is infinite, then the result is positive infinity.
 		  Assert.IsPositiveInfinity(Hypot(POSITIVE_INFINITY, 3.0))
@@ -159,9 +168,9 @@ Inherits TestGroup
 		  ' Tests the `IsInfinity` method.
 		  ///
 		  
-		  Assert.IsTrue(MathsKit.IsInfinite(1.0/0.0))
-		  Assert.IsFalse(MathsKit.IsInfinite(0.0/0.0))
-		  Assert.IsFalse(MathsKit.IsInfinite(3.5))
+		  Assert.IsTrue(IsInfinite(1.0/0.0))
+		  Assert.IsFalse(IsInfinite(0.0/0.0))
+		  Assert.IsFalse(IsInfinite(3.5))
 		End Sub
 	#tag EndMethod
 
@@ -171,7 +180,7 @@ Inherits TestGroup
 		  ' Tests thet IsNaN method.
 		  ///
 		  
-		  Assert.IsTrue(MathsKit.IsNaN(0.0/0.0))
+		  Assert.IsTrue(IsNaN(0.0/0.0))
 		  
 		End Sub
 	#tag EndMethod
@@ -182,14 +191,14 @@ Inherits TestGroup
 		  ' Tests long = int << x
 		  ///
 		  
-		  Assert.AreEqual(1152, MathsKit.LShift32(9, 7))
-		  Assert.AreEqual(0, MathsKit.LShift32(0, 1))
-		  Assert.AreEqual(2, MathsKit.LShift32(1, 1))
-		  Assert.AreEqual(-2, MathsKit.LShift32(-1, 1))
-		  Assert.AreEqual(-2, MathsKit.LShift32(2147483647, 1))
-		  Assert.AreEqual(-32, MathsKit.LShift32(2147483647, 5))
-		  Assert.AreEqual(0, MathsKit.LShift32(-2147483648, 1))
-		  Assert.AreEqual(0, MathsKit.LShift32(-2147483648, 8))
+		  Assert.AreEqual(1152, LShift32(9, 7))
+		  Assert.AreEqual(0, LShift32(0, 1))
+		  Assert.AreEqual(2, LShift32(1, 1))
+		  Assert.AreEqual(-2, LShift32(-1, 1))
+		  Assert.AreEqual(-2, LShift32(2147483647, 1))
+		  Assert.AreEqual(-32, LShift32(2147483647, 5))
+		  Assert.AreEqual(0, LShift32(-2147483648, 1))
+		  Assert.AreEqual(0, LShift32(-2147483648, 8))
 		  
 		End Sub
 	#tag EndMethod
@@ -200,14 +209,14 @@ Inherits TestGroup
 		  ' Tests long = long << x
 		  ///
 		  
-		  Assert.AreEqual(1152, MathsKit.LShift64(9, 7))
-		  Assert.AreEqual(0, MathsKit.LShift64(0, 1))
-		  Assert.AreEqual(2, MathsKit.LShift64(1, 1))
-		  Assert.AreEqual(-2, MathsKit.LShift64(-1, 1))
-		  Assert.AreEqual(4294967294, MathsKit.LShift64(2147483647, 1))
-		  Assert.AreEqual(68719476704, MathsKit.LShift64(2147483647, 5))
-		  Assert.AreEqual(-4294967296, MathsKit.LShift64(-2147483648, 1))
-		  Assert.AreEqual(-549755813888, MathsKit.LShift64(-2147483648, 8))
+		  Assert.AreEqual(1152, LShift64(9, 7))
+		  Assert.AreEqual(0, LShift64(0, 1))
+		  Assert.AreEqual(2, LShift64(1, 1))
+		  Assert.AreEqual(-2, LShift64(-1, 1))
+		  Assert.AreEqual(4294967294, LShift64(2147483647, 1))
+		  Assert.AreEqual(68719476704, LShift64(2147483647, 5))
+		  Assert.AreEqual(-4294967296, LShift64(-2147483648, 1))
+		  Assert.AreEqual(-549755813888, LShift64(-2147483648, 8))
 		  
 		End Sub
 	#tag EndMethod
@@ -217,8 +226,6 @@ Inherits TestGroup
 		  ///
 		  ' Tests the NextDown method.
 		  ///
-		  
-		  Using MathsKit
 		  
 		  Assert.AreEqual(-DOUBLE_MIN_VALUE, NextDown(0))
 		  Assert.IsNegativeInfinity(NextDown(NEGATIVE_INFINITY))
@@ -233,8 +240,6 @@ Inherits TestGroup
 		  ///
 		  ' Tests the NextUp method.
 		  ///
-		  
-		  Using MathsKit
 		  
 		  Assert.IsPositiveInfinity(NextUp(POSITIVE_INFINITY))
 		  Assert.AreEqual(-1.7976931348623157e308, NextUp(NEGATIVE_INFINITY))
@@ -251,8 +256,6 @@ Inherits TestGroup
 		  ' Tests the NumberOfLeadingZeros method.
 		  ///
 		  
-		  Using MathsKit
-		  
 		  Assert.AreEqual(64, NumberOfLeadingZeros(0))
 		  Assert.AreEqual(56, NumberOfLeadingZeros(210))
 		  Assert.AreEqual(52, NumberOfLeadingZeros(2234))
@@ -266,8 +269,6 @@ Inherits TestGroup
 		  ///
 		  ' Tests the NumberOfTrailingZeros method.
 		  ///
-		  
-		  Using MathsKit
 		  
 		  Assert.AreEqual(0, NumberOfTrailingZeros(-1))
 		  Assert.AreEqual(64, NumberOfTrailingZeros(0))
@@ -283,15 +284,15 @@ Inherits TestGroup
 		  ///
 		  
 		  // Values that fit into an Int32.
-		  Var a As Int64 = MathsKit.RShift(-2, 1)
-		  Var b As Int64 = MathsKit.RShift(0, 1)
-		  Var c As Int64 = MathsKit.RShift(-1, 1)
-		  Var d As Int64 = MathsKit.RShift(1, 1)
-		  Var e As Int64 = MathsKit.RShift(100, 1)
-		  Var f As Int64 = MathsKit.RShift(-2147483648, 1)
-		  Var g As Int64 = MathsKit.RShift(2147483647, 1)
-		  Var h As Int64 = MathsKit.RShift(2147483647, 5)
-		  Var i As Int64 = MathsKit.RShift(-1, 30)
+		  Var a As Int64 = RShift(-2, 1)
+		  Var b As Int64 = RShift(0, 1)
+		  Var c As Int64 = RShift(-1, 1)
+		  Var d As Int64 = RShift(1, 1)
+		  Var e As Int64 = RShift(100, 1)
+		  Var f As Int64 = RShift(-2147483648, 1)
+		  Var g As Int64 = RShift(2147483647, 1)
+		  Var h As Int64 = RShift(2147483647, 5)
+		  Var i As Int64 = RShift(-1, 30)
 		  
 		  Assert.AreEqual(-1, a)
 		  Assert.AreEqual(0, b)
@@ -304,8 +305,8 @@ Inherits TestGroup
 		  Assert.AreEqual(-1, i)
 		  
 		  // Use values that would only fit in an Int64.
-		  Var j As Int64 = MathsKit.RShift(2147483999, 1)
-		  Var k As Int64 = MathsKit.RShift(-2147483999, 30)
+		  Var j As Int64 = RShift(2147483999, 1)
+		  Var k As Int64 = RShift(-2147483999, 30)
 		  
 		  Assert.AreEqual(1073741999, j)
 		  Assert.AreEqual(-3, k)
@@ -318,13 +319,13 @@ Inherits TestGroup
 		  ' Tests long = int >>> x
 		  ///
 		  
-		  Var a As Int64 = MathsKit.RShiftU32(-2, 1) ' -2 >>> 1
-		  Var b As Int64 = MathsKit.RShiftU32(0, 1) ' 0 >>> 1
-		  Var c As Int64 = MathsKit.RShiftU32(-1, 1) ' -1 >>> 1
-		  Var d As Int64 = MathsKit.RShiftU32(1, 1) ' 1 >>> 1
-		  Var e As Int64 = MathsKit.RShiftU32(100, 1) ' 100 >>> 1
-		  Var f As Int64 = MathsKit.RShiftU32(-2147483648, 1) ' -2147483648, >>> 1
-		  Var g As Int64 = MathsKit.RShiftU32(2147483647, 1) ' 2147483647 >>> 1
+		  Var a As Int64 = RShiftU32(-2, 1) ' -2 >>> 1
+		  Var b As Int64 = RShiftU32(0, 1) ' 0 >>> 1
+		  Var c As Int64 = RShiftU32(-1, 1) ' -1 >>> 1
+		  Var d As Int64 = RShiftU32(1, 1) ' 1 >>> 1
+		  Var e As Int64 = RShiftU32(100, 1) ' 100 >>> 1
+		  Var f As Int64 = RShiftU32(-2147483648, 1) ' -2147483648, >>> 1
+		  Var g As Int64 = RShiftU32(2147483647, 1) ' 2147483647 >>> 1
 		  
 		  Assert.AreEqual(2147483647, a)
 		  Assert.AreEqual(0, b)
@@ -343,14 +344,14 @@ Inherits TestGroup
 		  ' Tests long = long >>> x
 		  ///
 		  
-		  Var a As Int64 = MathsKit.RShiftU64(-2, 1) ' -2 >>> 1
-		  Var b As Int64 = MathsKit.RShiftU64(0, 1) ' 0 >>> 1
-		  Var c As Int64 = MathsKit.RShiftU64(-1, 1) ' -1 >>> 1
-		  Var d As Int64 = MathsKit.RShiftU64(1, 1) ' 1 >>> 1
-		  Var e As Int64 = MathsKit.RShiftU64(100, 1) ' 100 >>> 1
-		  Var f As Int64 = MathsKit.RShiftU64(-2147483648, 1) ' -2147483648, >>> 1
-		  Var g As Int64 = MathsKit.RShiftU64(2147483647, 1) ' 2147483647 >>> 1
-		  Var h As Int64 = MathsKit.RShiftU64(2147483999, 1) ' 2147483999 >>> 1
+		  Var a As Int64 = RShiftU64(-2, 1) ' -2 >>> 1
+		  Var b As Int64 = RShiftU64(0, 1) ' 0 >>> 1
+		  Var c As Int64 = RShiftU64(-1, 1) ' -1 >>> 1
+		  Var d As Int64 = RShiftU64(1, 1) ' 1 >>> 1
+		  Var e As Int64 = RShiftU64(100, 1) ' 100 >>> 1
+		  Var f As Int64 = RShiftU64(-2147483648, 1) ' -2147483648, >>> 1
+		  Var g As Int64 = RShiftU64(2147483647, 1) ' 2147483647 >>> 1
+		  Var h As Int64 = RShiftU64(2147483999, 1) ' 2147483999 >>> 1
 		  
 		  Assert.AreEqual(9223372036854775807, a)
 		  Assert.AreEqual(0, b)
@@ -369,17 +370,17 @@ Inherits TestGroup
 		  ' Tests the Scalb method.
 		  ///
 		  
-		  Assert.AreEqual(13342.72, MathsKit.Scalb(52.12, 8))
-		  Assert.AreEqual(2.0, MathsKit.Scalb(2, 0))
-		  Assert.AreEqual(0.0, MathsKit.Scalb(0, 2))
-		  Assert.AreEqual(16.0, MathsKit.Scalb(2, 3))     
-		  Assert.AreEqual(-96.0, MathsKit.Scalb(-3, 5))
-		  Assert.AreEqual(0.1875, MathsKit.Scalb(3, -4))
-		  Assert.AreEqual(-0.5, MathsKit.Scalb(-2, -2))
-		  Assert.AreEqual(175.4656, MathsKit.Scalb(10.9666, 4))
-		  Assert.AreEqual(-75.792, MathsKit.Scalb(-9.474, 3))
-		  Assert.AreEqual(1.833425, MathsKit.Scalb(14.6674, -3))
-		  Assert.AreEqual(-0.2341640625, MathsKit.Scalb(-14.9865, -6))
+		  Assert.AreEqual(13342.72, Scalb(52.12, 8))
+		  Assert.AreEqual(2.0, Scalb(2, 0))
+		  Assert.AreEqual(0.0, Scalb(0, 2))
+		  Assert.AreEqual(16.0, Scalb(2, 3))     
+		  Assert.AreEqual(-96.0, Scalb(-3, 5))
+		  Assert.AreEqual(0.1875, Scalb(3, -4))
+		  Assert.AreEqual(-0.5, Scalb(-2, -2))
+		  Assert.AreEqual(175.4656, Scalb(10.9666, 4))
+		  Assert.AreEqual(-75.792, Scalb(-9.474, 3))
+		  Assert.AreEqual(1.833425, Scalb(14.6674, -3))
+		  Assert.AreEqual(-0.2341640625, Scalb(-14.9865, -6))
 		  
 		End Sub
 	#tag EndMethod
@@ -390,9 +391,9 @@ Inherits TestGroup
 		  ' Tests the Signum method.
 		  ///
 		  
-		  Assert.AreEqual(1.0, MathsKit.Signum(30))
-		  Assert.AreEqual(0.0, MathsKit.Signum(0))
-		  Assert.AreEqual(-1.0, MathsKit.Signum(-30))
+		  Assert.AreEqual(1.0, Signum(30))
+		  Assert.AreEqual(0.0, Signum(0))
+		  Assert.AreEqual(-1.0, Signum(-30))
 		  
 		End Sub
 	#tag EndMethod
@@ -403,8 +404,8 @@ Inherits TestGroup
 		  ' Tests the ToDegrees method.
 		  ///
 		  
-		  Assert.AreEqual(2578.3100780887044, MathsKit.ToDegrees(45))
-		  Assert.AreEqual(1718.8733853924698, MathsKit.ToDegrees(30))
+		  Assert.AreEqual(2578.3100780887044, ToDegrees(45))
+		  Assert.AreEqual(1718.8733853924698, ToDegrees(30))
 		  
 		End Sub
 	#tag EndMethod
@@ -415,7 +416,7 @@ Inherits TestGroup
 		  ' Tests the ToRadians method.
 		  ///
 		  
-		  Assert.AreEqual(3.141592653589793, MathsKit.ToRadians(180))
+		  Assert.AreEqual(3.141592653589793, ToRadians(180))
 		End Sub
 	#tag EndMethod
 
@@ -427,6 +428,10 @@ Inherits TestGroup
 	#tag Property, Flags = &h21
 		Private Shared Prop2 As Integer
 	#tag EndProperty
+
+
+	#tag Using, Name = MathsKit
+	#tag EndUsing
 
 
 	#tag ViewBehavior
