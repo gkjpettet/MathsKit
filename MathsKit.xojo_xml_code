@@ -1278,6 +1278,7 @@
   <ItemName>Cbrt</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns the cube root of a Double value.</CodeDescription>
   <PartID>373960703</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
