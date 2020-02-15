@@ -514,7 +514,7 @@
    <SourceLine>' &gt; ```</SourceLine>
    <SourceLine>' &gt; int s = ((bits &gt;&gt; 63) = 0) ? 1 : -1</SourceLine>
    <SourceLine>' &gt; int e = (int)((bits &gt;&gt; 52) &amp; 0x7ffL)</SourceLine>
-   <SourceLine>' &gt; long m = (e == 0) ?</SourceLine>
+   <SourceLine>' &gt; long m = (e = 0) ?</SourceLine>
    <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) &lt;&lt; 1 :</SourceLine>
    <SourceLine>' &gt;                 (bits &amp; 0xfffffffffffffL) | 0x10000000000000L</SourceLine>
    <SourceLine>' &gt; ```</SourceLine>
