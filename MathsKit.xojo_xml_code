@@ -1326,6 +1326,48 @@
   <ItemParams>d As Double</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
+ <Method>
+  <ItemName>Compare</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>638763007</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Compare(d1 As Double, d2 As Double) As Integer</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Compares the two specified Double values. </SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d1: The first Double to compare.</SourceLine>
+   <SourceLine>' - Parameter d2: The second Double to compare.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Returns: The value `0` if `d1` is numerically equal to `d2`;</SourceLine>
+   <SourceLine>'            a value less than `0` if `d1` is numerically less than `d2`; </SourceLine>
+   <SourceLine>'            and a value greater than `0` if `d1` is numerically greater than `d2`.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If d1 &lt; d2 Then</SourceLine>
+   <SourceLine>Return -1 // Neither val is NaN, thisVal is smaller.</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If d1 &gt; d2 Then</SourceLine>
+   <SourceLine>Return 1 // Neither val is NaN, thisVal is larger.</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Cannot use DoubleToRawBits because of possibility of NaNs.</SourceLine>
+   <SourceLine>Var thisBits As Int64 = DoubleToBits(d1)</SourceLine>
+   <SourceLine>Var anotherBits As Int64 = DoubleToBits(d2)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return If(thisBits = anotherBits, 0, If(thisBits &lt; anotherBits, -1, 1))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d1 As Double, d2 As Double</ItemParams>
+  <ItemResult>Integer</ItemResult>
+ </Method>
  <Property>
   <ItemName>m180_OVER_PI</ItemName>
   <Compatibility></Compatibility>
