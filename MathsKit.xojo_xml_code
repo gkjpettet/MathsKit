@@ -1368,6 +1368,31 @@
   <ItemParams>d1 As Double, d2 As Double</ItemParams>
   <ItemResult>Integer</ItemResult>
  </Method>
+ <Method>
+  <ItemName>IsInteger</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the passed Double is a whole number.</CodeDescription>
+  <PartID>2009505791</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsInteger(d As Double) As Boolean</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns True if the passed Double is a whole number.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: The Double to check.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return d = Floor(d)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
  <Property>
   <ItemName>m180_OVER_PI</ItemName>
   <Compatibility></Compatibility>

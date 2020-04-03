@@ -175,6 +175,24 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub IsIntegerTest()
+		  ///
+		  ' Tests the IsInteger method.
+		  ///
+		  
+		  Assert.IsTrue(MathsKit.IsInteger(10))
+		  Assert.IsTrue(MathsKit.IsInteger(12345))
+		  Assert.IsTrue(MathsKit.IsInteger(-5))
+		  Assert.IsTrue(MathsKit.IsInteger(0))
+		  
+		  Assert.IsFalse(MathsKit.IsInteger(0.1))
+		  Assert.IsFalse(MathsKit.IsInteger(22.5))
+		  Assert.IsFalse(MathsKit.IsInteger(-1.234))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub IsNaNTest()
 		  ///
 		  ' Tests thet IsNaN method.
