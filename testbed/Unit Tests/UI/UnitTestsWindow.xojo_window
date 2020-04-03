@@ -1021,8 +1021,6 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub RunTests()
-		  MathsKit.Initialise
-		  
 		  Var now As New Date
 		  
 		  StartLabel.Text = now.ShortDate + " " + now.ShortTime
