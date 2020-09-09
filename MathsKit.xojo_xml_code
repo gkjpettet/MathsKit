@@ -1393,11 +1393,11 @@
    <SourceLine>' - Notes:</SourceLine>
    <SourceLine>' Exists as a workaround to the buggy Xojo Double.Equals method.</SourceLine>
    <SourceLine>' Returns True if the passed Double is within `Tolerance` of 0.0.</SourceLine>
+   <SourceLine>' Based on code by Graham Busch: https://forum.xojo.com/t/double-equals-help/56862/6</SourceLine>
+   <SourceLine>' (modified from the code in `IsCloseTo`).</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>#Pragma Warning "TODO: Can this be replaced with Double.Equals?"</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>If Abs(0 - d) &lt;= Tolerance Then</SourceLine>
+   <SourceLine>If Round(d * Pow(10, 6)) = 0 Then</SourceLine>
    <SourceLine>Return True</SourceLine>
    <SourceLine>Else</SourceLine>
    <SourceLine>Return False</SourceLine>
@@ -1437,6 +1437,37 @@
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
   <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>IsCloseTo</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the two Doubles are "close enough" to be considered equal.</CodeDescription>
+  <PartID>2142932991</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsCloseTo(Extends d1 As Double, d2 As Double, decimalPoints As Integer = 5) As Boolean</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns True if the two Doubles are "close enough" to be considered equal.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter extends d1: The first Double.</SourceLine>
+   <SourceLine>' - Parameter d2: The second Double</SourceLine>
+   <SourceLine>' - Parameter decimalPoints: The number of decimal points of accuracy.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Notes:</SourceLine>
+   <SourceLine>' Thanks to Graham Busch: https://forum.xojo.com/t/double-equals-help/56862/6</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Round(d1 * Pow(10, decimalPoints)) = Round(d2 * Pow(10, DecimalPoints))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Extends d1 As Double, d2 As Double, decimalPoints As Integer = 5</ItemParams>
+  <ItemResult>Boolean</ItemResult>
  </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
@@ -1822,7 +1853,7 @@
   <PartID>1108893695</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property Epsilon As Double</SourceLine>
+   <SourceLine>Epsilon As Double</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1855,7 +1886,7 @@
   <PartID>494850047</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property Tolerance As Double</SourceLine>
+   <SourceLine>Tolerance As Double</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
