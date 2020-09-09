@@ -773,6 +773,7 @@ Begin Window UnitTestsWindow
          Top             =   346
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   "0"
          ValidationMask  =   ""
          Value           =   ""
          Visible         =   True

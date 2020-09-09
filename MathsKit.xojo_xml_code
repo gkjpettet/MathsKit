@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2019r3.1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2020r1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>MathsKit</ObjName>
  <ObjContainerID>0</ObjContainerID>
@@ -85,7 +85,17 @@
    <SourceLine>'- Returns: The signum function of the argument.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return If(IsNan(d), d, Sign(d))</SourceLine>
+   <SourceLine>//Return If(IsNan(d), d, Sign(d))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If IsNaN(d) Then</SourceLine>
+   <SourceLine>Return d</SourceLine>
+   <SourceLine>ElseIf IsZero(d) Then</SourceLine>
+   <SourceLine>Return 0</SourceLine>
+   <SourceLine>ElseIf d &gt; 0 Then</SourceLine>
+   <SourceLine>Return 1</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return -1</SourceLine>
+   <SourceLine>End If</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1366,6 +1376,68 @@
   <ItemParams>d As Double</ItemParams>
   <ItemResult>Boolean</ItemResult>
  </Method>
+ <Method>
+  <ItemName>IsZero</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the passed Double is considered to be zero.</CodeDescription>
+  <PartID>1115684863</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsZero(d As Double) As Boolean</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns True if the passed Double is considered to be zero.</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Parameter d: The double</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Notes:</SourceLine>
+   <SourceLine>' Exists as a workaround to the buggy Xojo Double.Equals method.</SourceLine>
+   <SourceLine>' Returns True if the passed Double is within `Tolerance` of 0.0.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>#Pragma Warning "TODO: Can this be replaced with Double.Equals?"</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If Abs(0 - d) &lt;= Tolerance Then</SourceLine>
+   <SourceLine>Return True</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>Return False</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>d As Double</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ComputeEpsilon</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>2116489215</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ComputeEpsilon() As Double</SourceLine>
+   <SourceLine>// Computes an approximation of machine epsilon.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var e As Double = 0.5</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>While (1.0 + e &gt; 1.0)</SourceLine>
+   <SourceLine>e = e * 0.5</SourceLine>
+   <SourceLine>Wend</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return e</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
   <Compatibility></Compatibility>
@@ -1689,7 +1761,7 @@
   <PartID>1691525119</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property TWO_TO_THE_DOUBLE_SCALE_UP As Double</SourceLine>
+   <SourceLine>TWO_TO_THE_DOUBLE_SCALE_UP As Double</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1720,7 +1792,7 @@
   <PartID>1669175295</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Property TWO_TO_THE_DOUBLE_SCALE_DOWN As Double</SourceLine>
+   <SourceLine>TWO_TO_THE_DOUBLE_SCALE_DOWN As Double</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1739,6 +1811,73 @@
    <SourceLine>Static mTWO_TO_THE_DOUBLE_SCALE_DOWN As Double = PowerOfTwoD(-512)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return mTWO_TO_THE_DOUBLE_SCALE_DOWN</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Epsilon</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>An approximation of machine epsilon.</CodeDescription>
+  <PartID>1108893695</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property Epsilon As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Epsilon As Double</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>// Returns an approximation of machine epsilon.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Static e As Double = ComputeEpsilon</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return e</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Tolerance</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>The tolerance used when determining if one Double equals another.</CodeDescription>
+  <PartID>494850047</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property Tolerance As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Tolerance As Double</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>// Returns the tolerance that MathsKit accepts when determining if one </SourceLine>
+   <SourceLine>// Double equals another.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Static tol As Double = Epsilon + 0.00000001</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return tol</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Get</SourceLine>
   </GetAccessor>
  </Property>
