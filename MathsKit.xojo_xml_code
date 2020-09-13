@@ -1397,7 +1397,7 @@
    <SourceLine>' (modified from the code in `IsCloseTo`).</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>If Round(d * Pow(10, 6)) = 0 Then</SourceLine>
+   <SourceLine>If Round(d * Pow(10, 9)) = 0 Then</SourceLine>
    <SourceLine>Return True</SourceLine>
    <SourceLine>Else</SourceLine>
    <SourceLine>Return False</SourceLine>

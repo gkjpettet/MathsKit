@@ -413,6 +413,9 @@ Inherits TestGroup
 		  Assert.AreEqual(0.0, Signum(0))
 		  Assert.AreEqual(-1.0, Signum(-30))
 		  
+		  Assert.AreEqual(1.0, Signum(0.0000000583050001))
+		  Assert.AreEqual(1.0, Signum(0.000000018984))
+		  Assert.AreEqual(1.0, Signum(0.0000000007270001))
 		End Sub
 	#tag EndMethod
 
