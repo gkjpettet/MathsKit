@@ -1956,5 +1956,25 @@
   <ItemDef>4.94065645841246544176568792868221372e-324</ItemDef>
   <ItemFlags>1</ItemFlags>
  </Constant>
+ <Constant>
+  <ItemName>INT32_MIN_VALUE</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1151076351</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>-2147483648</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>INT32_MAX_VALUE</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1503514623</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>2147483647</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
 </block>
 </RBProject>
