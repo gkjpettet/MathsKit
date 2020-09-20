@@ -85,16 +85,10 @@
    <SourceLine>'- Returns: The signum function of the argument.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>//Return If(IsNan(d), d, Sign(d))</SourceLine>
-   <SourceLine></SourceLine>
    <SourceLine>If IsNaN(d) Then</SourceLine>
    <SourceLine>Return d</SourceLine>
-   <SourceLine>ElseIf IsZero(d) Then</SourceLine>
-   <SourceLine>Return 0</SourceLine>
-   <SourceLine>ElseIf d &gt; 0 Then</SourceLine>
-   <SourceLine>Return 1</SourceLine>
    <SourceLine>Else</SourceLine>
-   <SourceLine>Return -1</SourceLine>
+   <SourceLine>Return Sign(d)</SourceLine>
    <SourceLine>End If</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>

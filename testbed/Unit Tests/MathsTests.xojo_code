@@ -418,6 +418,10 @@ Inherits TestGroup
 		  Assert.AreEqual(1.0, Signum(0.0000000007270001))
 		  
 		  Assert.AreEqual(1.0, Signum(0.0000000000000003))
+		  
+		  // NaNs
+		  Assert.IsNaN(Signum(0.0/0.0))
+		  Assert.IsNaN(Signum(Sqrt(-1)))
 		End Sub
 	#tag EndMethod
 
