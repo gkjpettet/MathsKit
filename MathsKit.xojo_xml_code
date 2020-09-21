@@ -53,6 +53,10 @@
    <SourceLine>' - Returns: Boolean.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
+   <SourceLine>#Pragma Warning "TODO: Reimplement as Double.IsNotANumber when fixed"</SourceLine>
+   <SourceLine>// Feedback 61805.</SourceLine>
+   <SourceLine>'Return v.IsNotANumber</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>Return v.ToString.BeginsWith("NaN")</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
