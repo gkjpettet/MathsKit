@@ -1974,5 +1974,15 @@
   <ItemDef>2147483647</ItemDef>
   <ItemFlags>1</ItemFlags>
  </Constant>
+ <Constant>
+  <ItemName>INT64_MAX_VALUE</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>246384639</PartID>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>2</ItemType>
+  <ItemDef>&amp;h7fffffffffffffff</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
 </block>
 </RBProject>
