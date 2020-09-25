@@ -116,7 +116,7 @@ Inherits TestGroup
 		  Assert.AreEqual(negInf, DoubleToRawBits(NEGATIVE_INFINITY), "Testing negative infinity")
 		  
 		  Var NaNBits As Int64 = DoubleToRawBits(NAN)
-		  Assert.IsTrue(IsNaN(BitsToDouble(NaNBits)))
+		  Assert.IsTrue(BitsToDouble(NaNBits).IsNotANumber)
 		  
 		  Assert.AreEqual(4612811918334230528, DoubleToRawBits(2.5))
 		End Sub
@@ -168,9 +168,12 @@ Inherits TestGroup
 		  ' Tests the `IsInfinity` method.
 		  ///
 		  
-		  Assert.IsTrue(IsInfinite(1.0/0.0))
-		  Assert.IsFalse(IsInfinite(0.0/0.0))
-		  Assert.IsFalse(IsInfinite(3.5))
+		  Var d1 As Double = 1.0/0.0
+		  Var d2 As Double = 0.0/0.0
+		  Var d3 As Double = 3.5
+		  Assert.IsTrue(d1.IsInfinite)
+		  Assert.IsFalse(d2.IsInfinite)
+		  Assert.IsFalse(d3.IsInfinite)
 		End Sub
 	#tag EndMethod
 
@@ -198,7 +201,8 @@ Inherits TestGroup
 		  ' Tests thet IsNaN method.
 		  ///
 		  
-		  Assert.IsTrue(IsNaN(0.0/0.0))
+		  Var d As Double = 0.0/0.0
+		  Assert.IsTrue(d.IsNotANumber)
 		  
 		End Sub
 	#tag EndMethod

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2020r1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2020r1.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>MathsKit</ObjName>
  <ObjContainerID>0</ObjContainerID>
@@ -37,37 +37,6 @@
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
-  <ItemName>IsNaN</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Returns True if the specified number is a Not-a-Number (NaN) value.</CodeDescription>
-  <PartID>184729599</PartID>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function IsNaN(v As Double) As Boolean</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>' Returns True if the specified number is a Not-a-Number (NaN) value.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Parameter v: The value to be tested.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Returns: Boolean.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>#Pragma Warning "TODO: Reimplement as Double.IsNotANumber when fixed"</SourceLine>
-   <SourceLine>// Feedback 61805.</SourceLine>
-   <SourceLine>'Return v.IsNotANumber</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>Return v.ToString.BeginsWith("NaN")</SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>v As Double</ItemParams>
-  <ItemResult>Boolean</ItemResult>
- </Method>
- <Method>
   <ItemName>Signum</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
@@ -89,7 +58,7 @@
    <SourceLine>'- Returns: The signum function of the argument.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>If IsNaN(d) Then</SourceLine>
+   <SourceLine>If d.IsNotANumber Then</SourceLine>
    <SourceLine>Return d</SourceLine>
    <SourceLine>Else</SourceLine>
    <SourceLine>Return Sign(d)</SourceLine>
@@ -190,8 +159,8 @@
    <SourceLine>' - Note: Adapted from: https://stackoverflow.com/a/30809216/278816</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>If IsInfinite(x) Or IsInfinite(y) Then Return POSITIVE_INFINITY</SourceLine>
-   <SourceLine>If IsNaN(x) Or IsNaN(y) Then Return NAN</SourceLine>
+   <SourceLine>If x.IsInfinite Or y.IsInfinite Then Return POSITIVE_INFINITY</SourceLine>
+   <SourceLine>If x.IsNotANumber Or y.IsNotANumber Then Return NAN</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>x = Abs(x)</SourceLine>
    <SourceLine>y = Abs(y)</SourceLine>
@@ -246,34 +215,6 @@
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
-  <ItemName>IsInfinite</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <CodeDescription>Returns True if the specified number is infinitely large in magnitude, False otherwise.</CodeDescription>
-  <PartID>909727743</PartID>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function IsInfinite(v As Double) As Boolean</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>' Returns True if the specified number is infinitely large in magnitude, False otherwise.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Parameter v: The value to be tested.</SourceLine>
-   <SourceLine>'</SourceLine>
-   <SourceLine>' - Returns: Boolean.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>Return (v = POSITIVE_INFINITY) Or (v = NEGATIVE_INFINITY)</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>v As Double</ItemParams>
-  <ItemResult>Boolean</ItemResult>
- </Method>
- <Method>
   <ItemName>DoubleToBits</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
@@ -306,7 +247,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// Check for NaN.</SourceLine>
-   <SourceLine>If IsNaN(d) Then Return &amp;h7ff8000000000000</SourceLine>
+   <SourceLine>If d.IsNotANumber Then Return &amp;h7ff8000000000000</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return DoubleToRawBits(d)</SourceLine>
    <SourceLine></SourceLine>
@@ -950,7 +891,7 @@
    <SourceLine>' - Returns: The adjacent floating-point value closer to positive infinity.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>If IsNaN(d) Or d = POSITIVE_INFINITY Then</SourceLine>
+   <SourceLine>If d.IsNotANumber Or d = POSITIVE_INFINITY Then</SourceLine>
    <SourceLine>Return d</SourceLine>
    <SourceLine>Else</SourceLine>
    <SourceLine>d = d + 0.0</SourceLine>
@@ -989,7 +930,7 @@
    <SourceLine>' - Returns: The adjacent floating-point value closer to negative infinity.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>If IsNaN(d) Or d = NEGATIVE_INFINITY Then</SourceLine>
+   <SourceLine>If d.IsNotANumber Or d = NEGATIVE_INFINITY Then</SourceLine>
    <SourceLine>Return d</SourceLine>
    <SourceLine>Else</SourceLine>
    <SourceLine>If d = 0.0 Then</SourceLine>
@@ -1277,8 +1218,8 @@
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// Check the arguments.</SourceLine>
-   <SourceLine>If IsNaN(d) Then Return NAN</SourceLine>
-   <SourceLine>If IsInfinite(d) Then</SourceLine>
+   <SourceLine>If d.IsNotANumber Then Return NAN</SourceLine>
+   <SourceLine>If d.IsInfinite Then</SourceLine>
    <SourceLine>If d &gt;= 0 Then</SourceLine>
    <SourceLine>Return POSITIVE_INFINITY</SourceLine>
    <SourceLine>Else</SourceLine>
