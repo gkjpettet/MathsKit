@@ -1262,8 +1262,8 @@
    <SourceLine>' - Parameter d1: The first Double to compare.</SourceLine>
    <SourceLine>' - Parameter d2: The second Double to compare.</SourceLine>
    <SourceLine>'</SourceLine>
-   <SourceLine>' - Returns: The value `0` if `d1` is numerically equal to `d2`;</SourceLine>
-   <SourceLine>'            a value less than `0` if `d1` is numerically less than `d2`; </SourceLine>
+   <SourceLine>' - Returns: The value `0` if `d1` is numerically equal to `d2`,</SourceLine>
+   <SourceLine>'            a value less than `0` if `d1` is numerically less than `d2`</SourceLine>
    <SourceLine>'            and a value greater than `0` if `d1` is numerically greater than `d2`.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
