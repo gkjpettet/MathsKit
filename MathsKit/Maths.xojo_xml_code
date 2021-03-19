@@ -2,7 +2,7 @@
 <RBProject version="2020r2.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>Maths</ObjName>
- <ObjContainerID>1569351679</ObjContainerID>
+ <ObjContainerID>0</ObjContainerID>
  <IsClass>0</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -1402,6 +1402,73 @@
   <IsShared>0</IsShared>
   <ItemParams>value As Double, minimum As Double, maximum As Double</ItemParams>
   <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>HalfPlaneSign</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Part of the `PointInTriangle` algorithm.</CodeDescription>
+  <PartID>1877301247</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function HalfPlaneSign(p1 As Point, p2 As Point, p3 As Point) As Double</SourceLine>
+   <SourceLine>/// Part of the `PointInTriangle` algorithm.</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// See: https://stackoverflow.com/a/2049593/278816</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return (p1.X - p3.X) * (p2.Y - p3.Y) - (p2.X - p3.X) * (p1.Y - p3.Y)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>p1 As Point, p2 As Point, p3 As Point</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>PointInTriangle</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if point `p` is inside the triangle formed by the passed vertices.</CodeDescription>
+  <PartID>1719449599</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function PointInTriangle(p As Point, v1 As Point, v2 As Point, v3 As Point) As Boolean</SourceLine>
+   <SourceLine>/// Returns True if point `p` is inside the triangle formed by the </SourceLine>
+   <SourceLine>/// passed vertices.</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// - [p]: The point.</SourceLine>
+   <SourceLine>/// - [v1]: Vertex 1.</SourceLine>
+   <SourceLine>/// - [v2]: Vertex 2.</SourceLine>
+   <SourceLine>/// - [v3]: Vertex 3.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Adapted from this StackOverflow answer:</SourceLine>
+   <SourceLine>/// https://stackoverflow.com/a/2049593/278816</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Var d1, d2, d3 As Double</SourceLine>
+   <SourceLine>Var has_neg, has_pos As Boolean</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>d1 = HalfPlaneSign(p, v1, v2)</SourceLine>
+   <SourceLine>d2 = HalfPlaneSign(p, v2, v3)</SourceLine>
+   <SourceLine>d3 = HalfPlaneSign(p, v3, v1)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>has_neg = (d1 &lt; 0) Or (d2 &lt; 0) Or (d3 &lt; 0)</SourceLine>
+   <SourceLine>has_pos = (d1 &gt; 0) Or (d2 &gt; 0) Or (d3 &gt; 0)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return Not (has_neg And has_pos)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>p As Point, v1 As Point, v2 As Point, v3 As Point</ItemParams>
+  <ItemResult>Boolean</ItemResult>
  </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
