@@ -41,6 +41,18 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub ClampTest()
+		  /// Tests the `Clamp` method.
+		  
+		  Assert.IsTrue(Maths.Clamp(10, 0, 20) = 10)
+		  Assert.IsTrue(Maths.Clamp(-1, 0, 20) = 0)
+		  Assert.IsTrue(Maths.Clamp(-1.34, -5, 1) = -1.34)
+		  Assert.IsTrue(Maths.Clamp(-4.5, -2.1, 15) = -2.1)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub CopySignTest()
 		  ///
 		  ' Tests the `CopySign` method.
@@ -138,10 +150,8 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub HypotTest()
-		  ///
-		  ' Tests the `Hypot` method.
-		  ///
+		Sub HypotenuseTest()
+		  /// Tests the `Hypotenuse` method.
 		  
 		  #Pragma BreakOnExceptions False
 		  
