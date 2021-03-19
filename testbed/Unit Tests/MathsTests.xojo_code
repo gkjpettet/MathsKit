@@ -53,6 +53,13 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub CompareTest()
+		  #Pragma Warning "TODO"
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub CopySignTest()
 		  ///
 		  ' Tests the `CopySign` method.
@@ -173,6 +180,13 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub IsCloseToTest()
+		  #Pragma Warning "TODO"
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub IsInfinityTest()
 		  ///
 		  ' Tests the `IsInfinity` method.
@@ -213,6 +227,13 @@ Inherits TestGroup
 		  
 		  Var d As Double = 0.0/0.0
 		  Assert.IsTrue(d.IsNotANumber)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub IsZeroTest()
+		  #Pragma Warning "TODO"
 		  
 		End Sub
 	#tag EndMethod
@@ -306,6 +327,13 @@ Inherits TestGroup
 		  Assert.AreEqual(64, NumberOfTrailingZeros(0))
 		  Assert.AreEqual(2, NumberOfTrailingZeros(100))
 		  Assert.AreEqual(1, NumberOfTrailingZeros(99946))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub PointInTriangleTest()
+		  #Pragma Warning "TODO"
+		  
 		End Sub
 	#tag EndMethod
 
