@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2020r1.1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2020r2.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>MathsKit</ObjName>
  <ObjContainerID>0</ObjContainerID>
@@ -1407,6 +1407,36 @@
   <IsShared>0</IsShared>
   <ItemParams>Extends d1 As Double, d2 As Double, decimalPoints As Integer = 5</ItemParams>
   <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Clamp</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the passed value clamped between the minimum and maximum values (inclusive).</CodeDescription>
+  <PartID>758286335</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Clamp(value As Double, minimum As Double, maximum As Double) As Double</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>' Returns the passed value clamped between the minimum and maximum values (inclusive).</SourceLine>
+   <SourceLine>'</SourceLine>
+   <SourceLine>' - Param value: The value to clamp.</SourceLine>
+   <SourceLine>' - Param minimum: The minimum permissable value.</SourceLine>
+   <SourceLine>' - Param maximum: The maximum permissable value.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If value &gt; maximum Then Return maximum</SourceLine>
+   <SourceLine>If value &lt; minimum Then Return minimum</SourceLine>
+   <SourceLine>Return value</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>value As Double, minimum As Double, maximum As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
  </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
