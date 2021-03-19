@@ -33,27 +33,10 @@ Inherits TestGroup
 	#tag Method, Flags = &h0
 		Sub BitsToDoubleTest()
 		  ///
-		  ' Tests the `MathsKit.BitsToDouble` method.
+		  ' Tests the `Maths.BitsToDouble` method.
 		  ///
 		  
 		  Assert.AreEqual(3.338742E-317, BitsToDouble(6757689))
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub CbrtTest()
-		  ///
-		  ' Tests the Cbrt method.
-		  ///
-		  
-		  Assert.IsPositiveInfinity(Cbrt(1.0/0.0))
-		  Assert.IsNegativeInfinity(Cbrt(-1.0/0.0))
-		  Assert.AreEqual(0.0, Cbrt(0.0))
-		  Assert.AreEqual(-0.0, Cbrt(-0.0))
-		  Assert.AreEqual(5.0, Cbrt(125.0))
-		  Assert.AreEqual(9.0, Cbrt(729))
-		  Assert.AreEqual(10.727636943228317, Cbrt(1234.56))
-		  
 		End Sub
 	#tag EndMethod
 
@@ -68,6 +51,23 @@ Inherits TestGroup
 		  
 		  Assert.AreEqual(-34.543, CopySign(a, b))
 		  Assert.AreEqual(123.44, CopySign(b, a))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CubeRootTest()
+		  ///
+		  ' Tests the Cbrt method.
+		  ///
+		  
+		  Assert.IsPositiveInfinity(Maths.CubeRoot(1.0/0.0))
+		  Assert.IsNegativeInfinity(Maths.CubeRoot(-1.0/0.0))
+		  Assert.AreEqual(0.0, Maths.CubeRoot(0.0))
+		  Assert.AreEqual(-0.0, Maths.CubeRoot(-0.0))
+		  Assert.AreEqual(5.0, Maths.CubeRoot(125.0))
+		  Assert.AreEqual(9.0, Maths.CubeRoot(729))
+		  Assert.AreEqual(10.727636943228317, Maths.CubeRoot(1234.56))
+		  
 		End Sub
 	#tag EndMethod
 
@@ -146,18 +146,18 @@ Inherits TestGroup
 		  #Pragma BreakOnExceptions False
 		  
 		  // If either argument is infinite, then the result is positive infinity.
-		  Assert.IsPositiveInfinity(Hypot(POSITIVE_INFINITY, 3.0))
-		  Assert.IsPositiveInfinity(Hypot(4.0, POSITIVE_INFINITY))
-		  Assert.IsPositiveInfinity(Hypot(NEGATIVE_INFINITY, 3.0))
-		  Assert.IsPositiveInfinity(Hypot(4.0, NEGATIVE_INFINITY))
+		  Assert.IsPositiveInfinity(Maths.Hypotenuse(POSITIVE_INFINITY, 3.0))
+		  Assert.IsPositiveInfinity(Maths.Hypotenuse(4.0, POSITIVE_INFINITY))
+		  Assert.IsPositiveInfinity(Maths.Hypotenuse(NEGATIVE_INFINITY, 3.0))
+		  Assert.IsPositiveInfinity(Maths.Hypotenuse(4.0, NEGATIVE_INFINITY))
 		  
 		  // If either argument is NaN and neither argument is infinite, then the result is NaN.
-		  Assert.IsNaN(Hypot(NAN, 2.0))
-		  Assert.IsNaN(Hypot(6.5, NAN))
-		  Assert.IsPositiveInfinity(Hypot(NAN, NEGATIVE_INFINITY))
+		  Assert.IsNaN(Maths.Hypotenuse(NAN, 2.0))
+		  Assert.IsNaN(Maths.Hypotenuse(6.5, NAN))
+		  Assert.IsPositiveInfinity(Maths.Hypotenuse(NAN, NEGATIVE_INFINITY))
 		  
 		  // When both are not infinity .
-		  Assert.AreEqual(5.0, Hypot(3.0, 4.0))
+		  Assert.AreEqual(5.0, Maths.Hypotenuse(3.0, 4.0))
 		  
 		End Sub
 	#tag EndMethod
@@ -183,14 +183,14 @@ Inherits TestGroup
 		  ' Tests the IsInteger method.
 		  ///
 		  
-		  Assert.IsTrue(MathsKit.IsInteger(10))
-		  Assert.IsTrue(MathsKit.IsInteger(12345))
-		  Assert.IsTrue(MathsKit.IsInteger(-5))
-		  Assert.IsTrue(MathsKit.IsInteger(0))
+		  Assert.IsTrue(Maths.IsInteger(10))
+		  Assert.IsTrue(Maths.IsInteger(12345))
+		  Assert.IsTrue(Maths.IsInteger(-5))
+		  Assert.IsTrue(Maths.IsInteger(0))
 		  
-		  Assert.IsFalse(MathsKit.IsInteger(0.1))
-		  Assert.IsFalse(MathsKit.IsInteger(22.5))
-		  Assert.IsFalse(MathsKit.IsInteger(-1.234))
+		  Assert.IsFalse(Maths.IsInteger(0.1))
+		  Assert.IsFalse(Maths.IsInteger(22.5))
+		  Assert.IsFalse(Maths.IsInteger(-1.234))
 		  
 		End Sub
 	#tag EndMethod
@@ -461,7 +461,7 @@ Inherits TestGroup
 	#tag EndProperty
 
 
-	#tag Using, Name = MathsKit
+	#tag Using, Name = Maths
 	#tag EndUsing
 
 
