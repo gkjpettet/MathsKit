@@ -1,2 +1,2 @@
 # MathsKit
-A generic maths module. Largely ported from the Java standard library.
+A collection of reusable general purpose maths functions and classes for use with the Xojo language.
