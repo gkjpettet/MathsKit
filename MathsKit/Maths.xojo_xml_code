@@ -1514,6 +1514,35 @@
   <ItemParams>i As Integer</ItemParams>
   <ItemResult>Boolean</ItemResult>
  </Method>
+ <Method>
+  <ItemName>Modulo</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns the remainder of `a / b` yielding a result with the same sign as `b`.</CodeDescription>
+  <PartID>1699182591</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Modulo(a As Integer, b As Integer) As Integer</SourceLine>
+   <SourceLine>/// Returns the remainder of `a / b` yielding a result with the same sign as `b`.</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// - [a]: The dividend.</SourceLine>
+   <SourceLine>/// - [b]: The divisor.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Credit: https://stackoverflow.com/a/42131495/278816</SourceLine>
+   <SourceLine>/// Functions like Python's `%` operator.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return (a Mod b + b) Mod b</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>a As Integer, b As Integer</ItemParams>
+  <ItemResult>Integer</ItemResult>
+ </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
   <Compatibility></Compatibility>

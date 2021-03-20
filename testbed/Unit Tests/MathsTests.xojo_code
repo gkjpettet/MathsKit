@@ -309,6 +309,20 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub ModuloTest()
+		  /// Tests the Modulo method.
+		  
+		  Assert.IsTrue(Maths.Modulo(5, 20) = 5)
+		  Assert.IsTrue(Maths.Modulo(20, 20) = 0)
+		  Assert.IsTrue(Maths.Modulo(22, 20) = 2)
+		  Assert.IsTrue(Maths.Modulo(-2, 20) = 18)
+		  Assert.IsTrue(Maths.Modulo(-1, 20) = 19)
+		  Assert.IsTrue(Maths.Modulo(0, 20) = 0)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub NextDownTest()
 		  ///
 		  ' Tests the NextDown method.
