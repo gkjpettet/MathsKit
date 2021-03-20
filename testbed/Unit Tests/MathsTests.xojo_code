@@ -187,6 +187,23 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub IsEvenTest()
+		  Assert.IsTrue(Maths.IsEven(-4))
+		  Assert.IsTrue(Maths.IsEven(-2))
+		  Assert.IsTrue(Maths.IsEven(0))
+		  Assert.IsTrue(Maths.IsEven(2))
+		  Assert.IsTrue(Maths.IsEven(4))
+		  
+		  Assert.IsFalse(Maths.IsEven(-3))
+		  Assert.IsFalse(Maths.IsEven(-1))
+		  Assert.IsFalse(Maths.IsEven(1))
+		  Assert.IsFalse(Maths.IsEven(3))
+		  Assert.IsFalse(Maths.IsEven(5))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub IsInfinityTest()
 		  ///
 		  ' Tests the `IsInfinity` method.
@@ -227,6 +244,23 @@ Inherits TestGroup
 		  
 		  Var d As Double = 0.0/0.0
 		  Assert.IsTrue(d.IsNotANumber)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub IsOddTest()
+		  Assert.IsTrue(Maths.IsOdd(-3))
+		  Assert.IsTrue(Maths.IsOdd(-1))
+		  Assert.IsTrue(Maths.IsOdd(1))
+		  Assert.IsTrue(Maths.IsOdd(3))
+		  Assert.IsTrue(Maths.IsOdd(5))
+		  
+		  Assert.IsFalse(Maths.IsOdd(-4))
+		  Assert.IsFalse(Maths.IsOdd(-2))
+		  Assert.IsFalse(Maths.IsOdd(0))
+		  Assert.IsFalse(Maths.IsOdd(2))
+		  Assert.IsFalse(Maths.IsOdd(4))
 		  
 		End Sub
 	#tag EndMethod

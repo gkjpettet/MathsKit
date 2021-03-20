@@ -1470,6 +1470,50 @@
   <ItemParams>p As Point, v1 As Point, v2 As Point, v3 As Point</ItemParams>
   <ItemResult>Boolean</ItemResult>
  </Method>
+ <Method>
+  <ItemName>IsEven</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the passed integer is even.</CodeDescription>
+  <PartID>1917972479</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsEven(i As Integer) As Boolean</SourceLine>
+   <SourceLine>/// Returns True if the passed integer is even.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return i Mod 2 = 0</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>i As Integer</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>IsOdd</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns True if the passed integer is odd.</CodeDescription>
+  <PartID>749895679</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsOdd(i As Integer) As Boolean</SourceLine>
+   <SourceLine>/// Returns True if the passed integer is odd.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return i Mod 2 &lt;&gt; 0</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>i As Integer</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
   <Compatibility></Compatibility>
