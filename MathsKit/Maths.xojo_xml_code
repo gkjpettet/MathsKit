@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2020r2.1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>Maths</ObjName>
- <ObjContainerID>0</ObjContainerID>
+ <ObjContainerID>1569351679</ObjContainerID>
  <IsClass>0</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -1542,6 +1542,35 @@
   <IsShared>0</IsShared>
   <ItemParams>a As Integer, b As Integer</ItemParams>
   <ItemResult>Integer</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Lerp</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Linearly interpolates between two values by the fraction `f`.</CodeDescription>
+  <PartID>700358655</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Lerp(a As Double, b As Double, f As Double) As Double</SourceLine>
+   <SourceLine>/// Linearly interpolates between two values by the fraction `f`.</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// - [a]: The first value.</SourceLine>
+   <SourceLine>/// - [b]: The second value.</SourceLine>
+   <SourceLine>/// - [f]: The fraction to interpolate by.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Assumes `f` is clamped between 0 and 1.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return (a * (1.0 - f)) + (b * f)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>a As Double, b As Double, f As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
  </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>

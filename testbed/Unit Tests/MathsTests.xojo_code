@@ -273,6 +273,18 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub LerpTest()
+		  Assert.IsTrue(Maths.Lerp(0, 100, 0.5) = 50)
+		  Assert.IsTrue(Maths.Lerp(20, 80, 0) = 20)
+		  Assert.IsTrue(Maths.Lerp(30, 5, 1) = 5)
+		  Assert.IsTrue(Maths.Lerp(-1, 1, 0.5) = 0)
+		  Assert.IsTrue(Maths.Lerp(0.5, 1, 0.5) = 0.75)
+		  Assert.IsTrue(Maths.Lerp(-16.0e30, 16.0, 1.0) = 16)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub LShift32Test()
 		  ///
 		  ' Tests long = int << x
