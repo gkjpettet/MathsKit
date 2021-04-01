@@ -20,6 +20,7 @@ Toolbar=UnitTestsToolbar;Unit Tests/UI/UnitTestsToolbar.xojo_toolbar;&h000000004
 Window=UnitTestsWindow;Unit Tests/UI/UnitTestsWindow.xojo_window;&h000000005E851226;&h00000000447F2FFF;false
 Folder=MathsKit;MathsKit;&h000000005D8A67FF;&h0000000000000000;false
 Module=Maths;../MathsKit/Maths.xojo_xml_code;&h00000000457B1FFF;&h000000005D8A67FF;false
+Class=Vector2;../MathsKit/Vector2.xojo_xml_code;&h00000000223027FF;&h000000005D8A67FF;false
 DefaultWindow=UnitTestsWindow
 AppMenuBar=MainMenuBar
 MajorVersion=1

@@ -398,6 +398,24 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub RandomTest()
+		  Const iterations = 1000
+		  Var encountered As New Dictionary
+		  
+		  For i As Integer = 1 To iterations
+		    Var result As Double = Maths.Random(-1, 1)
+		    
+		    Assert.IsFalse(encountered.HasKey(result), "Number already generated")
+		    
+		    Assert.IsTrue(result >= -1 And result <= 1, "Number out of range")
+		    
+		    encountered.Value(result) = True
+		  Next i
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RShiftTest()
 		  ///
 		  ' Tests long = int >> x
@@ -546,6 +564,13 @@ Inherits TestGroup
 		  ///
 		  
 		  Assert.AreEqual(3.141592653589793, ToRadians(180))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Vector2Tests()
+		  #Pragma Warning "TODO"
+		  
 		End Sub
 	#tag EndMethod
 

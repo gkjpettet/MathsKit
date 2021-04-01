@@ -2,7 +2,7 @@
 <RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>Maths</ObjName>
- <ObjContainerID>1569351679</ObjContainerID>
+ <ObjContainerID>286767103</ObjContainerID>
  <IsClass>0</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -1607,6 +1607,31 @@
   <ItemParams>i As Integer, maxValue As Integer</ItemParams>
   <ItemResult>Integer</ItemResult>
  </Method>
+ <Method>
+  <ItemName>Random</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Returns a psuedo random number between `low` and `high`.</CodeDescription>
+  <PartID>193323007</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Random(low As Double, high As Double) As Double</SourceLine>
+   <SourceLine>/// Returns a psuedo random number between `low` and `high`.</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// - [low]: The minimum value to return.</SourceLine>
+   <SourceLine>/// - [high]: The maximum value to return.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return System.Random.Number * Abs(low - high) + low</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>low As Double, high As Double</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
   <Compatibility></Compatibility>
@@ -2012,6 +2037,35 @@
    <SourceLine>Static e As Double = ComputeEpsilon</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return e</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>TWO_PI</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1520330751</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property TWO_PI As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>TWO_PI As Double</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Static twoPi As Double = 2 * PI</SourceLine>
+   <SourceLine>Return twoPi</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Get</SourceLine>
   </GetAccessor>
