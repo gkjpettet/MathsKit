@@ -1572,6 +1572,41 @@
   <ItemParams>a As Double, b As Double, f As Double</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
+ <Method>
+  <ItemName>WrapInteger</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <CodeDescription>Wraps an integer between zero and `maxValue`.</CodeDescription>
+  <PartID>1005201407</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function WrapInteger(i As Integer, maxValue As Integer) As Integer</SourceLine>
+   <SourceLine>/// Wraps an integer between zero and `maxValue`.</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// - [i]: The value to wrap.</SourceLine>
+   <SourceLine>/// - [maxValue]: The maximum permitted value before wrapping.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Easy exit.</SourceLine>
+   <SourceLine>If i &gt;= 0 And i &lt;= maxValue Then Return i</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>If i &gt; maxValue Then</SourceLine>
+   <SourceLine>Var tmp As Integer = i Mod maxValue</SourceLine>
+   <SourceLine>Return If(tmp &lt;= 0, maxValue + tmp, tmp)</SourceLine>
+   <SourceLine>Else</SourceLine>
+   <SourceLine>// i must be &lt; 0</SourceLine>
+   <SourceLine>Var tmp As Integer = i Mod maxValue</SourceLine>
+   <SourceLine>Return If(tmp &lt; 0, maxValue + tmp, tmp)</SourceLine>
+   <SourceLine>End If</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>i As Integer, maxValue As Integer</ItemParams>
+  <ItemResult>Integer</ItemResult>
+ </Method>
  <Property>
   <ItemName>POSITIVE_INFINITY</ItemName>
   <Compatibility></Compatibility>

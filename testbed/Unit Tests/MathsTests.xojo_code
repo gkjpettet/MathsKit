@@ -549,6 +549,21 @@ Inherits TestGroup
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub WrapIntegerTest()
+		  Assert.AreEqual(10, Maths.WrapInteger(10, 20))
+		  Assert.AreEqual(20, Maths.WrapInteger(20, 20))
+		  Assert.AreEqual(0, Maths.WrapInteger(0, 20))
+		  Assert.AreEqual(1, Maths.WrapInteger(21, 20))
+		  Assert.AreEqual(19, Maths.WrapInteger(39, 20))
+		  Assert.AreEqual(20, Maths.WrapInteger(40, 20))
+		  Assert.AreEqual(1, Maths.WrapInteger(41, 20))
+		  Assert.AreEqual(19, Maths.WrapInteger(-1, 20))
+		  Assert.AreEqual(18, Maths.WrapInteger(-2, 20))
+		  Assert.AreEqual(0, Maths.WrapInteger(-20, 20))
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private Prop1 As Integer
