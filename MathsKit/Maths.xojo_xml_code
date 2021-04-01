@@ -1621,6 +1621,8 @@
    <SourceLine>/// - [low]: The minimum value to return.</SourceLine>
    <SourceLine>/// - [high]: The maximum value to return.</SourceLine>
    <SourceLine></SourceLine>
+   <SourceLine>System.Random.Seed = System.Microseconds</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>Return System.Random.Number * Abs(low - high) + low</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
