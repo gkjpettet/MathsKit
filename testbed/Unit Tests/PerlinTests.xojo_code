@@ -1,28 +1,29 @@
 #tag Class
-Protected Class DesktopTestController
-Inherits TestController
+Protected Class PerlinTests
+Inherits TestGroup
 	#tag Event
-		Sub InitializeTestGroups()
-		  // Instantiate TestGroup subclasses here so that they can be run
+		Function UnhandledException(err As RuntimeException, methodName As Text) As Boolean
+		  #pragma unused err
 		  
-		  Var group As TestGroup
+		  Const kMethodName As Text = "UnhandledException"
 		  
-		  group = New MathsTests(Self, "Maths")
-		  group = New PerlinTests(Self, "Perlin")
-		  
-		End Sub
+		  If methodName.Length >= kMethodName.Length And methodName.Left(kMethodName.Length) = kMethodName Then
+		    Assert.Pass("Exception was handled")
+		    Return True
+		  End If
+		End Function
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h0
+		Sub PerlinTest()
+		  #Pragma Warning "TODO"
+		  
+		End Sub
+	#tag EndMethod
+
+
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="AllTestCount"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Duration"
 			Visible=false
@@ -32,7 +33,7 @@ Inherits TestController
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="FailedCount"
+			Name="FailedTestCount"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
@@ -40,11 +41,11 @@ Inherits TestController
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="GroupCount"
+			Name="IncludeGroup"
 			Visible=false
 			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
+			InitialValue="True"
+			Type="Boolean"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -64,15 +65,7 @@ Inherits TestController
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="PassedCount"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RunGroupCount"
+			Name="PassedTestCount"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
@@ -88,7 +81,23 @@ Inherits TestController
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="SkippedCount"
+			Name="SkippedTestCount"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="StopTestOnFail"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TestCount"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""

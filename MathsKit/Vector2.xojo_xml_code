@@ -2,7 +2,7 @@
 <RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="289665023">
  <ObjName>Vector2</ObjName>
- <ObjContainerID>1569351679</ObjContainerID>
+ <ObjContainerID>0</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -1717,6 +1717,35 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
+  <ItemResult>Vector2</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Operator_Multiply</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <PartID>1109395455</PartID>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Operator_Multiply(scalar As Double) As Vector2</SourceLine>
+   <SourceLine>/// Returns a new vector resulting from the multiplication of this vector and </SourceLine>
+   <SourceLine>/// the passed scalar.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - [scalar]: The scalar.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Returns: A new vector.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// This vector is unaltered by this operation.</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return New Vector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>scalar As Double</ItemParams>
   <ItemResult>Vector2</ItemResult>
  </Method>
  <Note>
