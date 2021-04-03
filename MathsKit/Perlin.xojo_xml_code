@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20150400">
+<RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1009266687">
  <ObjName>Perlin</ObjName>
- <ObjContainerID>0</ObjContainerID>
+ <ObjContainerID>1569351679</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -44,12 +44,15 @@
   <ItemName>FBM</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Fractal Brownian motion.</CodeDescription>
+  <CodeDescription>Returns the 1D fractional Brownian motion value in the (approx) range -0.75 to 0.75.</CodeDescription>
   <PartID>22061055</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Shared Function FBM(x As Double, octave As Integer) As Double</SourceLine>
-   <SourceLine>/// Fractal Brownian motion.</SourceLine>
+   <SourceLine>/// 1D Fractional Brownian motion.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var f As Double = 0</SourceLine>
    <SourceLine>Var w As Double = 0.5</SourceLine>
@@ -76,12 +79,15 @@
   <ItemName>FBM2D</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Fractal Brownian motion.</CodeDescription>
+  <CodeDescription>Returns the 2D fractional Brownian motion value in the (approx) range -0.75 to 0.75.</CodeDescription>
   <PartID>1957533695</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Shared Function FBM2D(x As Double, y As Double, octave As Integer) As Double</SourceLine>
-   <SourceLine>/// Fractal Brownian motion.</SourceLine>
+   <SourceLine>/// 2D Fractional Brownian motion.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return FBMVector2(New Vector2(x, y), octave)</SourceLine>
    <SourceLine></SourceLine>
@@ -98,12 +104,15 @@
   <ItemName>FBM3D</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Fractal Brownian motion.</CodeDescription>
+  <CodeDescription>Returns the 3D fractional Brownian motion value in the (approx) range -0.75 to 0.75.</CodeDescription>
   <PartID>361060351</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Shared Function FBM3D(x As Double, y As Double, z As Double, octave As Integer) As Double</SourceLine>
-   <SourceLine>/// Fractal Brownian motion.</SourceLine>
+   <SourceLine>/// 3D Fractional Brownian motion.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return FBMVector3(New Vector3(x, y, z), octave)</SourceLine>
    <SourceLine></SourceLine>
@@ -219,6 +228,7 @@
   <ItemName>Noise</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns the 1D Perlin noise value in the range -1.0 to 1.0.</CodeDescription>
   <PartID>837634047</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
@@ -241,6 +251,7 @@
   <ItemName>Noise2D</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns the 2D Perlin noise value in the range -1.0 to 1.0.</CodeDescription>
   <PartID>1156321279</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
@@ -272,6 +283,7 @@
   <ItemName>Noise3D</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns the 3D Perlin noise value in the range -1.0 to 1.0.</CodeDescription>
   <PartID>19628031</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
@@ -317,12 +329,15 @@
   <ItemName>FBMVector3</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Fractal Brownian motion.</CodeDescription>
+  <CodeDescription>Returns the 3D fractional Brownian motion value in the (approx) range -0.75 to 0.75.</CodeDescription>
   <PartID>2134697983</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Shared Function FBMVector3(coord As Vector3, octave As Integer) As Double</SourceLine>
-   <SourceLine>/// Fractal Brownian motion.</SourceLine>
+   <SourceLine>/// 3D Fractional Brownian motion.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var f As Double = 0.0</SourceLine>
    <SourceLine>Var w As Double = 0.5</SourceLine>
@@ -349,12 +364,15 @@
   <ItemName>FBMVector2</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Fractal Brownian motion.</CodeDescription>
+  <CodeDescription>Returns the 2D fractional Brownian motion value in the (approx) range -0.75 to 0.75.</CodeDescription>
   <PartID>808142847</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Shared Function FBMVector2(coord As Vector2, octave As Integer) As Double</SourceLine>
-   <SourceLine>/// Fractal Brownian motion.</SourceLine>
+   <SourceLine>/// 2D Fractional Brownian motion.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var f As Double = 0.0</SourceLine>
    <SourceLine>Var w As Double = 0.5</SourceLine>
@@ -423,10 +441,10 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <NoteLine>About</NoteLine>
-   <NoteLine>A class for creating Perlin noise in 1, 2 or 3 dimensions.</NoteLine>
+   <NoteLine>A class for creating Perlin noise and fractional Brownian motuon in </NoteLine>
+   <NoteLine>1, 2 or 3 dimensions.</NoteLine>
    <NoteLine>A direct port from the C# version here:</NoteLine>
    <NoteLine>https://github.com/keijiro/PerlinNoise/blob/master/Assets/Perlin.cs</NoteLine>
-   <NoteLine></NoteLine>
    <NoteLine></NoteLine>
   </ItemSource>
   <ItemFlags>0</ItemFlags>
