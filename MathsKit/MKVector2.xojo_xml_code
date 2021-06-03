@@ -2,7 +2,7 @@
 <RBProject version="2021r1.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="289665023">
  <ObjName>MKVector2</ObjName>
- <ObjContainerID>0</ObjContainerID>
+ <ObjContainerID>1569351679</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -17,11 +17,6 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Add(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Adds the given vector components to this vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X component of the vector to add.</SourceLine>
-   <SourceLine>/// - [y]: The Y component of the vector to add.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: This vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = Self.X + x</SourceLine>
    <SourceLine>Self.Y = Self.Y + y</SourceLine>
@@ -41,16 +36,12 @@
   <ItemName>Add</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Adds the given vector to this vector.</CodeDescription>
+  <CodeDescription>Adds [v] to this vector.</CodeDescription>
   <PartID>1488140287</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Add(v As MKVector2) As MKVector2</SourceLine>
-   <SourceLine>/// Adds the given vector to this vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [v]: The vector to add.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: This vector.</SourceLine>
+   <SourceLine>/// Adds [v] to this vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = Self.X + v.X</SourceLine>
    <SourceLine>Self.Y = Self.Y + v.Y</SourceLine>
@@ -95,9 +86,7 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(direction As Double)</SourceLine>
-   <SourceLine>/// Creates a unit length vector in the given direction.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [direction]: The direction in radians.</SourceLine>
+   <SourceLine>/// Creates a unit length vector in the given direction (in radians).</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = Cos(direction)</SourceLine>
    <SourceLine>Self.Y = Sin(direction)</SourceLine>
@@ -121,9 +110,6 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(x As Double, y As Double)</SourceLine>
    <SourceLine>/// Optional constructor.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X component.</SourceLine>
-   <SourceLine>/// - [y]: The Y component.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = x</SourceLine>
    <SourceLine>Self.Y = y</SourceLine>
@@ -146,12 +132,12 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(x1 As Double, y1 As Double, x2 As Double, y2 As Double)</SourceLine>
-   <SourceLine>/// Creates a Vector2 from the first point to the second point.</SourceLine>
+   <SourceLine>/// Creates a 2D vector from the first point to the second point.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x1]: The X coordinate of the first point.</SourceLine>
-   <SourceLine>/// - [y1]: The Y coordinate of the first point.</SourceLine>
-   <SourceLine>/// - [x2]: The X coordinate of the second point.</SourceLine>
-   <SourceLine>/// - [y2]: The Y coordinate of the second point.</SourceLine>
+   <SourceLine>/// [x1]: The X coordinate of the first point.</SourceLine>
+   <SourceLine>/// [y1]: The Y coordinate of the first point.</SourceLine>
+   <SourceLine>/// [x2]: The X coordinate of the second point.</SourceLine>
+   <SourceLine>/// [y2]: The Y coordinate of the second point.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = x2 - x1</SourceLine>
    <SourceLine>Self.Y = y2 - y1</SourceLine>
@@ -169,13 +155,12 @@
   <ItemName>Constructor</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Copy constructor.</CodeDescription>
+  <CodeDescription>Copies the passed 2D vector.</CodeDescription>
   <PartID>1887612927</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(v As MKVector2)</SourceLine>
-   <SourceLine>/// Copy constructor.</SourceLine>
-   <SourceLine>/// - [v]: The Vector2 to copy from.</SourceLine>
+   <SourceLine>/// Copies the passed 2D vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = v.X</SourceLine>
    <SourceLine>Self.Y = v.Y</SourceLine>
@@ -193,15 +178,12 @@
   <ItemName>Constructor</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Creates a Vector2 from the first point to the second point.</CodeDescription>
+  <CodeDescription>Creates a 2D vector from [p1] to [p2].</CodeDescription>
   <PartID>247472127</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(p1 As MKVector2, p2 As MKVector2)</SourceLine>
-   <SourceLine>/// Creates a Vector2 from the first point to the second point.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [p1]: The first point.</SourceLine>
-   <SourceLine>/// - [p2]: The second point.</SourceLine>
+   <SourceLine>/// Creates a 2D vector from [p1] to [p2].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = p2.X - p1.X</SourceLine>
    <SourceLine>Self.Y = p2.Y - p1.Y</SourceLine>
@@ -248,10 +230,6 @@
    <SourceLine>Function Cross(z As Double) As MKVector2</SourceLine>
    <SourceLine>/// Returns the cross product of this vector and the z value of the right vector</SourceLine>
    <SourceLine>/// as a new vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [z]: The z component of the vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return New MKVector2(-Self.Y * z, Self.X * z)</SourceLine>
    <SourceLine></SourceLine>
@@ -274,9 +252,6 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Cross(x As Double, y As Double) As Double</SourceLine>
    <SourceLine>/// Returns the cross product of this vector and the given vector components.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// -[x]: The X component of the other vector.</SourceLine>
-   <SourceLine>/// -[y]: The Y component of the other vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Self.X * y - Self.Y * x</SourceLine>
    <SourceLine></SourceLine>
@@ -293,14 +268,12 @@
   <ItemName>Cross</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the cross product of the this vector and the given vector.</CodeDescription>
+  <CodeDescription>Returns the cross product of this vector with [v].</CodeDescription>
   <PartID>288049151</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Cross(v As MKVector2) As Double</SourceLine>
-   <SourceLine>/// Returns the cross product of this vector and the given vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [v]: The vector to cross with.</SourceLine>
+   <SourceLine>/// Returns the cross product of this vector with [v].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Self.X * v.Y - Self.Y * v.X</SourceLine>
    <SourceLine></SourceLine>

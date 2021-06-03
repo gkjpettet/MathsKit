@@ -2,7 +2,7 @@
 <RBProject version="2021r1.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1026172927">
  <ObjName>MKPerlin</ObjName>
- <ObjContainerID>0</ObjContainerID>
+ <ObjContainerID>1569351679</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -51,7 +51,6 @@
    <SourceLine>Shared Function FBM(x As Double, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 1D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var f As Double = 0</SourceLine>
@@ -86,7 +85,6 @@
    <SourceLine>Shared Function FBM2D(x As Double, y As Double, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 2D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return FBMVector2(New MKVector2(x, y), octave)</SourceLine>
@@ -111,7 +109,6 @@
    <SourceLine>Shared Function FBM3D(x As Double, y As Double, z As Double, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 3D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return FBMVector3(New MKVector3(x, y, z), octave)</SourceLine>
@@ -336,7 +333,6 @@
    <SourceLine>Shared Function FBMVector3(coord As MKVector3, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 3D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var f As Double = 0.0</SourceLine>
@@ -371,7 +367,6 @@
    <SourceLine>Shared Function FBMVector2(coord As MKVector2, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 2D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var f As Double = 0.0</SourceLine>

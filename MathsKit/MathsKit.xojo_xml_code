@@ -2,7 +2,7 @@
 <RBProject version="2021r1.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>MathsKit</ObjName>
- <ObjContainerID>0</ObjContainerID>
+ <ObjContainerID>1569351679</ObjContainerID>
  <IsClass>0</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -11,18 +11,12 @@
   <ItemName>CopySign</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the first argument with the sign of the second floating-point argument</CodeDescription>
+  <CodeDescription>Returns [magnitude] with the sign of [sign].</CodeDescription>
   <PartID>119066623</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function CopySign(magnitude As Double, sign As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the first argument with the sign of the second floating-point </SourceLine>
-   <SourceLine>/// argument.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [magnitude]: The parameter providing the magnitude of the result.</SourceLine>
-   <SourceLine>/// - [sign]: The parameter providing the sign of the result.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: A value with the magnitude of `magnitude` and the sign of `sign`.</SourceLine>
+   <SourceLine>/// Returns [magnitude] with the sign of [sign].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return If(sign &lt; 0, -Abs(magnitude), Abs(magnitude))</SourceLine>
    <SourceLine></SourceLine>
@@ -39,21 +33,18 @@
   <ItemName>Signum</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the sign of a real number.</CodeDescription>
+  <CodeDescription>Returns the sign of [d].</CodeDescription>
   <PartID>1194999807</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Signum(d As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the sign of a real number.</SourceLine>
+   <SourceLine>/// Returns the sign of [d].</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// -  [d]: The value whose signum is to be returned.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>///  Returns:</SourceLine>
-   <SourceLine>///    Zero if the argument is zero</SourceLine>
-   <SourceLine>///    1.0 if the argument is greater than zero</SourceLine>
-   <SourceLine>///    -1.0 if the argument is less than zero.</SourceLine>
-   <SourceLine>///    If the argument is NaN, then the result is NaN.</SourceLine>
+   <SourceLine>///  * Zero if the argument is zero</SourceLine>
+   <SourceLine>///  * 1.0 if the argument is greater than zero</SourceLine>
+   <SourceLine>///  * -1.0 if the argument is less than zero.</SourceLine>
+   <SourceLine>///  * If the argument is NaN, then the result is NaN.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If d.IsNotANumber Then</SourceLine>
    <SourceLine>Return d</SourceLine>
@@ -74,14 +65,12 @@
   <ItemName>ToDegrees</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the passed radians value in degrees.</CodeDescription>
+  <CodeDescription>Returns [radians] in degrees.</CodeDescription>
   <PartID>93175807</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ToDegrees(radians As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the passed radians value in degrees.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [radians]: The value in radians to convert.</SourceLine>
+   <SourceLine>/// Returns [radians] in degrees.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Static m180_OVER_PI As Double = 180 / PI</SourceLine>
    <SourceLine></SourceLine>
@@ -100,14 +89,12 @@
   <ItemName>ToRadians</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the passed degrees value in radians.</CodeDescription>
+  <CodeDescription>Returns [degrees] in radians.</CodeDescription>
   <PartID>619614207</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ToRadians(degrees As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the passed degrees value in radians.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [degrees]: The value in degrees to convert.</SourceLine>
+   <SourceLine>/// Returns [degrees] in radians.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Static mPI_OVER_180 As Double = PI / 180</SourceLine>
    <SourceLine></SourceLine>
@@ -134,12 +121,6 @@
    <SourceLine>/// Returns the hypotenuse (sqrt(x2 +y2)) without intermediate overflow </SourceLine>
    <SourceLine>/// or underflow.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [x]: A double.</SourceLine>
-   <SourceLine>/// - [y]: Anotehr double.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: A double, +infinity or NaN.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes</SourceLine>
    <SourceLine>/// Adapted from: https://stackoverflow.com/a/30809216/278816</SourceLine>
    <SourceLine>/// Special cases:</SourceLine>
    <SourceLine>///   1. If either argument is infinite, then the result is positive infinity.</SourceLine>
@@ -207,19 +188,14 @@
   <ItemName>DoubleToBits</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns a representation of the passed Double value according to the IEEE 754 floating-point "double format" bit layout. Collapses NaN arguments.</CodeDescription>
+  <CodeDescription>Returns a representation of [d] according to the IEEE 754 floating-point "double format" bit layout.</CodeDescription>
   <PartID>141150207</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function DoubleToBits(d As Double) As Int64</SourceLine>
-   <SourceLine>/// Returns a representation of the passed double value</SourceLine>
-   <SourceLine>/// according to the IEEE 754 floating-point "double format" bit layout.</SourceLine>
+   <SourceLine>/// Returns a representation of [d] according to the IEEE 754 floating-point </SourceLine>
+   <SourceLine>/// "double format" bit layout.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// -[d]: A double.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: The bits that represent the passed double as an Int64.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Bit 63 (the bit that is selected by the mask `0x8000000000000000`) </SourceLine>
    <SourceLine>/// represents the sign of the double number. </SourceLine>
    <SourceLine>/// Bits 62-52 (the bits that are selected by the mask `0x7ff0000000000000`) </SourceLine>
@@ -232,9 +208,9 @@
    <SourceLine>/// If the argument is negative infinity, the result is `&amp;hfff0000000000000`.</SourceLine>
    <SourceLine>/// If the argument is NaN, the result is `&amp;h7ff8000000000000`.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// In all cases, the result is an Int64 integer that, when given to </SourceLine>
-   <SourceLine>/// the `BitsToDouble(UInt64)` method, will produce a Double the same as the </SourceLine>
-   <SourceLine>// argument to `DoubleToBits` (except all NaN values are collapsed to a </SourceLine>
+   <SourceLine>/// In all cases, the result is an `Int64` integer that, when given to </SourceLine>
+   <SourceLine>/// the [BitsToDouble(UInt64)] method, will produce a `Double` the same as the </SourceLine>
+   <SourceLine>// argument to [DoubleToBits] (except all NaN values are collapsed to a </SourceLine>
    <SourceLine>/// single "canonical" NaN value).</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// Check for NaN.</SourceLine>
@@ -257,18 +233,13 @@
   <ItemName>GetExponent</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the unbiased exponent used in the representation of a double.</CodeDescription>
+  <CodeDescription>Returns the unbiased exponent used in the representation of [d].</CodeDescription>
   <PartID>2127984639</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function GetExponent(d As Double) As Int32</SourceLine>
-   <SourceLine>/// Returns the unbiased exponent used in the representation of a double.</SourceLine>
+   <SourceLine>/// Returns the unbiased exponent used in the representation of [d].</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - [d]: A double value.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: The unbiased exponent of the argument.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// - If the argument is NaN or infinite, then the result is `MAX_EXPONENT` + 1.</SourceLine>
    <SourceLine>/// - If the argument is zero or subnormal, then the result is `MIN_EXPONENT` - 1.</SourceLine>
    <SourceLine></SourceLine>
@@ -276,7 +247,6 @@
    <SourceLine>// to the right and then subtract out Double's bias adjust to</SourceLine>
    <SourceLine>// get true exponent value.</SourceLine>
    <SourceLine>Return RShift(DoubleToRawBits(d) And DOUBLE_EXP_BIT_MASK, 52) - DOUBLE_EXP_BIAS</SourceLine>
-   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -298,55 +268,48 @@
    <SourceLine>/// Returns `d × 2^scaleFactor` rounded as if performed by a single correctly</SourceLine>
    <SourceLine>/// rounded floating-point multiply to a member of the double value set. </SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// -[d]: The number to be scaled by a power of two.</SourceLine>
-   <SourceLine>/// -[scaleFactor]: The power of 2 used to scale d`.'</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: `d` × 2^scaleFactor</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
-   <SourceLine>/// If the exponent of the result is between `MIN_EXPONENT` and `MAX_EXPONENT`, the</SourceLine>
-   <SourceLine>/// answer is calculated exactly.  If the exponent of the result</SourceLine>
-   <SourceLine>/// would be larger than `MAX_EXPONENT, an infinity is returned. </SourceLine>
+   <SourceLine>/// If the exponent of the result is between [MIN_EXPONENT] and [MAX_EXPONENT], </SourceLine>
+   <SourceLine>/// the answer is calculated exactly. If the exponent of the result</SourceLine>
+   <SourceLine>/// would be larger than [MAX_EXPONENT] then infinity is returned. </SourceLine>
    <SourceLine>/// If the result is subnormal, precision may be lost. That is, when </SourceLine>
    <SourceLine>/// `Scalb(x, n)` is subnormal, `Scalb(scalb(x, n), -n) may not equal x. </SourceLine>
    <SourceLine>/// When the result is non-NaN, the result has the same sign as `d`.</SourceLine>
    <SourceLine>/// </SourceLine>
    <SourceLine>/// Special cases:</SourceLine>
-   <SourceLine>///   If the first argument is NaN, NaN is returned.</SourceLine>
-   <SourceLine>///   If the first argument is infinite, then an infinity of the same sign is returned.</SourceLine>
-   <SourceLine>///   If the first argument is zero, then a zero of the same sign is returned.</SourceLine>
+   <SourceLine>/// - If the first argument is NaN, NaN is returned.</SourceLine>
+   <SourceLine>/// - If the first argument is infinite, then an infinity of the same sign is returned.</SourceLine>
+   <SourceLine>/// - If the first argument is zero, then a zero of the same sign is returned.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>// When scaling up, it does not matter what order the</SourceLine>
-   <SourceLine>// multiply-store operations are done, the result will be</SourceLine>
-   <SourceLine>// finite or overflow regardless of the operation ordering.</SourceLine>
-   <SourceLine>// However, to get the correct result when scaling down, a</SourceLine>
-   <SourceLine>// particular ordering must be used.</SourceLine>
-   <SourceLine>//</SourceLine>
-   <SourceLine>// When scaling down, the multiply-store operations are</SourceLine>
-   <SourceLine>// sequenced so that it is not possible for two consecutive</SourceLine>
-   <SourceLine>// multiply-stores to return subnormal results.  If one</SourceLine>
-   <SourceLine>// multiply-store result is subnormal, the next multiply will</SourceLine>
-   <SourceLine>// round it away to zero.  This is done by first multiplying</SourceLine>
-   <SourceLine>// by 2 ^ (scaleFactor % n) and then multiplying several</SourceLine>
-   <SourceLine>// times by by 2^n as needed where n is the exponent of number</SourceLine>
-   <SourceLine>// that is a covenient power of two.  In this way, at most one</SourceLine>
-   <SourceLine>// real rounding error occurs.  If the double value set is</SourceLine>
-   <SourceLine>// being used exclusively, the rounding will occur on a</SourceLine>
-   <SourceLine>// multiply.  If the double-extended-exponent value set is</SourceLine>
-   <SourceLine>// being used, the products will (perhaps) be exact but the</SourceLine>
-   <SourceLine>// stores to d are guaranteed to round to the double value set.</SourceLine>
-   <SourceLine>//</SourceLine>
-   <SourceLine>// It is _not_ a valid implementation to first multiply d by</SourceLine>
-   <SourceLine>// 2^MIN_EXPONENT and then by 2 ^ (scaleFactor % MIN_EXPONENT) s</SourceLine>
-   <SourceLine>// ince eduble ounding on underflow could occur e.g. if the scaleFactor</SourceLine>
-   <SourceLine>// argument was (MIN_EXPONENT - n) and the exponent of d was a</SourceLine>
-   <SourceLine>// little less than -(MIN_EXPONENT - n), meaning the final</SourceLine>
-   <SourceLine>// result would be subnormal.</SourceLine>
-   <SourceLine>//</SourceLine>
-   <SourceLine>// Since exact reproducibility of this method can be achieved</SourceLine>
-   <SourceLine>// without any undue performance burden, there is no</SourceLine>
-   <SourceLine>// compelling reason to allow double rounding on underflow in</SourceLine>
-   <SourceLine>// scalb.</SourceLine>
+   <SourceLine>/// When scaling up, it does not matter what order the</SourceLine>
+   <SourceLine>/// multiply-store operations are done, the result will be</SourceLine>
+   <SourceLine>/// finite or overflow regardless of the operation ordering.</SourceLine>
+   <SourceLine>/// However, to get the correct result when scaling down, a</SourceLine>
+   <SourceLine>/// particular ordering must be used.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// When scaling down, the multiply-store operations are</SourceLine>
+   <SourceLine>/// sequenced so that it is not possible for two consecutive</SourceLine>
+   <SourceLine>/// multiply-stores to return subnormal results.  If one</SourceLine>
+   <SourceLine>/// multiply-store result is subnormal, the next multiply will</SourceLine>
+   <SourceLine>/// round it away to zero.  This is done by first multiplying</SourceLine>
+   <SourceLine>/// by 2 ^ (scaleFactor % n) and then multiplying several</SourceLine>
+   <SourceLine>/// times by by 2^n as needed where n is the exponent of number</SourceLine>
+   <SourceLine>/// that is a covenient power of two.  In this way, at most one</SourceLine>
+   <SourceLine>/// real rounding error occurs.  If the double value set is</SourceLine>
+   <SourceLine>/// being used exclusively, the rounding will occur on a</SourceLine>
+   <SourceLine>/// multiply.  If the double-extended-exponent value set is</SourceLine>
+   <SourceLine>/// being used, the products will (perhaps) be exact but the</SourceLine>
+   <SourceLine>/// stores to d are guaranteed to round to the double value set.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// It is _not_ a valid implementation to first multiply d by</SourceLine>
+   <SourceLine>/// 2^MIN_EXPONENT and then by 2 ^ (scaleFactor % MIN_EXPONENT) s</SourceLine>
+   <SourceLine>/// ince eduble ounding on underflow could occur e.g. if the scaleFactor</SourceLine>
+   <SourceLine>/// argument was (MIN_EXPONENT - n) and the exponent of d was a</SourceLine>
+   <SourceLine>/// little less than -(MIN_EXPONENT - n), meaning the final</SourceLine>
+   <SourceLine>/// result would be subnormal.</SourceLine>
+   <SourceLine>///</SourceLine>
+   <SourceLine>/// Since exact reproducibility of this method can be achieved</SourceLine>
+   <SourceLine>/// without any undue performance burden, there is no</SourceLine>
+   <SourceLine>/// compelling reason to allow double rounding on underflow in [scalb].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// Magnitude of a power of two so large that scaling a finite</SourceLine>
    <SourceLine>// non-zero value by it would be guaranteed to over or</SourceLine>
@@ -404,25 +367,23 @@
    <SourceLine>Function BitsToDouble(bits As Int64) As Double</SourceLine>
    <SourceLine>/// Returns the double value corresponding to a given bit representation.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// The argument is considered to be a representation of a floating-point value </SourceLine>
    <SourceLine>/// according to the IEEE 754 floating-point "double format" bit layout.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// If the argument is `&amp;h7ff0000000000000L`, the result is positive infinity.</SourceLine>
    <SourceLine>/// If the argument is `&amp;hfff0000000000000`, the result is negative infinity.</SourceLine>
-   <SourceLine>/// If the argument is any value in the range:</SourceLine>
-   <SourceLine>///   `&amp;h7ff0000000000001` through</SourceLine>
-   <SourceLine>///   `&amp;h7fffffffffffffff` or in the range</SourceLine>
-   <SourceLine>///   `&amp;hfff0000000000001` through</SourceLine>
-   <SourceLine>///   `&amp;hffffffffffffffff`, the result is a NaN.</SourceLine>
+   <SourceLine>/// If the argument is any value in the range `&amp;h7ff0000000000001` through</SourceLine>
+   <SourceLine>/// `&amp;h7fffffffffffffff` or in the range `&amp;hfff0000000000001` through</SourceLine>
+   <SourceLine>/// `&amp;hffffffffffffffff`, the result is a NaN.</SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine>/// No IEEE 754 floating-point operation can distinguish between two NaN values </SourceLine>
    <SourceLine>/// of the same type with different bit patterns.  Distinct values of NaN are </SourceLine>
    <SourceLine>/// only distinguishable by use of the `DoubleToRaw` method.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// In all other cases, let _s_, _e_, and _m_ be three * values that can be </SourceLine>
+   <SourceLine>/// In all other cases, let `s`, `e`, and `m` be three * values that can be </SourceLine>
    <SourceLine>/// computed from the argument:</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// ```</SourceLine>
+   <SourceLine>/// ```java</SourceLine>
    <SourceLine>///  int s = ((bits &gt;&gt; 63) = 0) ? 1 : -1</SourceLine>
    <SourceLine>///  int e = (int)((bits &gt;&gt; 52) &amp; 0x7ffL)</SourceLine>
    <SourceLine>///  long m = (e = 0) ?</SourceLine>
@@ -447,11 +408,6 @@
    <SourceLine>/// Moreover, which particular bit patterns represent signaling NaNs is </SourceLine>
    <SourceLine>/// platform dependent although all NaN bit patterns, quiet or signaling, </SourceLine>
    <SourceLine>/// must be in the NaN range identified above.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [bits]: Any Int64 integer.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: The double value with the same bit pattern.</SourceLine>
-   <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var m As MemoryBlock = New MemoryBlock(8)</SourceLine>
    <SourceLine>m.Int64Value(0) = bits</SourceLine>
@@ -470,18 +426,14 @@
   <ItemName>DoubleToRawBits</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns a representation of the specified floating-point value according to the IEEE 754 floating-point "double format" bit layout, preserving Not-a-Number (NaN) values.</CodeDescription>
+  <CodeDescription>Returns a representation of [d] according to the IEEE 754 floating-point "double format" bit layout, preserving NaN values.</CodeDescription>
   <PartID>857395199</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function DoubleToRawBits(d As Double) As Int64</SourceLine>
-   <SourceLine>/// Returns a representation of the specified floating-point value according </SourceLine>
-   <SourceLine>/// to the IEEE 754 floating-point "double format" bit layout, preserving</SourceLine>
-   <SourceLine>/// Not-a-Number (NaN) values.</SourceLine>
+   <SourceLine>/// Returns a representation of [d] according to the IEEE 754 floating-point </SourceLine>
+   <SourceLine>/// "double format" bit layout, preserving NaN values.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [d]: A Double precision floating-point number.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Bit 63 (the bit that is selected by the mask `&amp;h8000000000000000`) </SourceLine>
    <SourceLine>/// represents the sign of the floating-point number. </SourceLine>
    <SourceLine>/// Bits 62-52 (the bits that are selected by the mask `&amp;h7ff0000000000000`) </SourceLine>
@@ -494,12 +446,12 @@
    <SourceLine>/// If the argument is negative infinity, the result is `&amp;hfff0000000000000`.</SourceLine>
    <SourceLine>/// If the argument is NaN, the result is the `Int64` integer representing </SourceLine>
    <SourceLine>/// the actual NaN value.</SourceLine>
-   <SourceLine>/// Unlike the `DoubleToBits` method, `DoubleToRawBits` does not collapse </SourceLine>
+   <SourceLine>/// Unlike the [DoubleToBits] method, this method does not collapse </SourceLine>
    <SourceLine>/// all the bit patterns encoding a NaN to a single "canonical" NaN value.</SourceLine>
    <SourceLine>/// </SourceLine>
    <SourceLine>/// In all cases, the result is a `UInt64` integer that, when given to the </SourceLine>
-   <SourceLine>/// `BitsToDouble(Int64)` method, will produce a floating-point value the </SourceLine>
-   <SourceLine>/// same as the argument to `DoubleToRawBits`.</SourceLine>
+   <SourceLine>/// [BitsToDouble(Int64)] method, will produce a floating-point value the </SourceLine>
+   <SourceLine>/// same as [d].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var m As MemoryBlock = New MemoryBlock(8)</SourceLine>
    <SourceLine>m.LittleEndian = False</SourceLine>
@@ -551,9 +503,6 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Assert(condition As Boolean, message As String = "")</SourceLine>
    <SourceLine>/// Asserts that the passed condition is True, otherwise raises an exception.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [condition]: The condition that should be true.</SourceLine>
-   <SourceLine>/// - [message]: Optional message to include in the exception.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If Not condition Then Raise New RuntimeException(message)</SourceLine>
    <SourceLine>End Sub</SourceLine>
@@ -569,17 +518,13 @@
   <ItemName>RShift</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts `v` `s` places to the right, preserving the sign bit. Equivalent to Java's `&gt;&gt;` operator.</CodeDescription>
+  <CodeDescription>Shifts [v] [s] places to the right, preserving the sign bit.</CodeDescription>
   <PartID>459864063</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function RShift(v As Int64, s As Integer) As Int64</SourceLine>
-   <SourceLine>/// Shifts `v` `s` places to the right, preserving the sign bit.</SourceLine>
+   <SourceLine>/// Shifts [v] [s] places to the right, preserving the sign bit.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [v]: The value to shift.</SourceLine>
-   <SourceLine>/// - [s]: The number of positions to shift rightwards by.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Equivalent to Java's `&gt;&gt;` operator.</SourceLine>
    <SourceLine>/// Thanks to code form the Xojo forum by Rick Araujo:</SourceLine>
    <SourceLine>/// https://forum.xojo.com/58281-bit-shifting-right-help</SourceLine>
@@ -606,18 +551,13 @@
   <ItemName>RShiftU32</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts the passed Int32 `s` bits to the right. Shifts a zero into the left-most position. Equivalent to Java's `int &gt;&gt;&gt; x` operation.</CodeDescription>
+  <CodeDescription>Shifts [v] [s] bits to the right. Shifts a zero into the left-most position.</CodeDescription>
   <PartID>2143537151</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function RShiftU32(v As Int32, s As Integer) As Int32</SourceLine>
-   <SourceLine>/// Shifts the passed Int32 `s` bits to the right. Shifts a zero into the </SourceLine>
-   <SourceLine>/// left-most position.</SourceLine>
+   <SourceLine>/// Shifts [v] [s] bits to the right. Shifts a zero into the left-most position.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [v]: The Int32 value to do the shift on.</SourceLine>
-   <SourceLine>/// - [s]: The number of positions to shift rightwards.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Equivalent to Java's `int &gt;&gt;&gt; x` operation.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Bitwise.ShiftRight(v, s, 32)</SourceLine>
@@ -635,21 +575,16 @@
   <ItemName>RShiftU64</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts the passed Int64 `s` bits to the right. Shifts a zero into the left-most position. Equivalent to Java's `long &gt;&gt;&gt; x` operation.</CodeDescription>
+  <CodeDescription>Shifts [v] [s] bits to the right. Shifts a zero into the left-most position.</CodeDescription>
   <PartID>664696831</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function RShiftU64(value As Int64, shift As Integer) As Int64</SourceLine>
-   <SourceLine>/// Shifts the passed Int64 `s` bits to the right. Shifts a zero into the </SourceLine>
-   <SourceLine>/// left-most position.</SourceLine>
+   <SourceLine>Function RShiftU64(v As Int64, shift As Integer) As Int64</SourceLine>
+   <SourceLine>/// Shifts [v] [s] bits to the right. Shifts a zero into the left-most position.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// -[v]: The Int64 value to do the shift on.</SourceLine>
-   <SourceLine>/// - [s]: The number of positions to shift rightwards.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Equivalent to Java's `long &gt;&gt;&gt; x` operation.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Bitwise.ShiftRight(value, shift, 64)</SourceLine>
+   <SourceLine>Return Bitwise.ShiftRight(v, shift, 64)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -657,23 +592,21 @@
   <AliasName></AliasName>
   <ItemFlags>1</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>value As Int64, shift As Integer</ItemParams>
+  <ItemParams>v As Int64, shift As Integer</ItemParams>
   <ItemResult>Int64</ItemResult>
  </Method>
  <Method>
   <ItemName>LShift32</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts left the 32-bit bit pattern of `v` by `s` bits.  Equivalent to Java's `int &lt;&lt; x` operator.</CodeDescription>
+  <CodeDescription>Shifts left the 32-bit bit pattern of [v] by [s] bits. </CodeDescription>
   <PartID>269539327</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function LShift32(v As Int32, s As Integer) As Int32</SourceLine>
-   <SourceLine>/// Shifts left the 32-bit bit pattern of `v` by `s` bits. </SourceLine>
+   <SourceLine>/// Shifts left the 32-bit bit pattern of [v] by [s] bits. </SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine>/// Equivalent to Java's `int &lt;&lt; x` operator.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [v]: The bit pattern to shift left as an Int32.</SourceLine>
-   <SourceLine>/// - [s]: The number of positions to shift left by.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Bitwise.ShiftLeft(v, s, 32)</SourceLine>
    <SourceLine></SourceLine>
@@ -690,16 +623,14 @@
   <ItemName>LShift64</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Shifts left the 64-bit bit pattern of `v` by `s` bits.  Equivalent to Java's `long &lt;&lt; x` operator.</CodeDescription>
+  <CodeDescription>Shifts left the 64-bit bit pattern of [v] by [s] bits.</CodeDescription>
   <PartID>820414463</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function LShift64(v As Int64, s As Integer) As Int64</SourceLine>
-   <SourceLine>/// Shifts left the 64-bit bit pattern of `v` by `s` bits. </SourceLine>
+   <SourceLine>/// Shifts left the 64-bit bit pattern of [v] by [s] bits.</SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine>/// Equivalent to Java's `int &lt;&lt; x` operator.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [v]: The bit pattern to shift left as an Int64.</SourceLine>
-   <SourceLine>/// - [s]: The number of positions to shift left by.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Bitwise.ShiftLeft(v, s, 64)</SourceLine>
    <SourceLine></SourceLine>
@@ -716,22 +647,23 @@
   <ItemName>NumberOfLeadingZeros</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the number of zero bits preceding the highest-order ("leftmost") one-bit in the two's complement binary representation of the specified Int64 value `i`. Returns 64 if `i = 0`.</CodeDescription>
+  <CodeDescription>Returns the number of zero bits preceding the highest-order ("leftmost") one-bit in the two's complement binary representation of [i]. Returns 64 if `i = 0`.</CodeDescription>
   <PartID>113790975</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function NumberOfLeadingZeros(i As Int64) As Int32</SourceLine>
    <SourceLine>/// Returns the number of zero bits preceding the highest-order </SourceLine>
-   <SourceLine>/// ("leftmost") one-bit in the two's complement binary representation of </SourceLine>
-   <SourceLine>/// the specified Int64 value. </SourceLine>
+   <SourceLine>/// ("leftmost") one-bit in the two's complement binary representation of [i].</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>///  - Notes:</SourceLine>
-   <SourceLine>/// Returns 64 if the specified value has no one-bits in its two's complement </SourceLine>
+   <SourceLine>/// Returns `64` if [i] has no one-bits in its two's complement </SourceLine>
    <SourceLine>/// representation, in other words if it is equal to zero.</SourceLine>
    <SourceLine>/// This method is closely related to the logarithm base 2.</SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine>/// For all positive Int64 values x:</SourceLine>
-   <SourceLine>///   Floor(log₂(x)) = `63 - NumberOfLeadingZeros(x)`</SourceLine>
-   <SourceLine>///   Ceil(₂(x)) = `64 - NumberOfLeadingZeros(x - 1)`</SourceLine>
+   <SourceLine>/// ```</SourceLine>
+   <SourceLine>/// Floor(log₂(x)) = `63 - NumberOfLeadingZeros(x)`</SourceLine>
+   <SourceLine>/// Ceil(₂(x)) = `64 - NumberOfLeadingZeros(x - 1)`</SourceLine>
+   <SourceLine>/// ```</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If i = 0 Then Return 64</SourceLine>
    <SourceLine></SourceLine>
@@ -780,14 +712,15 @@
   <ItemName>NumberOfTrailingZeros</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the number of zero bits following the lowest-order ("rightmost") one-bit in the two's complement binary representation of the specified Int64 value.  Returns 64 if `i = 0`.</CodeDescription>
+  <CodeDescription><Hex bytes="138">52657475726E7320746865206E756D626572206F66207A65726F206269747320666F6C6C6F77696E6720746865206C6F776573742D6F7264657220282272696768746D6F737422290A2F2F2F206F6E652D62697420696E207468652074776F277320636F6D706C656D656E742062696E61727920726570726573656E746174696F6E206F66205B695D2E</Hex></CodeDescription>
   <PartID>759306239</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function NumberOfTrailingZeros(i As Int64) As Int32</SourceLine>
    <SourceLine>/// Returns the number of zero bits following the lowest-order ("rightmost")</SourceLine>
-   <SourceLine>/// one-bit in the two's complement binary representation of the specified</SourceLine>
-   <SourceLine>/// Int64 value.  Returns 64 if the specified value has no one-bits in </SourceLine>
+   <SourceLine>/// one-bit in the two's complement binary representation of [i].</SourceLine>
+   <SourceLine>/// </SourceLine>
+   <SourceLine>/// Returns `64` if [i] has no one-bits in </SourceLine>
    <SourceLine>/// its two's complement representation, in other words if it is equal to zero.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If i = 0 Then Return 64</SourceLine>
@@ -842,25 +775,17 @@
   <ItemName>NextUp</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the floating-point value adjacent to `d` in the direction of positive infinity.</CodeDescription>
+  <CodeDescription>Returns the floating-point value adjacent to [d] in the direction of positive infinity.</CodeDescription>
   <PartID>796006399</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function NextUp(d As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the floating-point value adjacent to `d` in the direction of </SourceLine>
+   <SourceLine>/// Returns the floating-point value adjacent to [d] in the direction of </SourceLine>
    <SourceLine>/// positive infinity.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [d]: The starting floating-point value.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: The adjacent floating-point value closer to positive infinity. </SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine>/// If the argument is NaN, the result is NaN.</SourceLine>
    <SourceLine>/// If the argument is positive infinity, the result is positive infinity.</SourceLine>
    <SourceLine>/// If the argument is zero, the result is DOUBLE_MIN_VALUE</SourceLine>
-   <SourceLine>/// This method is semantically equivalent </SourceLine>
-   <SourceLine>/// to `NextAfter(d, POSITIVE_INFINITY)` however, a `NextUp` implementation may run </SourceLine>
-   <SourceLine>/// faster than its equivalent `NextAfter` call.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If d.IsNotANumber Or d = POSITIVE_INFINITY Then</SourceLine>
    <SourceLine>Return d</SourceLine>
@@ -882,24 +807,17 @@
   <ItemName>NextDown</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns the floating-point value adjacent to [d] in the direction of negative infinity. </CodeDescription>
   <PartID>980785151</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function NextDown(d As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the floating-point value adjacent to `d` in the direction of </SourceLine>
+   <SourceLine>/// Returns the floating-point value adjacent to [d] in the direction of </SourceLine>
    <SourceLine>/// negative infinity. </SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [d]: Starting floating-point value.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: The adjacent floating-point value closer to negative infinity.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// If the argument is NaN, the result is NaN.</SourceLine>
    <SourceLine>/// If the argument is negative infinity, the result is negative infinity.</SourceLine>
    <SourceLine>/// If the argument is zero, the result is `-DOUBLE_MIN_VALUE`.</SourceLine>
-   <SourceLine>/// This method is semantically equivalent to </SourceLine>
-   <SourceLine>/// `NextAfter(d, NEGATIVE_INFINITY)` however, a`NextDown` implementation may </SourceLine>
-   <SourceLine>/// run faster than its equivalent `NextAfter` call.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If d.IsNotANumber Or d = NEGATIVE_INFINITY Then</SourceLine>
    <SourceLine>Return d</SourceLine>
@@ -1171,14 +1089,13 @@
   <ItemName>CubeRoot</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the cube root of a double value.</CodeDescription>
+  <CodeDescription>Returns the cube root of [d].</CodeDescription>
   <PartID>373960703</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function CubeRoot(d As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the cube root of a double value.</SourceLine>
+   <SourceLine>/// Returns the cube root of [d].</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// If the argument is NaN, then the result Is NaN.</SourceLine>
    <SourceLine>/// If the argument is infinite, Then the result is an infinity</SourceLine>
    <SourceLine>/// with the same sign as the argument.</SourceLine>
@@ -1230,12 +1147,9 @@
    <SourceLine>Function Compare(d1 As Double, d2 As Double) As Integer</SourceLine>
    <SourceLine>/// Compares the two specified double values. </SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [d1]: The first double to compare.</SourceLine>
-   <SourceLine>/// - [d2]: The second double to compare.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Returns: The value `0` if `d1` is numerically equal to `d2`, a value </SourceLine>
-   <SourceLine>///            less than `0` if `d1` is numerically less than `d2` and a value </SourceLine>
-   <SourceLine>///            greater than `0` if `d1` is numerically greater than `d2`.</SourceLine>
+   <SourceLine>/// The value `0` if [d1] is numerically equal to [d2], a value </SourceLine>
+   <SourceLine>/// less than `0` if [d1] is numerically less than [d2] and a value </SourceLine>
+   <SourceLine>/// greater than `0` if [d1] is numerically greater than [d2].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If d1 &lt; d2 Then</SourceLine>
    <SourceLine>Return -1 // Neither val is NaN, thisVal is smaller.</SourceLine>
@@ -1264,15 +1178,12 @@
   <ItemName>IsInteger</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the passed double is a whole number.</CodeDescription>
+  <CodeDescription>Returns True if [d] is a whole number.</CodeDescription>
   <PartID>2009505791</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function IsInteger(d As Double) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the passed double is a whole number.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// -[d]: The double to check.</SourceLine>
-   <SourceLine>///</SourceLine>
+   <SourceLine>/// Returns True if [d] is a whole number.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return d = Floor(d)</SourceLine>
    <SourceLine></SourceLine>
@@ -1289,20 +1200,17 @@
   <ItemName>IsZero</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the passed double is considered to be zero.</CodeDescription>
+  <CodeDescription>Returns True if [d] is considered to be zero.</CodeDescription>
   <PartID>1115684863</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function IsZero(d As Double) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the passed double is considered to be zero.</SourceLine>
+   <SourceLine>/// Returns True if [d] is considered to be zero.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// -[d]: The double to check.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Exists as a workaround to the buggy Xojo `Double.Equals` method.</SourceLine>
-   <SourceLine>/// Returns True if the passed double is within `Tolerance` of 0.0.</SourceLine>
+   <SourceLine>/// Returns True if [d] is within `Tolerance` of 0.0.</SourceLine>
    <SourceLine>/// Based on code by Graham Busch: https://forum.xojo.com/t/double-equals-help/56862/6</SourceLine>
-   <SourceLine>/// (modified from the code in `IsCloseTo`).</SourceLine>
+   <SourceLine>/// (modified from the code in [IsCloseTo]).</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If Round(d * Pow(10, 16)) = 0 Then</SourceLine>
    <SourceLine>Return True</SourceLine>
@@ -1328,7 +1236,7 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ComputeEpsilon() As Double</SourceLine>
-   <SourceLine>// Computes an approximation of machine epsilon.</SourceLine>
+   <SourceLine>/// Computes an approximation of machine epsilon.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var e As Double = 0.5</SourceLine>
    <SourceLine></SourceLine>
@@ -1350,19 +1258,15 @@
   <ItemName>IsCloseTo</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the two doubles are "close enough" to be considered equal.</CodeDescription>
+  <CodeDescription>Returns True if the arguments are "close enough" to be considered equal.</CodeDescription>
   <PartID>2142932991</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function IsCloseTo(d1 As Double, d2 As Double, decimalPoints As Integer = 5) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the two doubles are "close enough" to be considered equal.</SourceLine>
+   <SourceLine>/// Returns True if the arguments are "close enough" to be considered equal.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [d1]: The first double.</SourceLine>
-   <SourceLine>/// - [d2]: The second double.</SourceLine>
-   <SourceLine>/// - [decimalPoints]: The number of decimal points of accuracy.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Thanks to Graham Busch: https://forum.xojo.com/t/double-equals-help/56862/6</SourceLine>
+   <SourceLine>/// [decimalPoints] is the number of decimal points of accuracy.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Round(d1 * Pow(10, decimalPoints)) = Round(d2 * Pow(10, DecimalPoints))</SourceLine>
    <SourceLine></SourceLine>
@@ -1379,16 +1283,12 @@
   <ItemName>Clamp</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the passed value clamped between the minimum and maximum values (inclusive).</CodeDescription>
+  <CodeDescription>Returns the passed value clamped between [minimum] and [maximum].</CodeDescription>
   <PartID>758286335</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Clamp(value As Double, minimum As Double, maximum As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the passed value clamped between the minimum and maximum values.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [value]: The value to clamp.</SourceLine>
-   <SourceLine>/// - [minimum]: The minimum permissable value.</SourceLine>
-   <SourceLine>/// - [maximum]: The maximum permissable value.</SourceLine>
+   <SourceLine>/// Returns the passed value clamped between [minimum] and [maximum].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If value &gt; maximum Then Return maximum</SourceLine>
    <SourceLine>If value &lt; minimum Then Return minimum</SourceLine>
@@ -1407,14 +1307,13 @@
   <ItemName>HalfPlaneSign</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Part of the `PointInTriangle` algorithm.</CodeDescription>
+  <CodeDescription>Part of the [PointInTriangle] algorithm.</CodeDescription>
   <PartID>1877301247</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function HalfPlaneSign(p1 As Point, p2 As Point, p3 As Point) As Double</SourceLine>
-   <SourceLine>/// Part of the `PointInTriangle` algorithm.</SourceLine>
+   <SourceLine>/// Part of the [PointInTriangle] algorithm.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// See: https://stackoverflow.com/a/2049593/278816</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return (p1.X - p3.X) * (p2.Y - p3.Y) - (p2.X - p3.X) * (p1.Y - p3.Y)</SourceLine>
@@ -1432,20 +1331,13 @@
   <ItemName>PointInTriangle</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if point `p` is inside the triangle formed by the passed vertices.</CodeDescription>
+  <CodeDescription>Returns True if [p] is inside the triangle formed by the passed vertices.</CodeDescription>
   <PartID>1719449599</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function PointInTriangle(p As Point, v1 As Point, v2 As Point, v3 As Point) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if point `p` is inside the triangle formed by the </SourceLine>
-   <SourceLine>/// passed vertices.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [p]: The point.</SourceLine>
-   <SourceLine>/// - [v1]: Vertex 1.</SourceLine>
-   <SourceLine>/// - [v2]: Vertex 2.</SourceLine>
-   <SourceLine>/// - [v3]: Vertex 3.</SourceLine>
+   <SourceLine>/// Returns True if [p] is inside the triangle formed by the passed vertices.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Adapted from this StackOverflow answer:</SourceLine>
    <SourceLine>/// https://stackoverflow.com/a/2049593/278816</SourceLine>
    <SourceLine></SourceLine>
@@ -1474,12 +1366,12 @@
   <ItemName>IsEven</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the passed integer is even.</CodeDescription>
+  <CodeDescription>Returns True if [i] is even.</CodeDescription>
   <PartID>1917972479</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function IsEven(i As Integer) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the passed integer is even.</SourceLine>
+   <SourceLine>/// Returns True if [i] is even.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return i Mod 2 = 0</SourceLine>
    <SourceLine></SourceLine>
@@ -1496,12 +1388,12 @@
   <ItemName>IsOdd</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the passed integer is odd.</CodeDescription>
+  <CodeDescription>Returns True if [i] is odd.</CodeDescription>
   <PartID>749895679</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function IsOdd(i As Integer) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the passed integer is odd.</SourceLine>
+   <SourceLine>/// Returns True if [i] is odd.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return i Mod 2 &lt;&gt; 0</SourceLine>
    <SourceLine></SourceLine>
@@ -1518,17 +1410,13 @@
   <ItemName>Modulo</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the remainder of `a / b` yielding a result with the same sign as `b`.</CodeDescription>
+  <CodeDescription>Returns the remainder of `a/b` yielding a result with the same sign as [b].</CodeDescription>
   <PartID>1699182591</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Modulo(a As Integer, b As Integer) As Integer</SourceLine>
-   <SourceLine>/// Returns the remainder of `a/b` yielding a result with the same sign as `b`.</SourceLine>
+   <SourceLine>/// Returns the remainder of `a/b` yielding a result with the same sign as [b].</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [a]: The dividend.</SourceLine>
-   <SourceLine>/// - [b]: The divisor.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Credit: https://stackoverflow.com/a/42131495/278816</SourceLine>
    <SourceLine>/// Functions like Python's `%` operator.</SourceLine>
    <SourceLine></SourceLine>
@@ -1547,19 +1435,14 @@
   <ItemName>Lerp</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Linearly interpolates between two values by the fraction `f`.</CodeDescription>
+  <CodeDescription>Linearly interpolates between [a] and [b] by the fraction [f].</CodeDescription>
   <PartID>700358655</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Lerp(a As Double, b As Double, f As Double) As Double</SourceLine>
-   <SourceLine>/// Linearly interpolates between two values by the fraction `f`.</SourceLine>
+   <SourceLine>/// Linearly interpolates between [a] and [b] by the fraction [f].</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [a]: The first value.</SourceLine>
-   <SourceLine>/// - [b]: The second value.</SourceLine>
-   <SourceLine>/// - [f]: The fraction to interpolate by.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
-   <SourceLine>/// Assumes `f` is clamped between 0 and 1.</SourceLine>
+   <SourceLine>/// Assumes [f] is clamped between 0 and 1.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return (a * (1.0 - f)) + (b * f)</SourceLine>
    <SourceLine></SourceLine>
@@ -1576,15 +1459,12 @@
   <ItemName>WrapInteger</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Wraps an integer between zero and `maxValue`.</CodeDescription>
+  <CodeDescription>Wraps [i] between zero and [maxValue].</CodeDescription>
   <PartID>1005201407</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function WrapInteger(i As Integer, maxValue As Integer) As Integer</SourceLine>
-   <SourceLine>/// Wraps an integer between zero and `maxValue`.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [i]: The value to wrap.</SourceLine>
-   <SourceLine>/// - [maxValue]: The maximum permitted value before wrapping.</SourceLine>
+   <SourceLine>/// Wraps [i] between zero and [maxValue].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// Easy exit.</SourceLine>
    <SourceLine>If i &gt;= 0 And i &lt;= maxValue Then Return i</SourceLine>
@@ -1611,15 +1491,12 @@
   <ItemName>Random</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns a psuedo random number between `low` and `high`.</CodeDescription>
+  <CodeDescription>Returns a psuedo random number between [low] and [high].</CodeDescription>
   <PartID>193323007</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Random(low As Double, high As Double) As Double</SourceLine>
-   <SourceLine>/// Returns a psuedo random number between `low` and `high`.</SourceLine>
-   <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [low]: The minimum value to return.</SourceLine>
-   <SourceLine>/// - [high]: The maximum value to return.</SourceLine>
+   <SourceLine>/// Returns a psuedo random number between [low] and [high].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return System.Random.Number * Abs(low - high) + low</SourceLine>
    <SourceLine></SourceLine>
@@ -1643,12 +1520,9 @@
    <SourceLine>Function CoinToss(trueBias As Double = 0.5) As Boolean</SourceLine>
    <SourceLine>/// Returns True or False.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [trueBias]: Optional. The chance of True being returned.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Simulates a coin toss by returning a random boolean. The optional </SourceLine>
-   <SourceLine>/// 'trueBias' determines the chance of True being returned. This value</SourceLine>
-   <SourceLine>/// should be between 0 and 1. If `0` then there is a 0% chance that True</SourceLine>
+   <SourceLine>/// [trueBias] determines the chance of True being returned. This value</SourceLine>
+   <SourceLine>/// should be between `0` and `1`. If `0` then there is a 0% chance that True</SourceLine>
    <SourceLine>/// will be returned, if `1` then the chance is 100%.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>trueBias = Clamp(trueBias, 0.0, 1.0)</SourceLine>
