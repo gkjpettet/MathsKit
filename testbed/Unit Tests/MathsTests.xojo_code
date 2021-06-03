@@ -33,7 +33,7 @@ Inherits TestGroup
 	#tag Method, Flags = &h0
 		Sub BitsToDoubleTest()
 		  ///
-		  ' Tests the `Maths.BitsToDouble` method.
+		  ' Tests the `MathsKit.BitsToDouble` method.
 		  ///
 		  
 		  Assert.AreEqual(3.338742E-317, BitsToDouble(6757689))
@@ -44,10 +44,10 @@ Inherits TestGroup
 		Sub ClampTest()
 		  /// Tests the `Clamp` method.
 		  
-		  Assert.IsTrue(Maths.Clamp(10, 0, 20) = 10)
-		  Assert.IsTrue(Maths.Clamp(-1, 0, 20) = 0)
-		  Assert.IsTrue(Maths.Clamp(-1.34, -5, 1) = -1.34)
-		  Assert.IsTrue(Maths.Clamp(-4.5, -2.1, 15) = -2.1)
+		  Assert.IsTrue(MathsKit.Clamp(10, 0, 20) = 10)
+		  Assert.IsTrue(MathsKit.Clamp(-1, 0, 20) = 0)
+		  Assert.IsTrue(MathsKit.Clamp(-1.34, -5, 1) = -1.34)
+		  Assert.IsTrue(MathsKit.Clamp(-4.5, -2.1, 15) = -2.1)
 		  
 		End Sub
 	#tag EndMethod
@@ -79,13 +79,13 @@ Inherits TestGroup
 		  ' Tests the Cbrt method.
 		  ///
 		  
-		  Assert.IsPositiveInfinity(Maths.CubeRoot(1.0/0.0))
-		  Assert.IsNegativeInfinity(Maths.CubeRoot(-1.0/0.0))
-		  Assert.AreEqual(0.0, Maths.CubeRoot(0.0))
-		  Assert.AreEqual(-0.0, Maths.CubeRoot(-0.0))
-		  Assert.AreEqual(5.0, Maths.CubeRoot(125.0))
-		  Assert.AreEqual(9.0, Maths.CubeRoot(729))
-		  Assert.AreEqual(10.727636943228317, Maths.CubeRoot(1234.56))
+		  Assert.IsPositiveInfinity(MathsKit.CubeRoot(1.0/0.0))
+		  Assert.IsNegativeInfinity(MathsKit.CubeRoot(-1.0/0.0))
+		  Assert.AreEqual(0.0, MathsKit.CubeRoot(0.0))
+		  Assert.AreEqual(-0.0, MathsKit.CubeRoot(-0.0))
+		  Assert.AreEqual(5.0, MathsKit.CubeRoot(125.0))
+		  Assert.AreEqual(9.0, MathsKit.CubeRoot(729))
+		  Assert.AreEqual(10.727636943228317, MathsKit.CubeRoot(1234.56))
 		  
 		End Sub
 	#tag EndMethod
@@ -163,18 +163,18 @@ Inherits TestGroup
 		  #Pragma BreakOnExceptions False
 		  
 		  // If either argument is infinite, then the result is positive infinity.
-		  Assert.IsPositiveInfinity(Maths.Hypotenuse(POSITIVE_INFINITY, 3.0))
-		  Assert.IsPositiveInfinity(Maths.Hypotenuse(4.0, POSITIVE_INFINITY))
-		  Assert.IsPositiveInfinity(Maths.Hypotenuse(NEGATIVE_INFINITY, 3.0))
-		  Assert.IsPositiveInfinity(Maths.Hypotenuse(4.0, NEGATIVE_INFINITY))
+		  Assert.IsPositiveInfinity(MathsKit.Hypotenuse(POSITIVE_INFINITY, 3.0))
+		  Assert.IsPositiveInfinity(MathsKit.Hypotenuse(4.0, POSITIVE_INFINITY))
+		  Assert.IsPositiveInfinity(MathsKit.Hypotenuse(NEGATIVE_INFINITY, 3.0))
+		  Assert.IsPositiveInfinity(MathsKit.Hypotenuse(4.0, NEGATIVE_INFINITY))
 		  
 		  // If either argument is NaN and neither argument is infinite, then the result is NaN.
-		  Assert.IsNaN(Maths.Hypotenuse(NAN, 2.0))
-		  Assert.IsNaN(Maths.Hypotenuse(6.5, NAN))
-		  Assert.IsPositiveInfinity(Maths.Hypotenuse(NAN, NEGATIVE_INFINITY))
+		  Assert.IsNaN(MathsKit.Hypotenuse(NAN, 2.0))
+		  Assert.IsNaN(MathsKit.Hypotenuse(6.5, NAN))
+		  Assert.IsPositiveInfinity(MathsKit.Hypotenuse(NAN, NEGATIVE_INFINITY))
 		  
 		  // When both are not infinity .
-		  Assert.AreEqual(5.0, Maths.Hypotenuse(3.0, 4.0))
+		  Assert.AreEqual(5.0, MathsKit.Hypotenuse(3.0, 4.0))
 		  
 		End Sub
 	#tag EndMethod
@@ -188,17 +188,17 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsEvenTest()
-		  Assert.IsTrue(Maths.IsEven(-4))
-		  Assert.IsTrue(Maths.IsEven(-2))
-		  Assert.IsTrue(Maths.IsEven(0))
-		  Assert.IsTrue(Maths.IsEven(2))
-		  Assert.IsTrue(Maths.IsEven(4))
+		  Assert.IsTrue(MathsKit.IsEven(-4))
+		  Assert.IsTrue(MathsKit.IsEven(-2))
+		  Assert.IsTrue(MathsKit.IsEven(0))
+		  Assert.IsTrue(MathsKit.IsEven(2))
+		  Assert.IsTrue(MathsKit.IsEven(4))
 		  
-		  Assert.IsFalse(Maths.IsEven(-3))
-		  Assert.IsFalse(Maths.IsEven(-1))
-		  Assert.IsFalse(Maths.IsEven(1))
-		  Assert.IsFalse(Maths.IsEven(3))
-		  Assert.IsFalse(Maths.IsEven(5))
+		  Assert.IsFalse(MathsKit.IsEven(-3))
+		  Assert.IsFalse(MathsKit.IsEven(-1))
+		  Assert.IsFalse(MathsKit.IsEven(1))
+		  Assert.IsFalse(MathsKit.IsEven(3))
+		  Assert.IsFalse(MathsKit.IsEven(5))
 		  
 		End Sub
 	#tag EndMethod
@@ -224,14 +224,14 @@ Inherits TestGroup
 		  ' Tests the IsInteger method.
 		  ///
 		  
-		  Assert.IsTrue(Maths.IsInteger(10))
-		  Assert.IsTrue(Maths.IsInteger(12345))
-		  Assert.IsTrue(Maths.IsInteger(-5))
-		  Assert.IsTrue(Maths.IsInteger(0))
+		  Assert.IsTrue(MathsKit.IsInteger(10))
+		  Assert.IsTrue(MathsKit.IsInteger(12345))
+		  Assert.IsTrue(MathsKit.IsInteger(-5))
+		  Assert.IsTrue(MathsKit.IsInteger(0))
 		  
-		  Assert.IsFalse(Maths.IsInteger(0.1))
-		  Assert.IsFalse(Maths.IsInteger(22.5))
-		  Assert.IsFalse(Maths.IsInteger(-1.234))
+		  Assert.IsFalse(MathsKit.IsInteger(0.1))
+		  Assert.IsFalse(MathsKit.IsInteger(22.5))
+		  Assert.IsFalse(MathsKit.IsInteger(-1.234))
 		  
 		End Sub
 	#tag EndMethod
@@ -250,17 +250,17 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsOddTest()
-		  Assert.IsTrue(Maths.IsOdd(-3))
-		  Assert.IsTrue(Maths.IsOdd(-1))
-		  Assert.IsTrue(Maths.IsOdd(1))
-		  Assert.IsTrue(Maths.IsOdd(3))
-		  Assert.IsTrue(Maths.IsOdd(5))
+		  Assert.IsTrue(MathsKit.IsOdd(-3))
+		  Assert.IsTrue(MathsKit.IsOdd(-1))
+		  Assert.IsTrue(MathsKit.IsOdd(1))
+		  Assert.IsTrue(MathsKit.IsOdd(3))
+		  Assert.IsTrue(MathsKit.IsOdd(5))
 		  
-		  Assert.IsFalse(Maths.IsOdd(-4))
-		  Assert.IsFalse(Maths.IsOdd(-2))
-		  Assert.IsFalse(Maths.IsOdd(0))
-		  Assert.IsFalse(Maths.IsOdd(2))
-		  Assert.IsFalse(Maths.IsOdd(4))
+		  Assert.IsFalse(MathsKit.IsOdd(-4))
+		  Assert.IsFalse(MathsKit.IsOdd(-2))
+		  Assert.IsFalse(MathsKit.IsOdd(0))
+		  Assert.IsFalse(MathsKit.IsOdd(2))
+		  Assert.IsFalse(MathsKit.IsOdd(4))
 		  
 		End Sub
 	#tag EndMethod
@@ -274,12 +274,12 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub LerpTest()
-		  Assert.IsTrue(Maths.Lerp(0, 100, 0.5) = 50)
-		  Assert.IsTrue(Maths.Lerp(20, 80, 0) = 20)
-		  Assert.IsTrue(Maths.Lerp(30, 5, 1) = 5)
-		  Assert.IsTrue(Maths.Lerp(-1, 1, 0.5) = 0)
-		  Assert.IsTrue(Maths.Lerp(0.5, 1, 0.5) = 0.75)
-		  Assert.IsTrue(Maths.Lerp(-16.0e30, 16.0, 1.0) = 16)
+		  Assert.IsTrue(MathsKit.Lerp(0, 100, 0.5) = 50)
+		  Assert.IsTrue(MathsKit.Lerp(20, 80, 0) = 20)
+		  Assert.IsTrue(MathsKit.Lerp(30, 5, 1) = 5)
+		  Assert.IsTrue(MathsKit.Lerp(-1, 1, 0.5) = 0)
+		  Assert.IsTrue(MathsKit.Lerp(0.5, 1, 0.5) = 0.75)
+		  Assert.IsTrue(MathsKit.Lerp(-16.0e30, 16.0, 1.0) = 16)
 		  
 		End Sub
 	#tag EndMethod
@@ -324,12 +324,12 @@ Inherits TestGroup
 		Sub ModuloTest()
 		  /// Tests the Modulo method.
 		  
-		  Assert.IsTrue(Maths.Modulo(5, 20) = 5)
-		  Assert.IsTrue(Maths.Modulo(20, 20) = 0)
-		  Assert.IsTrue(Maths.Modulo(22, 20) = 2)
-		  Assert.IsTrue(Maths.Modulo(-2, 20) = 18)
-		  Assert.IsTrue(Maths.Modulo(-1, 20) = 19)
-		  Assert.IsTrue(Maths.Modulo(0, 20) = 0)
+		  Assert.IsTrue(MathsKit.Modulo(5, 20) = 5)
+		  Assert.IsTrue(MathsKit.Modulo(20, 20) = 0)
+		  Assert.IsTrue(MathsKit.Modulo(22, 20) = 2)
+		  Assert.IsTrue(MathsKit.Modulo(-2, 20) = 18)
+		  Assert.IsTrue(MathsKit.Modulo(-1, 20) = 19)
+		  Assert.IsTrue(MathsKit.Modulo(0, 20) = 0)
 		  
 		End Sub
 	#tag EndMethod
@@ -403,7 +403,7 @@ Inherits TestGroup
 		  Var encountered As New Dictionary
 		  
 		  For i As Integer = 1 To iterations
-		    Var result As Double = Maths.Random(-1, 1)
+		    Var result As Double = MathsKit.Random(-1, 1)
 		    
 		    Assert.IsFalse(encountered.HasKey(result), "Number already generated")
 		    
@@ -576,16 +576,16 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub WrapIntegerTest()
-		  Assert.AreEqual(10, Maths.WrapInteger(10, 20))
-		  Assert.AreEqual(20, Maths.WrapInteger(20, 20))
-		  Assert.AreEqual(0, Maths.WrapInteger(0, 20))
-		  Assert.AreEqual(1, Maths.WrapInteger(21, 20))
-		  Assert.AreEqual(19, Maths.WrapInteger(39, 20))
-		  Assert.AreEqual(20, Maths.WrapInteger(40, 20))
-		  Assert.AreEqual(1, Maths.WrapInteger(41, 20))
-		  Assert.AreEqual(19, Maths.WrapInteger(-1, 20))
-		  Assert.AreEqual(18, Maths.WrapInteger(-2, 20))
-		  Assert.AreEqual(0, Maths.WrapInteger(-20, 20))
+		  Assert.AreEqual(10, MathsKit.WrapInteger(10, 20))
+		  Assert.AreEqual(20, MathsKit.WrapInteger(20, 20))
+		  Assert.AreEqual(0, MathsKit.WrapInteger(0, 20))
+		  Assert.AreEqual(1, MathsKit.WrapInteger(21, 20))
+		  Assert.AreEqual(19, MathsKit.WrapInteger(39, 20))
+		  Assert.AreEqual(20, MathsKit.WrapInteger(40, 20))
+		  Assert.AreEqual(1, MathsKit.WrapInteger(41, 20))
+		  Assert.AreEqual(19, MathsKit.WrapInteger(-1, 20))
+		  Assert.AreEqual(18, MathsKit.WrapInteger(-2, 20))
+		  Assert.AreEqual(0, MathsKit.WrapInteger(-20, 20))
 		End Sub
 	#tag EndMethod
 
@@ -599,7 +599,7 @@ Inherits TestGroup
 	#tag EndProperty
 
 
-	#tag Using, Name = Maths
+	#tag Using, Name = MathsKit
 	#tag EndUsing
 
 

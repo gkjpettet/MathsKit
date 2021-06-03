@@ -7,7 +7,7 @@ Inherits TestController
 		  
 		  Var group As TestGroup
 		  
-		  group = New MathsTests(Self, "Maths")
+		  group = New MathsTests(Self, "MathsKit")
 		  group = New PerlinTests(Self, "Perlin")
 		  
 		End Sub

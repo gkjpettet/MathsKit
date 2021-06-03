@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2021r1.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="289665023">
- <ObjName>Vector2</ObjName>
+ <ObjName>MKVector2</ObjName>
  <ObjContainerID>0</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
@@ -15,7 +15,7 @@
   <PartID>562542591</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Add(x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Add(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Adds the given vector components to this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [x]: The X component of the vector to add.</SourceLine>
@@ -35,7 +35,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Add</ItemName>
@@ -45,7 +45,7 @@
   <PartID>1488140287</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Add(v As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Add(v As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Adds the given vector to this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The vector to add.</SourceLine>
@@ -63,8 +63,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Constructor</ItemName>
@@ -173,7 +173,7 @@
   <PartID>1887612927</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub Constructor(v As Vector2)</SourceLine>
+   <SourceLine>Sub Constructor(v As MKVector2)</SourceLine>
    <SourceLine>/// Copy constructor.</SourceLine>
    <SourceLine>/// - [v]: The Vector2 to copy from.</SourceLine>
    <SourceLine></SourceLine>
@@ -186,7 +186,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
+  <ItemParams>v As MKVector2</ItemParams>
   <ItemResult></ItemResult>
  </Method>
  <Method>
@@ -197,7 +197,7 @@
   <PartID>247472127</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub Constructor(p1 As Vector2, p2 As Vector2)</SourceLine>
+   <SourceLine>Sub Constructor(p1 As MKVector2, p2 As MKVector2)</SourceLine>
    <SourceLine>/// Creates a Vector2 from the first point to the second point.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [p1]: The first point.</SourceLine>
@@ -212,7 +212,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>p1 As Vector2, p2 As Vector2</ItemParams>
+  <ItemParams>p1 As MKVector2, p2 As MKVector2</ItemParams>
   <ItemResult></ItemResult>
  </Method>
  <Method>
@@ -223,10 +223,10 @@
   <PartID>1230821375</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Copy() As Vector2</SourceLine>
+   <SourceLine>Function Copy() As MKVector2</SourceLine>
    <SourceLine>/// Returns a copy of this vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X, Self.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X, Self.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -235,7 +235,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Cross</ItemName>
@@ -245,7 +245,7 @@
   <PartID>1872089087</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Cross(z As Double) As Vector2</SourceLine>
+   <SourceLine>Function Cross(z As Double) As MKVector2</SourceLine>
    <SourceLine>/// Returns the cross product of this vector and the z value of the right vector</SourceLine>
    <SourceLine>/// as a new vector.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -253,7 +253,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(-Self.Y * z, Self.X * z)</SourceLine>
+   <SourceLine>Return New MKVector2(-Self.Y * z, Self.X * z)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -262,7 +262,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>z As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Cross</ItemName>
@@ -297,7 +297,7 @@
   <PartID>288049151</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Cross(v As Vector2) As Double</SourceLine>
+   <SourceLine>Function Cross(v As MKVector2) As Double</SourceLine>
    <SourceLine>/// Returns the cross product of this vector and the given vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The vector to cross with.</SourceLine>
@@ -310,7 +310,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
+  <ItemParams>v As MKVector2</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -321,7 +321,7 @@
   <PartID>1790081023</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Difference(x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Difference(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Subtracts the given vector components from this vector returning</SourceLine>
    <SourceLine>/// a new vector containing the result.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -330,7 +330,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X - x, Self.Y - y)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X - x, Self.Y - y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -339,7 +339,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Difference</ItemName>
@@ -349,7 +349,7 @@
   <PartID>1882417151</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Difference(v As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Difference(v As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Subtracts the given vector from this vector returning a new vector </SourceLine>
    <SourceLine>/// containing the result.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -357,7 +357,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X - v.X, Self.Y - v.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X - v.X, Self.Y - v.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -365,8 +365,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Distance</ItemName>
@@ -403,7 +403,7 @@
   <PartID>1019756543</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Distance(point As Vector2) As Double</SourceLine>
+   <SourceLine>Function Distance(point As MKVector2) As Double</SourceLine>
    <SourceLine>/// Returns the distance from this vector point to the given point.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [point]: The point.</SourceLine>
@@ -419,7 +419,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>point As Vector2</ItemParams>
+  <ItemParams>point As MKVector2</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -458,7 +458,7 @@
   <PartID>1688133631</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function DistanceSquared(point As Vector2) As Double</SourceLine>
+   <SourceLine>Function DistanceSquared(point As MKVector2) As Double</SourceLine>
    <SourceLine>/// Returns the distance from this vector to the given point squared.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// -[point]: The point.</SourceLine>
@@ -474,7 +474,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>point As Vector2</ItemParams>
+  <ItemParams>point As MKVector2</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -485,7 +485,7 @@
   <PartID>1007423487</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Divide(scalar As Double) As Vector2</SourceLine>
+   <SourceLine>Function Divide(scalar As Double) As MKVector2</SourceLine>
    <SourceLine>/// Divides this vector by the given scalar.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [scalar]: The scalar.</SourceLine>
@@ -504,7 +504,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>scalar As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Dot</ItemName>
@@ -539,7 +539,7 @@
   <PartID>1094901759</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Dot(v As Vector2) As Double</SourceLine>
+   <SourceLine>Function Dot(v As MKVector2) As Double</SourceLine>
    <SourceLine>/// Returns the dot product of the given vector and this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// -[v]: The other vector.</SourceLine>
@@ -552,7 +552,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
+  <ItemParams>v As MKVector2</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -589,9 +589,9 @@
   <PartID>1787457535</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Equals(v As Vector2) As Boolean</SourceLine>
+   <SourceLine>Function Equals(v As MKVector2) As Boolean</SourceLine>
    <SourceLine>/// Returns True if the X and Y components of this Vector2 are the same as the </SourceLine>
-   <SourceLine>/// given Vector2.</SourceLine>
+   <SourceLine>/// given MKVector2.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The Vector2 to compare with.</SourceLine>
    <SourceLine></SourceLine>
@@ -607,7 +607,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
+  <ItemParams>v As MKVector2</ItemParams>
   <ItemResult>Boolean</ItemResult>
  </Method>
  <Method>
@@ -626,8 +626,8 @@
    <SourceLine></SourceLine>
    <SourceLine>If obj = Nil Then Return False</SourceLine>
    <SourceLine>If obj = Self Then Return True</SourceLine>
-   <SourceLine>If obj IsA Vector2 Then</SourceLine>
-   <SourceLine>Var v As Vector2 = Vector2(obj)</SourceLine>
+   <SourceLine>If obj IsA MKVector2 Then</SourceLine>
+   <SourceLine>Var v As MKVector2 = MKVector2(obj)</SourceLine>
    <SourceLine>Return If(Self.X = v.X And Self.Y = v.Y, True, False)</SourceLine>
    <SourceLine>End If</SourceLine>
    <SourceLine></SourceLine>
@@ -659,8 +659,8 @@
    <SourceLine>/// - Returns: The angle in radians.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var a As Double = otherAngle - ATan2(Self.Y, Self.X)</SourceLine>
-   <SourceLine>If a &gt; Maths.PI Then Return a - Maths.TWO_PI</SourceLine>
-   <SourceLine>If a &lt; -Maths.PI Then Return a + Maths.TWO_PI</SourceLine>
+   <SourceLine>If a &gt; MathsKit.PI Then Return a - MathsKit.TWO_PI</SourceLine>
+   <SourceLine>If a &lt; -MathsKit.PI Then Return a + MathsKit.TWO_PI</SourceLine>
    <SourceLine>Return a</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -680,7 +680,7 @@
   <PartID>167440383</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetAngleBetween(v As Vector2) As Double</SourceLine>
+   <SourceLine>Function GetAngleBetween(v As MKVector2) As Double</SourceLine>
    <SourceLine>/// Returns the smallest angle (in radians) between the given vectors in the </SourceLine>
    <SourceLine>/// range -π to π.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -690,8 +690,8 @@
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var a As Double = ATan2(v.Y, v.X) - ATan2(Self.Y, Self.X)</SourceLine>
-   <SourceLine>If a &gt; Maths.PI Then Return a - Maths.TWO_PI</SourceLine>
-   <SourceLine>If a &lt; -Maths.PI then Return a + Maths.TWO_PI</SourceLine>
+   <SourceLine>If a &gt; MathsKit.PI Then Return a - MathsKit.TWO_PI</SourceLine>
+   <SourceLine>If a &lt; -MathsKit.PI then Return a + MathsKit.TWO_PI</SourceLine>
    <SourceLine>Return a</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -700,7 +700,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
+  <ItemParams>v As MKVector2</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -733,10 +733,10 @@
   <PartID>702040063</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetLeftHandOrthogonalVector() As Vector2</SourceLine>
+   <SourceLine>Function GetLeftHandOrthogonalVector() As MKVector2</SourceLine>
    <SourceLine>/// Returns the left-handed normal of this vector as a new vector</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.Y, -Self.X)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.Y, -Self.X)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -745,7 +745,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>GetMagnitude</ItemName>
@@ -800,10 +800,10 @@
   <PartID>665024511</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetNegative() As Vector2</SourceLine>
+   <SourceLine>Function GetNegative() As MKVector2</SourceLine>
    <SourceLine>/// Returns a new vector which is the negative of this vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(-Self.X, -Self.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(-Self.X, -Self.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -812,7 +812,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>GetNormalised</ItemName>
@@ -822,16 +822,16 @@
   <PartID>1224056831</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetNormalised() As Vector2</SourceLine>
+   <SourceLine>Function GetNormalised() As MKVector2</SourceLine>
    <SourceLine>/// Returns a unit vector of this vector as a new vector.</SourceLine>
    <SourceLine>/// This method requires that the length of this vector is not zero.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var magnitude As Double = Self.GetMagnitude</SourceLine>
-   <SourceLine>If magnitude &lt;= Maths.Epsilon then Return New Vector2</SourceLine>
+   <SourceLine>If magnitude &lt;= MathsKit.Epsilon then Return New MKVector2</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>magnitude = 1.0 / magnitude</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X * magnitude, Self.Y * magnitude)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X * magnitude, Self.Y * magnitude)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -840,7 +840,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>GetRightHandOrthogonalVector</ItemName>
@@ -850,10 +850,10 @@
   <PartID>1405366271</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetRightHandOrthogonalVector() As Vector2</SourceLine>
+   <SourceLine>Function GetRightHandOrthogonalVector() As MKVector2</SourceLine>
    <SourceLine>/// Returns the right-handed normal of this vector as a new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(-Self.Y, Self.X)</SourceLine>
+   <SourceLine>Return New MKVector2(-Self.Y, Self.X)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -862,7 +862,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>GetXComponent</ItemName>
@@ -872,10 +872,10 @@
   <PartID>927289343</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetXComponent() As Vector2</SourceLine>
+   <SourceLine>Function GetXComponent() As MKVector2</SourceLine>
    <SourceLine>/// Returns a new vector whose X component matches this vector's.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X, 0.0)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X, 0.0)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -884,7 +884,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>GetYComponent</ItemName>
@@ -894,10 +894,10 @@
   <PartID>376422399</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function GetYComponent() As Vector2</SourceLine>
+   <SourceLine>Function GetYComponent() As MKVector2</SourceLine>
    <SourceLine>/// Returns a new vector whose Y component matches this vector's.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(0.0, Self.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(0.0, Self.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -906,7 +906,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>IsOrthogonal</ItemName>
@@ -927,7 +927,7 @@
    <SourceLine>/// If the dot product of this vector and the given vector is zero then we </SourceLine>
    <SourceLine>/// know that they are perpendicular.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Abs(Self.X * x + Self.Y * y) &lt;= Maths.Epsilon</SourceLine>
+   <SourceLine>Return Abs(Self.X * x + Self.Y * y) &lt;= MathsKit.Epsilon</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -946,7 +946,7 @@
   <PartID>446357503</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function IsOrthogonal(v As Vector2) As Boolean</SourceLine>
+   <SourceLine>Function IsOrthogonal(v As MKVector2) As Boolean</SourceLine>
    <SourceLine>/// Returns True if the given vector is orthogonal (perpendicular) to this vector.</SourceLine>
    <SourceLine>/// </SourceLine>
    <SourceLine>/// - [v]: The vector to test against.</SourceLine>
@@ -955,7 +955,7 @@
    <SourceLine>/// If the dot product of this vector and the given vector is zero then we know </SourceLine>
    <SourceLine>/// that they are perpendicular.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Abs(Self.X * v.X + Self.Y * v.Y) &lt;= Maths.Epsilon</SourceLine>
+   <SourceLine>Return Abs(Self.X * v.X + Self.Y * v.Y) &lt;= MathsKit.Epsilon</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -963,7 +963,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
+  <ItemParams>v As MKVector2</ItemParams>
   <ItemResult>Boolean</ItemResult>
  </Method>
  <Method>
@@ -977,7 +977,7 @@
    <SourceLine>Function IsZero() As Boolean</SourceLine>
    <SourceLine>/// Returns True if this vector is the zero vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Abs(Self.X) &lt;= Maths.Epsilon And Abs(Self.Y) &lt;= Maths.Epsilon</SourceLine>
+   <SourceLine>Return Abs(Self.X) &lt;= MathsKit.Epsilon And Abs(Self.Y) &lt;= MathsKit.Epsilon</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -996,7 +996,7 @@
   <PartID>1233983487</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Left() As Vector2</SourceLine>
+   <SourceLine>Function Left() As MKVector2</SourceLine>
    <SourceLine>/// Sets this vector to the left-handed normal of this vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var temp As Double = Self.X</SourceLine>
@@ -1012,7 +1012,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Multiply</ItemName>
@@ -1022,7 +1022,7 @@
   <PartID>1911967743</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Multiply(scalar As Double) As Vector2</SourceLine>
+   <SourceLine>Function Multiply(scalar As Double) As MKVector2</SourceLine>
    <SourceLine>/// Multiplies this vector by the given scalar.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [scalar]: The scalar.</SourceLine>
@@ -1041,7 +1041,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>scalar As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Negate</ItemName>
@@ -1051,7 +1051,7 @@
   <PartID>540350463</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Negate() As Vector2</SourceLine>
+   <SourceLine>Function Negate() As MKVector2</SourceLine>
    <SourceLine>/// Negates this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: This vector.</SourceLine>
@@ -1068,7 +1068,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Normalise</ItemName>
@@ -1086,7 +1086,7 @@
    <SourceLine>/// This method requires the length of this vector is not zero.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>var magnitude As Double = Sqrt(Self.X * Self.X + Self.Y * Self.Y)</SourceLine>
-   <SourceLine>If magnitude &lt;= Maths.Epsilon Then Return 0</SourceLine>
+   <SourceLine>If magnitude &lt;= MathsKit.Epsilon Then Return 0</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var m As Double = 1.0 / magnitude</SourceLine>
    <SourceLine>Self.X = Self.X * m</SourceLine>
@@ -1111,7 +1111,7 @@
   <PartID>1400662015</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Product(scalar As Double) As Vector2</SourceLine>
+   <SourceLine>Function Product(scalar As Double) As MKVector2</SourceLine>
    <SourceLine>/// Multiplies this vector by the given scalar returning a new vector containing </SourceLine>
    <SourceLine>/// the result.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -1119,7 +1119,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1128,7 +1128,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>scalar As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Project</ItemName>
@@ -1138,7 +1138,7 @@
   <PartID>1815056383</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Project(v As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Project(v As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Projects this vector onto the given vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The vector to project onto.</SourceLine>
@@ -1148,11 +1148,11 @@
    <SourceLine>Var dotProd As Double = Self.Dot(v)</SourceLine>
    <SourceLine>Var denominator As Double = v.Dot(v)</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>If denominator &lt;= Maths.Epsilon Then Return New Vector2</SourceLine>
+   <SourceLine>If denominator &lt;= MathsKit.Epsilon Then Return New MKVector2</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>denominator = dotProd / denominator</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(denominator * v.X, denominator * v.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(denominator * v.X, denominator * v.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1160,8 +1160,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Quotient</ItemName>
@@ -1171,7 +1171,7 @@
   <PartID>1234245631</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Quotient(scalar As Double) As Vector2</SourceLine>
+   <SourceLine>Function Quotient(scalar As Double) As MKVector2</SourceLine>
    <SourceLine>/// Divides this vector by the given scalar returning a new vector containing </SourceLine>
    <SourceLine>/// the result.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -1179,7 +1179,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X / scalar, Self.Y / scalar)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X / scalar, Self.Y / scalar)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1188,7 +1188,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>scalar As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Right</ItemName>
@@ -1198,7 +1198,7 @@
   <PartID>604141567</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Right() As Vector2</SourceLine>
+   <SourceLine>Function Right() As MKVector2</SourceLine>
    <SourceLine>/// Sets this vector to the right-handed normal of this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: This vector.</SourceLine>
@@ -1216,7 +1216,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Rotate</ItemName>
@@ -1226,7 +1226,7 @@
   <PartID>120563711</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Rotate(theta As Double) As Vector2</SourceLine>
+   <SourceLine>Function Rotate(theta As Double) As MKVector2</SourceLine>
    <SourceLine>/// Rotates this vector about the origin.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// -[theta]: The rotation angle in radians.</SourceLine>
@@ -1242,7 +1242,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>theta As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Rotate</ItemName>
@@ -1252,7 +1252,7 @@
   <PartID>1128257535</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Rotate(cos As Double, sin As Double) As Vector2</SourceLine>
+   <SourceLine>Function Rotate(cos As Double, sin As Double) As MKVector2</SourceLine>
    <SourceLine>/// Internal helper method that rotates about the origin by an angle Θ.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [cos]: Cos(Θ)</SourceLine>
@@ -1275,7 +1275,7 @@
   <ItemFlags>33</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>cos As Double, sin As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Rotate</ItemName>
@@ -1285,7 +1285,7 @@
   <PartID>403591167</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Rotate(theta As Double, x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Rotate(theta As Double, x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Rotates this vector about the given coordinates.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [theta]: The rotation angle in radians.</SourceLine>
@@ -1303,7 +1303,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>theta As Double, x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Rotate</ItemName>
@@ -1313,7 +1313,7 @@
   <PartID>1006788607</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Rotate(cos As Double, sin As Double, x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Rotate(cos As Double, sin As Double, x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Internal helper method that rotates about the given coordinates by an </SourceLine>
    <SourceLine>/// angle Θ.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -1339,7 +1339,7 @@
   <ItemFlags>33</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>cos As Double, sin As Double, x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Rotate</ItemName>
@@ -1349,7 +1349,7 @@
   <PartID>537489407</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Rotate(theta As Double, point As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Rotate(theta As Double, point As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Rotates This vector about the given point.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [theta]: The rotation angle in radians.</SourceLine>
@@ -1365,8 +1365,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>theta As Double, point As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>theta As Double, point As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Set</ItemName>
@@ -1376,13 +1376,13 @@
   <PartID>1987155967</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Set(x As Double, y As Double) As Vector2</SourceLine>
-   <SourceLine>/// Sets this Vector2 to the given Vector2.</SourceLine>
+   <SourceLine>Function Set(x As Double, y As Double) As MKVector2</SourceLine>
+   <SourceLine>/// Sets this Vector2 to the given MKVector2.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [x]: The X component of the Vector2 to set this Vector2 to.</SourceLine>
    <SourceLine>/// - [y]: The Y component of the Vector2 to set this Vector2 to.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: This Vector2.</SourceLine>
+   <SourceLine>/// - Returns: This MKVector2.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = x</SourceLine>
@@ -1397,7 +1397,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Set</ItemName>
@@ -1407,8 +1407,8 @@
   <PartID>760018943</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Set(v As Vector2) As Vector2</SourceLine>
-   <SourceLine>/// Sets this Vector2 to the given Vector2.</SourceLine>
+   <SourceLine>Function Set(v As MKVector2) As MKVector2</SourceLine>
+   <SourceLine>/// Sets this Vector2 to the given MKVector2.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The Vector2 to set this Vector2 to.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -1426,8 +1426,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>SetDirection</ItemName>
@@ -1437,7 +1437,7 @@
   <PartID>172007423</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function SetDirection(angle As Double) As Vector2</SourceLine>
+   <SourceLine>Function SetDirection(angle As Double) As MKVector2</SourceLine>
    <SourceLine>/// Sets the direction of this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [angle]: The angle in radians.</SourceLine>
@@ -1457,7 +1457,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>angle As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>SetMagnitude</ItemName>
@@ -1467,7 +1467,7 @@
   <PartID>993335295</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function SetMagnitude(magnitude As Double) As Vector2</SourceLine>
+   <SourceLine>Function SetMagnitude(magnitude As Double) As MKVector2</SourceLine>
    <SourceLine>/// Sets the magnitude of this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [magnitude]: The magnitude.</SourceLine>
@@ -1475,7 +1475,7 @@
    <SourceLine>/// - Returns: This vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>// Check the given magnitude.</SourceLine>
-   <SourceLine>If Abs(magnitude) &lt;= Maths.Epsilon Then</SourceLine>
+   <SourceLine>If Abs(magnitude) &lt;= MathsKit.Epsilon Then</SourceLine>
    <SourceLine>Self.X = 0.0</SourceLine>
    <SourceLine>Self.Y = 0.0</SourceLine>
    <SourceLine>Return Self</SourceLine>
@@ -1502,7 +1502,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>magnitude As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Subtract</ItemName>
@@ -1512,7 +1512,7 @@
   <PartID>1663739903</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Subtract(x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Subtract(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Subtracts the given vector components from this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [x]: The X component of the vector to subtract.</SourceLine>
@@ -1532,7 +1532,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Subtract</ItemName>
@@ -1542,7 +1542,7 @@
   <PartID>1614630911</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Subtract(v As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Subtract(v As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Subtracts the given vector from this vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The vector to subtract from this vector.</SourceLine>
@@ -1560,8 +1560,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Sum</ItemName>
@@ -1571,7 +1571,7 @@
   <PartID>1458122751</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Sum(x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Sum(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Adds this vector and the given vector components returning a new Vector2 </SourceLine>
    <SourceLine>/// containing the result.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -1580,7 +1580,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X + x, Self.Y + y)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X + x, Self.Y + y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1589,7 +1589,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Sum</ItemName>
@@ -1599,15 +1599,15 @@
   <PartID>904505343</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Sum(v As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Sum(v As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Adds this vector and the given vector returning a new vector containing </SourceLine>
    <SourceLine>/// the result.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v]: The Vector2 to sum with.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: A new Vector2.</SourceLine>
+   <SourceLine>/// - Returns: A new MKVector2.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X + v.X, Self.Y + v.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X + v.X, Self.Y + v.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1615,8 +1615,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>ToString</ItemName>
@@ -1647,7 +1647,7 @@
   <PartID>558893055</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Towards(x As Double, y As Double) As Vector2</SourceLine>
+   <SourceLine>Function Towards(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Creates and returns a new vector from this vector to the given vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [x]: The X component of the vector to travel towards.</SourceLine>
@@ -1655,7 +1655,7 @@
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(x - Self.X, y - Self.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(x - Self.X, y - Self.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1664,7 +1664,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>x As Double, y As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Towards</ItemName>
@@ -1674,14 +1674,14 @@
   <PartID>1651597311</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Towards(v As Vector2) As Vector2</SourceLine>
+   <SourceLine>Function Towards(v As MKVector2) As MKVector2</SourceLine>
    <SourceLine>/// Creates and returns a new vector from this vector to the given vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - [v:] The vector to travel towards.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(v.X - Self.X, v.Y - Self.Y)</SourceLine>
+   <SourceLine>Return New MKVector2(v.X - Self.X, v.Y - Self.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1689,8 +1689,8 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>v As Vector2</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemParams>v As MKVector2</ItemParams>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Zero</ItemName>
@@ -1700,7 +1700,7 @@
   <PartID>1010800639</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Zero() As Vector2</SourceLine>
+   <SourceLine>Function Zero() As MKVector2</SourceLine>
    <SourceLine>/// Sets this vector to the zero vector.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Returns: This vector.</SourceLine>
@@ -1717,7 +1717,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Method>
   <ItemName>Operator_Multiply</ItemName>
@@ -1726,7 +1726,7 @@
   <PartID>1109395455</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function Operator_Multiply(scalar As Double) As Vector2</SourceLine>
+   <SourceLine>Function Operator_Multiply(scalar As Double) As MKVector2</SourceLine>
    <SourceLine>/// Returns a new vector resulting from the multiplication of this vector and </SourceLine>
    <SourceLine>/// the passed scalar.</SourceLine>
    <SourceLine>///</SourceLine>
@@ -1737,7 +1737,7 @@
    <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// This vector is unaltered by this operation.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return New Vector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
+   <SourceLine>Return New MKVector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1746,7 +1746,7 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>scalar As Double</ItemParams>
-  <ItemResult>Vector2</ItemResult>
+  <ItemResult>MKVector2</ItemResult>
  </Method>
  <Note>
   <ItemName>About</ItemName>
@@ -1758,8 +1758,8 @@
    <NoteLine>About</NoteLine>
    <NoteLine>This class represents a vector or point in 2D space. </NoteLine>
    <NoteLine></NoteLine>
-   <NoteLine>The operations `Vector2.SetMagnitude(Double)`, `Vector2.GetNormalized()`, </NoteLine>
-   <NoteLine>`Vector2.Project(Vector2)` and `Vector2.Normalize()` require the Vector2 to be </NoteLine>
+   <NoteLine>The operations `MKVector2.SetMagnitude(Double)`, `MKVector2.GetNormalized()`, </NoteLine>
+   <NoteLine>`MKVector2.Project(Vector2)` and `MKVector2.Normalize()` require the Vector2 to be </NoteLine>
    <NoteLine>non-zero in length.</NoteLine>
    <NoteLine></NoteLine>
    <NoteLine>Some methods also return the vector to facilitate chaining.  For example:</NoteLine>

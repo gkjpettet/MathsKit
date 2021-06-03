@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2021r1" FormatVersion="2" MinIDEVersion="20070100">
-<block type="Module" ID="1009266687">
- <ObjName>Perlin</ObjName>
- <ObjContainerID>1569351679</ObjContainerID>
+<RBProject version="2021r1.1" FormatVersion="2" MinIDEVersion="20070100">
+<block type="Module" ID="1026172927">
+ <ObjName>MKPerlin</ObjName>
+ <ObjContainerID>0</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -89,7 +89,7 @@
    <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return FBMVector2(New Vector2(x, y), octave)</SourceLine>
+   <SourceLine>Return FBMVector2(New MKVector2(x, y), octave)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -114,7 +114,7 @@
    <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// Returns a value in the approximate range -0.75 to 0.75.</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return FBMVector3(New Vector3(x, y, z), octave)</SourceLine>
+   <SourceLine>Return FBMVector3(New MKVector3(x, y, z), octave)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -333,7 +333,7 @@
   <PartID>2134697983</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Shared Function FBMVector3(coord As Vector3, octave As Integer) As Double</SourceLine>
+   <SourceLine>Shared Function FBMVector3(coord As MKVector3, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 3D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Notes:</SourceLine>
@@ -357,7 +357,7 @@
   <AliasName></AliasName>
   <ItemFlags>33</ItemFlags>
   <IsShared>1</IsShared>
-  <ItemParams>coord As Vector3, octave As Integer</ItemParams>
+  <ItemParams>coord As MKVector3, octave As Integer</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -368,7 +368,7 @@
   <PartID>808142847</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Shared Function FBMVector2(coord As Vector2, octave As Integer) As Double</SourceLine>
+   <SourceLine>Shared Function FBMVector2(coord As MKVector2, octave As Integer) As Double</SourceLine>
    <SourceLine>/// 2D Fractional Brownian motion.</SourceLine>
    <SourceLine>///</SourceLine>
    <SourceLine>/// - Notes:</SourceLine>
@@ -392,7 +392,7 @@
   <AliasName></AliasName>
   <ItemFlags>33</ItemFlags>
   <IsShared>1</IsShared>
-  <ItemParams>coord As Vector2, octave As Integer</ItemParams>
+  <ItemParams>coord As MKVector2, octave As Integer</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -402,7 +402,7 @@
   <PartID>75646975</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Shared Function NoiseVector3(coord As Vector3) As Double</SourceLine>
+   <SourceLine>Shared Function NoiseVector3(coord As MKVector3) As Double</SourceLine>
    <SourceLine>Return Noise3D(coord.X, coord.Y, coord.Z)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -411,7 +411,7 @@
   <AliasName></AliasName>
   <ItemFlags>33</ItemFlags>
   <IsShared>1</IsShared>
-  <ItemParams>coord As Vector3</ItemParams>
+  <ItemParams>coord As MKVector3</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Method>
@@ -421,7 +421,7 @@
   <PartID>195391487</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Shared Function NoiseVector2(coord As Vector2) As Double</SourceLine>
+   <SourceLine>Shared Function NoiseVector2(coord As MKVector2) As Double</SourceLine>
    <SourceLine>Return Noise2D(coord.X, coord.Y)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -430,7 +430,7 @@
   <AliasName></AliasName>
   <ItemFlags>33</ItemFlags>
   <IsShared>1</IsShared>
-  <ItemParams>coord As Vector2</ItemParams>
+  <ItemParams>coord As MKVector2</ItemParams>
   <ItemResult>Double</ItemResult>
  </Method>
  <Note>
