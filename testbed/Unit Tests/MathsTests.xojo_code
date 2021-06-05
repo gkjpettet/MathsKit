@@ -32,18 +32,12 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub BitsToDoubleTest()
-		  ///
-		  ' Tests the `MathsKit.BitsToDouble` method.
-		  ///
-		  
 		  Assert.AreEqual(3.338742E-317, BitsToDouble(6757689))
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClampTest()
-		  /// Tests the `Clamp` method.
-		  
 		  Assert.IsTrue(MathsKit.Clamp(10, 0, 20) = 10)
 		  Assert.IsTrue(MathsKit.Clamp(-1, 0, 20) = 0)
 		  Assert.IsTrue(MathsKit.Clamp(-1.34, -5, 1) = -1.34)
@@ -61,10 +55,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub CopySignTest()
-		  ///
-		  ' Tests the `CopySign` method.
-		  ///
-		  
 		  Var a As Double = 34.543
 		  Var b As Double = -123.44
 		  
@@ -75,10 +65,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub CubeRootTest()
-		  ///
-		  ' Tests the Cbrt method.
-		  ///
-		  
 		  Assert.IsPositiveInfinity(MathsKit.CubeRoot(1.0/0.0))
 		  Assert.IsNegativeInfinity(MathsKit.CubeRoot(-1.0/0.0))
 		  Assert.AreEqual(0.0, MathsKit.CubeRoot(0.0))
@@ -106,10 +92,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub DoubleToBitsTest()
-		  ///
-		  ' Tests the `DoubleToBits` method.
-		  ///
-		  
 		  Var posInf As Int64 = &h7ff0000000000000
 		  Var negInf As Int64 = &hfff0000000000000
 		  Var notANumber As Int64 = &h7ff8000000000000
@@ -124,10 +106,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub DoubleToRawBitsTest()
-		  ///
-		  ' Tests the `DoubleToRawBits` method.
-		  ///
-		  
 		  Var posInf As Int64 = &h7ff0000000000000
 		  Var negInf As Int64 = &hfff0000000000000
 		  
@@ -143,10 +121,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub GetExponentTest()
-		  ///
-		  ' Tests the GetExponent method.
-		  ///
-		  
 		  #Pragma BreakOnExceptions False
 		  
 		  Assert.AreEqual(8, GetExponent(345.65))
@@ -158,8 +132,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub HypotenuseTest()
-		  /// Tests the `Hypotenuse` method.
-		  
 		  #Pragma BreakOnExceptions False
 		  
 		  // If either argument is infinite, then the result is positive infinity.
@@ -205,10 +177,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsInfinityTest()
-		  ///
-		  ' Tests the `IsInfinity` method.
-		  ///
-		  
 		  Var d1 As Double = 1.0/0.0
 		  Var d2 As Double = 0.0/0.0
 		  Var d3 As Double = 3.5
@@ -220,10 +188,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsIntegerTest()
-		  ///
-		  ' Tests the IsInteger method.
-		  ///
-		  
 		  Assert.IsTrue(MathsKit.IsInteger(10))
 		  Assert.IsTrue(MathsKit.IsInteger(12345))
 		  Assert.IsTrue(MathsKit.IsInteger(-5))
@@ -238,10 +202,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsNaNTest()
-		  ///
-		  ' Tests thet IsNaN method.
-		  ///
-		  
 		  Var d As Double = 0.0/0.0
 		  Assert.IsTrue(d.IsNotANumber)
 		  
@@ -286,9 +246,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub LShift32Test()
-		  ///
-		  ' Tests long = int << x
-		  ///
+		  // Equivalent to `long = int << x`.
 		  
 		  Assert.AreEqual(1152, LShift32(9, 7))
 		  Assert.AreEqual(0, LShift32(0, 1))
@@ -304,9 +262,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub LShift64Test()
-		  ///
-		  ' Tests long = long << x
-		  ///
+		  // Equivalent to `long = long << x`.
 		  
 		  Assert.AreEqual(1152, LShift64(9, 7))
 		  Assert.AreEqual(0, LShift64(0, 1))
@@ -322,8 +278,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub ModuloTest()
-		  /// Tests the Modulo method.
-		  
 		  Assert.IsTrue(MathsKit.Modulo(5, 20) = 5)
 		  Assert.IsTrue(MathsKit.Modulo(20, 20) = 0)
 		  Assert.IsTrue(MathsKit.Modulo(22, 20) = 2)
@@ -336,10 +290,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub NextDownTest()
-		  ///
-		  ' Tests the NextDown method.
-		  ///
-		  
 		  Assert.AreEqual(-DOUBLE_MIN_VALUE, NextDown(0))
 		  Assert.IsNegativeInfinity(NextDown(NEGATIVE_INFINITY))
 		  Assert.IsNaN(NextDown(NAN))
@@ -350,10 +300,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub NextUpTest()
-		  ///
-		  ' Tests the NextUp method.
-		  ///
-		  
 		  Assert.IsPositiveInfinity(NextUp(POSITIVE_INFINITY))
 		  Assert.AreEqual(-1.7976931348623157e308, NextUp(NEGATIVE_INFINITY))
 		  Assert.IsNaN(NextUp(NAN))
@@ -365,10 +311,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub NumberOfLeadingZerosTest()
-		  ///
-		  ' Tests the NumberOfLeadingZeros method.
-		  ///
-		  
 		  Assert.AreEqual(64, NumberOfLeadingZeros(0))
 		  Assert.AreEqual(56, NumberOfLeadingZeros(210))
 		  Assert.AreEqual(52, NumberOfLeadingZeros(2234))
@@ -379,10 +321,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub NumberOfTrailingZerosTest()
-		  ///
-		  ' Tests the NumberOfTrailingZeros method.
-		  ///
-		  
 		  Assert.AreEqual(0, NumberOfTrailingZeros(-1))
 		  Assert.AreEqual(64, NumberOfTrailingZeros(0))
 		  Assert.AreEqual(2, NumberOfTrailingZeros(100))
@@ -417,9 +355,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub RShiftTest()
-		  ///
-		  ' Tests long = int >> x
-		  ///
+		  // Equivalent to `long = int >> x`.
 		  
 		  // Values that fit into an Int32.
 		  Var a As Int64 = RShift(-2, 1)
@@ -453,9 +389,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub RShiftU32Test()
-		  ///
-		  ' Tests long = int >>> x
-		  ///
+		  // Equivalent to `long = int >>> x`.
 		  
 		  Var a As Int64 = RShiftU32(-2, 1) ' -2 >>> 1
 		  Var b As Int64 = RShiftU32(0, 1) ' 0 >>> 1
@@ -478,9 +412,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub RShiftU64Test()
-		  ///
-		  ' Tests long = long >>> x
-		  ///
+		  // Equivalent to `long = long >>> x`.
 		  
 		  Var a As Int64 = RShiftU64(-2, 1) ' -2 >>> 1
 		  Var b As Int64 = RShiftU64(0, 1) ' 0 >>> 1
@@ -504,10 +436,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub ScalbTest()
-		  ///
-		  ' Tests the Scalb method.
-		  ///
-		  
 		  Assert.AreEqual(13342.72, Scalb(52.12, 8))
 		  Assert.AreEqual(2.0, Scalb(2, 0))
 		  Assert.AreEqual(0.0, Scalb(0, 2))
@@ -525,10 +453,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub SignumTest()
-		  ///
-		  ' Tests the Signum method.
-		  ///
-		  
 		  Assert.AreEqual(1.0, Signum(30))
 		  Assert.AreEqual(0.0, Signum(0))
 		  Assert.AreEqual(-1.0, Signum(-30))
@@ -547,10 +471,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub ToDegreesTest()
-		  ///
-		  ' Tests the ToDegrees method.
-		  ///
-		  
 		  Assert.AreEqual(2578.3100780887044, ToDegrees(45))
 		  Assert.AreEqual(1718.8733853924698, ToDegrees(30))
 		  
@@ -559,10 +479,6 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub ToRadiansTest()
-		  ///
-		  ' Tests the ToRadians method.
-		  ///
-		  
 		  Assert.AreEqual(3.141592653589793, ToRadians(180))
 		End Sub
 	#tag EndMethod

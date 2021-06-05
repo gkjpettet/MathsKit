@@ -497,12 +497,12 @@
   <ItemName>Assert</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Asserts that the passed condition is True, otherwise raises an exception.</CodeDescription>
+  <CodeDescription>Asserts that [condition] is True, otherwise raises an exception.</CodeDescription>
   <PartID>1864577023</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Assert(condition As Boolean, message As String = "")</SourceLine>
-   <SourceLine>/// Asserts that the passed condition is True, otherwise raises an exception.</SourceLine>
+   <SourceLine>/// Asserts that [condition] is True, otherwise raises an exception.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If Not condition Then Raise New RuntimeException(message)</SourceLine>
    <SourceLine>End Sub</SourceLine>

@@ -297,11 +297,6 @@
    <SourceLine>Function Difference(x As Double, y As Double) As MKVector2</SourceLine>
    <SourceLine>/// Subtracts the given vector components from this vector returning</SourceLine>
    <SourceLine>/// a new vector containing the result.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X component of the vector to subtract.</SourceLine>
-   <SourceLine>/// - [y]: The Y component of the vector to subtract.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return New MKVector2(Self.X - x, Self.Y - y)</SourceLine>
    <SourceLine></SourceLine>
@@ -318,17 +313,12 @@
   <ItemName>Difference</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Subtracts the given vector from this vector returning a new vector containing the result.</CodeDescription>
+  <CodeDescription>Subtracts [v] from this vector returning a new vector containing the result.</CodeDescription>
   <PartID>1882417151</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Difference(v As MKVector2) As MKVector2</SourceLine>
-   <SourceLine>/// Subtracts the given vector from this vector returning a new vector </SourceLine>
-   <SourceLine>/// containing the result.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [v]: The vector to subtract.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: A new vector.</SourceLine>
+   <SourceLine>/// Subtracts [v] from this vector returning a new vector containing the result.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return New MKVector2(Self.X - v.X, Self.Y - v.Y)</SourceLine>
    <SourceLine></SourceLine>
@@ -345,14 +335,12 @@
   <ItemName>Distance</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns the distance from this vector to [point].</CodeDescription>
   <PartID>1111597055</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Distance(x As Double, y As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the distance from this vector to the given point.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X coordinate of the point.</SourceLine>
-   <SourceLine>/// - [y]: The Y coordinate of the point.</SourceLine>
+   <SourceLine>/// Returns the distance from this vector to [point].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var dx As Double = Self.X - x</SourceLine>
    <SourceLine>Var dy As Double = Self.Y - y</SourceLine>
@@ -372,14 +360,12 @@
   <ItemName>Distance</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription><Hex bytes="57">52657475726E73207468652064697374616E63652066726F6D207468697320706F696E7420746F2074686520676976656E20706F696E742E0A</Hex></CodeDescription>
+  <CodeDescription>Returns the distance from this vector point to [point].</CodeDescription>
   <PartID>1019756543</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Distance(point As MKVector2) As Double</SourceLine>
-   <SourceLine>/// Returns the distance from this vector point to the given point.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [point]: The point.</SourceLine>
+   <SourceLine>/// Returns the distance from this vector point to [point].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var dx As Double = Self.X - point.X</SourceLine>
    <SourceLine>Var dy As double = Self.Y - point.Y</SourceLine>
@@ -399,15 +385,12 @@
   <ItemName>DistanceSquared</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the distance from this point to the given point squared.</CodeDescription>
+  <CodeDescription>Returns the distance from this point to [point] squared.</CodeDescription>
   <PartID>123973631</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function DistanceSquared(x As Double, y As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the distance from this point to the given point squared.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X coordinate of the point.</SourceLine>
-   <SourceLine>/// - [y]: The Y coordinate of the point.</SourceLine>
+   <SourceLine>/// Returns the distance from this point to [point] squared.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var dx As Double = Self.X - x</SourceLine>
    <SourceLine>Var dy As Double = Self.Y - y</SourceLine>
@@ -427,14 +410,12 @@
   <ItemName>DistanceSquared</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the distance from this point to the given point squared.</CodeDescription>
+  <CodeDescription>Returns the distance from this vector [point] squared.</CodeDescription>
   <PartID>1688133631</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function DistanceSquared(point As MKVector2) As Double</SourceLine>
-   <SourceLine>/// Returns the distance from this vector to the given point squared.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// -[point]: The point.</SourceLine>
+   <SourceLine>/// Returns the distance from this vector [point] squared.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var dx As Double = Self.X - point.X</SourceLine>
    <SourceLine>Var dy  As Double = Self.Y - point.Y</SourceLine>
@@ -454,16 +435,12 @@
   <ItemName>Divide</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Divides this vector by the given scalar and returns this vector.</CodeDescription>
+  <CodeDescription>Divides this vector by [scalar].</CodeDescription>
   <PartID>1007423487</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Divide(scalar As Double) As MKVector2</SourceLine>
-   <SourceLine>/// Divides this vector by the given scalar.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [scalar]: The scalar.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: this vector.</SourceLine>
+   <SourceLine>/// Divides this vector by [scalar].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = Self.X / scalar</SourceLine>
    <SourceLine>Self.Y = Self.Y / scalar</SourceLine>
@@ -489,9 +466,6 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Dot(x As Double, y As Double) As Double</SourceLine>
    <SourceLine>/// Returns the dot product of the given vector components and this vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X component of the other vector.</SourceLine>
-   <SourceLine>/// - [y]: The Y component of the other vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Self.X * x + Self.Y * y</SourceLine>
    <SourceLine></SourceLine>
@@ -508,14 +482,12 @@
   <ItemName>Dot</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the dot product of the given vector and this vector.</CodeDescription>
+  <CodeDescription>Returns the dot product of [v] and this vector.</CodeDescription>
   <PartID>1094901759</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Dot(v As MKVector2) As Double</SourceLine>
-   <SourceLine>/// Returns the dot product of the given vector and this vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// -[v]: The other vector.</SourceLine>
+   <SourceLine>/// Returns the dot product of [v] and this vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Self.X * v.X + Self.Y * v.Y</SourceLine>
    <SourceLine></SourceLine>
@@ -532,16 +504,13 @@
   <ItemName>Equals</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the X and Y components of this Vector2 are the same as the given x and y components.</CodeDescription>
+  <CodeDescription>Returns True if the X and Y components of this vector are the same as the given x and y components.</CodeDescription>
   <PartID>172054527</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Equals(x As Double, y As Double) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the X and Y components of this Vector2 are the same </SourceLine>
+   <SourceLine>/// Returns True if the X and Y components of this vector are the same </SourceLine>
    <SourceLine>/// as the given x and y components.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X coordinate of the Vector2 to compare with.</SourceLine>
-   <SourceLine>/// - [y]: The Y coordinate of the Vector2 to compare with.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return Self.X = x And Self.Y = y</SourceLine>
    <SourceLine></SourceLine>
@@ -558,15 +527,12 @@
   <ItemName>Equals</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the X and Y components of this Vector2 are the same as the given Vector2.</CodeDescription>
+  <CodeDescription>Returns True if the X and Y components of this vector are the same as [v].</CodeDescription>
   <PartID>1787457535</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Equals(v As MKVector2) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the X and Y components of this Vector2 are the same as the </SourceLine>
-   <SourceLine>/// given MKVector2.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [v]: The Vector2 to compare with.</SourceLine>
+   <SourceLine>/// Returns True if the X and Y components of this vector are the same as [v].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If v = Nil Then Return False</SourceLine>
    <SourceLine></SourceLine>
@@ -587,15 +553,13 @@
   <ItemName>Equals</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the passed object is the same object as this vector or is a Vector2 object with the same X and Y components.</CodeDescription>
+  <CodeDescription>Returns True if [obj] is the same object as this vector or is a [MKVector2] object with the same X and Y components.</CodeDescription>
   <PartID>834783231</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Equals(obj As Variant) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the passed object is the same object as this vector or is a </SourceLine>
-   <SourceLine>/// Vector2 object with the same X and Y components.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [obj]: The object to compare with.</SourceLine>
+   <SourceLine>/// Returns True if [obj] is the same object as this vector or is a </SourceLine>
+   <SourceLine>/// [MKVector2] object with the same X and Y components.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>If obj = Nil Then Return False</SourceLine>
    <SourceLine>If obj = Self Then Return True</SourceLine>
@@ -619,17 +583,13 @@
   <ItemName>GetAngleBetween</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the smallest angle between this vector and the given angle (in radians). Returns the angle in radians in the range -π to π.</CodeDescription>
+  <CodeDescription>Returns the smallest angle between this vector [otherAngle] (in radians). Returns the angle in radians in the range -π to π.</CodeDescription>
   <PartID>1403371519</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function GetAngleBetween(otherAngle As Double) As Double</SourceLine>
-   <SourceLine>/// Returns the smallest angle between this vector and the given angle </SourceLine>
+   <SourceLine>/// Returns the smallest angle between this vector [otherAngle]</SourceLine>
    <SourceLine>/// (in radians). Returns the angle in radians in the range -π to π.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [otherAngle]: The angle. Must be in the range -π to π.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: The angle in radians.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var a As Double = otherAngle - ATan2(Self.Y, Self.X)</SourceLine>
    <SourceLine>If a &gt; MathsKit.PI Then Return a - MathsKit.TWO_PI</SourceLine>
@@ -649,18 +609,13 @@
   <ItemName>GetAngleBetween</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns the smallest angle (in radians) between the given vectors in the range -π to π.</CodeDescription>
+  <CodeDescription>Returns the smallest angle (in radians) between this vector and [v] in the range -π to π.</CodeDescription>
   <PartID>167440383</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function GetAngleBetween(v As MKVector2) As Double</SourceLine>
-   <SourceLine>/// Returns the smallest angle (in radians) between the given vectors in the </SourceLine>
+   <SourceLine>/// Returns the smallest angle (in radians) between this vector and [v] in the </SourceLine>
    <SourceLine>/// range -π to π.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [v]: The other vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: The angle in radians.</SourceLine>
-   <SourceLine>///</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var a As Double = ATan2(v.Y, v.X) - ATan2(Self.Y, Self.X)</SourceLine>
    <SourceLine>If a &gt; MathsKit.PI Then Return a - MathsKit.TWO_PI</SourceLine>
@@ -797,6 +752,7 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function GetNormalised() As MKVector2</SourceLine>
    <SourceLine>/// Returns a unit vector of this vector as a new vector.</SourceLine>
+   <SourceLine>///</SourceLine>
    <SourceLine>/// This method requires that the length of this vector is not zero.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Var magnitude As Double = Self.GetMagnitude</SourceLine>
@@ -893,10 +849,6 @@
    <SourceLine>/// Returns True if the given vector components constitute a vector that is </SourceLine>
    <SourceLine>/// orthogonal (perpendicular) to this vector.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - [x]: The X component of the vector to test against.</SourceLine>
-   <SourceLine>/// - [y]: The Y component of the vector to test against.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// If the dot product of this vector and the given vector is zero then we </SourceLine>
    <SourceLine>/// know that they are perpendicular.</SourceLine>
    <SourceLine></SourceLine>
@@ -915,16 +867,13 @@
   <ItemName>IsOrthogonal</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Returns True if the given vector is orthogonal (perpendicular) to this vector.</CodeDescription>
+  <CodeDescription>Returns True if [v] is orthogonal (perpendicular) to this vector.</CodeDescription>
   <PartID>446357503</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function IsOrthogonal(v As MKVector2) As Boolean</SourceLine>
-   <SourceLine>/// Returns True if the given vector is orthogonal (perpendicular) to this vector.</SourceLine>
+   <SourceLine>/// Returns True if [v] is orthogonal (perpendicular) to this vector.</SourceLine>
    <SourceLine>/// </SourceLine>
-   <SourceLine>/// - [v]: The vector to test against.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// If the dot product of this vector and the given vector is zero then we know </SourceLine>
    <SourceLine>/// that they are perpendicular.</SourceLine>
    <SourceLine></SourceLine>
@@ -991,16 +940,12 @@
   <ItemName>Multiply</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Multiplies this vector by the given scalar and returns this vector.</CodeDescription>
+  <CodeDescription>Multiplies this vector by [scalar].</CodeDescription>
   <PartID>1911967743</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Multiply(scalar As Double) As MKVector2</SourceLine>
-   <SourceLine>/// Multiplies this vector by the given scalar.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - [scalar]: The scalar.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: This vector.</SourceLine>
+   <SourceLine>/// Multiplies this vector by [scalar].</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = Self.X * scalar</SourceLine>
    <SourceLine>Self.Y = Self.Y * scalar</SourceLine>
@@ -1026,8 +971,6 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Negate() As MKVector2</SourceLine>
    <SourceLine>/// Negates this vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: This vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Self.X = -Self.X</SourceLine>
    <SourceLine>Self.Y = -Self.Y</SourceLine>
@@ -1055,7 +998,6 @@
    <SourceLine>/// Converts this vector into a unit vector and returns the magnitude before </SourceLine>
    <SourceLine>/// normalization.</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// This method requires the length of this vector is not zero.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>var magnitude As Double = Sqrt(Self.X * Self.X + Self.Y * Self.Y)</SourceLine>
@@ -1080,17 +1022,13 @@
   <ItemName>Product</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
-  <CodeDescription>Multiplies this vector by the given scalar returning a new vector containing the result.</CodeDescription>
+  <CodeDescription>Multiplies this vector by [scalar] returning a new vector containing the result.</CodeDescription>
   <PartID>1400662015</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Product(scalar As Double) As MKVector2</SourceLine>
-   <SourceLine>/// Multiplies this vector by the given scalar returning a new vector containing </SourceLine>
+   <SourceLine>/// Multiplies this vector by [scalar] returning a new vector containing </SourceLine>
    <SourceLine>/// the result.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// -[scalar]: The scalar.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: A new vector.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return New MKVector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
    <SourceLine></SourceLine>
@@ -1696,18 +1634,14 @@
   <ItemName>Operator_Multiply</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
+  <CodeDescription>Returns a new vector resulting from the multiplication of this vector and [scalar].</CodeDescription>
   <PartID>1109395455</PartID>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Operator_Multiply(scalar As Double) As MKVector2</SourceLine>
    <SourceLine>/// Returns a new vector resulting from the multiplication of this vector and </SourceLine>
-   <SourceLine>/// the passed scalar.</SourceLine>
+   <SourceLine>/// [scalar].</SourceLine>
    <SourceLine>///</SourceLine>
-   <SourceLine>/// - [scalar]: The scalar.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Returns: A new vector.</SourceLine>
-   <SourceLine>///</SourceLine>
-   <SourceLine>/// - Notes:</SourceLine>
    <SourceLine>/// This vector is unaltered by this operation.</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>Return New MKVector2(Self.X * scalar, Self.Y * scalar)</SourceLine>
