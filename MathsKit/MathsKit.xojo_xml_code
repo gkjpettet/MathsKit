@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2021r1.1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2021r2.1" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1233573887">
  <ObjName>MathsKit</ObjName>
- <ObjContainerID>1569351679</ObjContainerID>
+ <ObjContainerID>1865070591</ObjContainerID>
  <IsClass>0</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -854,7 +854,10 @@
    <SourceLine>mb.CurrencyValue(0) = currencyValue</SourceLine>
    <SourceLine>Var ui64 As UInt64 = mb.UInt64Value(0)</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + ui64.ToBinary, 64)</SourceLine>
+   <SourceLine>Var s As String = _</SourceLine>
+   <SourceLine>"0000000000000000000000000000000000000000000000000000000000000000" + ui64.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(64)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -880,7 +883,11 @@
    <SourceLine>mb.DoubleValue(0) = doubleValue</SourceLine>
    <SourceLine>Var ui64 As UInt64 = mb.UInt64Value(0)</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + ui64.ToBinary, 64)</SourceLine>
+   <SourceLine>Var s As String = _</SourceLine>
+   <SourceLine>"0000000000000000000000000000000000000000000000000000000000000000" + ui64.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(64)</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -901,7 +908,10 @@
    <SourceLine>Function ToBinaryString(Extends i16 As Int16) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("0000000000000000" + i16.ToBinary, 16)</SourceLine>
+   <SourceLine>Var s As String = "0000000000000000" + i16.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(16)</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -922,7 +932,10 @@
    <SourceLine>Function ToBinaryString(Extends i32 As Int32) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("00000000000000000000000000000000" + i32.ToBinary, 32)</SourceLine>
+   <SourceLine>Var s As String = "00000000000000000000000000000000" + i32.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(32)</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -943,7 +956,10 @@
    <SourceLine>Function ToBinaryString(Extends i64 As Int64) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + i64.ToBinary, 64)</SourceLine>
+   <SourceLine>Var s As String = _</SourceLine>
+   <SourceLine>"0000000000000000000000000000000000000000000000000000000000000000" + i64.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(64)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -964,7 +980,9 @@
    <SourceLine>Function ToBinaryString(Extends i8 As Int8) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("00000000" + i8.ToBinary, 8)</SourceLine>
+   <SourceLine>Var s As String = "00000000" + i8.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(8)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -990,7 +1008,9 @@
    <SourceLine>mb.SingleValue(0) = singlevalue</SourceLine>
    <SourceLine>Var ui32 As UInt32 = mb.UInt32Value(0)</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("00000000000000000000000000000000" + ui32.ToBinary, 32)</SourceLine>
+   <SourceLine>Var s As String = "00000000000000000000000000000000" + ui32.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(32)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1011,7 +1031,9 @@
    <SourceLine>Function ToBinaryString(Extends i16 As UInt16) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("0000000000000000" + i16.ToBinary, 16)</SourceLine>
+   <SourceLine>Var s As String = "0000000000000000" + i16.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(16)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1032,7 +1054,9 @@
    <SourceLine>Function ToBinaryString(Extends i32 As UInt32) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("00000000000000000000000000000000" + i32.ToBinary, 32)</SourceLine>
+   <SourceLine>Var s As String = "00000000000000000000000000000000" + i32.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(32)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1053,7 +1077,10 @@
    <SourceLine>Function ToBinaryString(Extends i64 As UInt64) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("0000000000000000000000000000000000000000000000000000000000000000" + i64.ToBinary, 64)</SourceLine>
+   <SourceLine>Var s As String = _</SourceLine>
+   <SourceLine>"0000000000000000000000000000000000000000000000000000000000000000" + i64.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(64)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1074,7 +1101,9 @@
    <SourceLine>Function ToBinaryString(Extends i8 As UInt8) As String</SourceLine>
    <SourceLine>// Credit to Norman Palardy: https://www.great-white-software.com/blog/2020/01/29/bin-hex-and-oct/</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Return Right("00000000" + i8.ToBinary, 8)</SourceLine>
+   <SourceLine>Var s As String = "00000000" + i8.ToBinary</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>Return s.Right(8)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
