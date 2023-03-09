@@ -22,7 +22,7 @@ Begin Window UnitTestsWindow
    MinWidth        =   64
    Placement       =   0
    Resizeable      =   True
-   Title           =   "PhysicsKit Unit Tests"
+   Title           =   "MathsKit Unit Tests"
    Visible         =   True
    Width           =   800
    Begin Listbox TestGroupList
@@ -862,7 +862,6 @@ Begin Window UnitTestsWindow
    Begin DesktopTestController Controller
       AllTestCount    =   0
       Duration        =   0.0
-      Enabled         =   True
       FailedCount     =   0
       GroupCount      =   0
       Index           =   -2147483648
@@ -914,28 +913,28 @@ End
 
 	#tag MenuHandler
 		Function EditSelectAllGroups() As Boolean Handles EditSelectAllGroups.Action
-			SelectAllGroups(True, False)
-			
-			Return True
-			
+		  SelectAllGroups(True, False)
+		  
+		  Return True
+		  
 		End Function
 	#tag EndMenuHandler
 
 	#tag MenuHandler
 		Function EditUnselectAllGroups() As Boolean Handles EditUnselectAllGroups.Action
-			SelectAllGroups(False, False)
-			
-			Return True
-			
+		  SelectAllGroups(False, False)
+		  
+		  Return True
+		  
 		End Function
 	#tag EndMenuHandler
 
 	#tag MenuHandler
 		Function FileRunTests() As Boolean Handles FileRunTests.Action
-			RunTests
-			
-			Return True
-			
+		  RunTests
+		  
+		  Return True
+		  
 		End Function
 	#tag EndMenuHandler
 
